@@ -17,3 +17,15 @@ body{
 	width: 500px;
 	background-color: blue;
 }
+#codeButton.c0{
+	position: relative;
+	top: 50px;left: 50px;
+}
+#skill.c0{
+	position: relative;
+	top: 50px;left: 50px;
+}
+#cssButton.c0{
+	position: relative;
+	top: 50px;left: 50px;
+}

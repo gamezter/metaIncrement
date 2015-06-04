@@ -1,6 +1,8 @@
 /***************************Variables**************************/
 var skill = 0;
+var totalSkill = 0;
 var increment = 1;
+var auto = 0;
 /***************************Game logic*************************/
 $(document).ready(function(){
 	animate();
@@ -9,6 +11,7 @@ $(document).ready(function(){
 			show('skill');
 		}
 		skill += increment;
+		totalSkill += increment;
 	});
 	$('#cssButton').click(function(){
 		skill -= 200;
