@@ -6,14 +6,16 @@ $(document).ready(function(){
 		show('skill');
 		skill += increment;
 	});
-
-	if(skill > 100){
-		document.getElementById('textEditor')
-	}
 });
 
 setInterval(function(){
 	document.getElementById('skillValue').innerHTML = skill;
+	if(skill > 100){
+		show('cssButton');
+	}
+	if(skill > 200){
+		document.getElementById('cssButton').disabled = false;
+	}
 }, 100);
 
 function show(id){
