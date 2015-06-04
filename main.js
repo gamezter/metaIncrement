@@ -1,4 +1,4 @@
-/****************************Variables*************************/
+/***************************Variables**************************/
 var skill = 0;
 var increment = 1;
 /***************************Game logic*************************/
@@ -12,12 +12,13 @@ $(document).ready(function(){
 	});
 	$('#cssButton').click(function(){
 		skill -= 200;
+		document.getElementById('textEditor').className = 'c1';
 		if(skill < 200){
 			document.getElementById('cssButton').disabled = true;
 		}
 	});
 });
-/*******************************Update**************************/
+/****************************Update*****************************/
 function draw(){
 	document.getElementById('skillValue').innerHTML = skill;
 	if(skill > 100){
@@ -27,7 +28,7 @@ function draw(){
 		document.getElementById('cssButton').disabled = false;
 	}
 }
-/*********************Helper Functions**************************/
+/************************Helper Functions***********************/
 if (!window.requestAnimationFrame){
     window.requestAnimationFrame = (function(){
         return 	window.webkitRequestAnimationFrame 	||

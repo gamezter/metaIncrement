@@ -1,0 +1,19 @@
+*{
+	-webkit-transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s;
+    transition: width 2s, height 2s, background-color 2s, transform 2s;
+}
+body{
+	margin: 0px;
+}
+#textEditor.c0{
+	position: fixed;
+	height: 100vh;
+	width: 300px;
+	background-color: red;
+}
+#textEditor.c1{
+	position: fixed;
+	height: 100vh;
+	width: 500px;
+	background-color: blue;
+}
