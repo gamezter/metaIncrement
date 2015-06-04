@@ -7,7 +7,7 @@ var auto = 0;
 $(document).ready(function(){
 	animate();
 	$('#codeButton').click(function(){
-		if(skill > 20){
+		if(skill > 10){
 			show('skill');
 		}
 		skill += increment;
@@ -15,6 +15,9 @@ $(document).ready(function(){
 	});
 	$('#cssButton').click(function(){
 		skill -= 200;
+		document.getElementById('codeButton').className = 'c1';
+		document.getElementById('cssButton').className = 'c1';
+		document.getElementById('skill').className = 'c1';
 		document.getElementById('textEditor').className = 'c1';
 		if(skill < 200){
 			document.getElementById('cssButton').disabled = true;

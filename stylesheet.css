@@ -1,6 +1,6 @@
 *{
-	-webkit-transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s, box-shadow 2s;
-    transition: width 2s, height 2s, background-color 2s, transform 2s, box-shadow 2s;
+	-webkit-transition: top 2s, left 2s, width 2s, height 2s, background-color 2s, -webkit-transform 2s, box-shadow 2s;
+    transition: top 2s, left 2s, width 2s, height 2s, background-color 2s, transform 2s, box-shadow 2s;
 }
 body{
 	margin: 0px;
@@ -9,24 +9,34 @@ body{
 	position: fixed;
 	height: 100vh;
 	width: 300px;
-	background-color: red;
 }
 #textEditor.c1{
 	position: fixed;
 	height: 100vh;
 	width: 300px;
-	background-color: white;
-	box-shadow: 2px 0px 10px 0px #000;
+	box-shadow: 2px 0px 10px 0px #888;
 }
 #codeButton.c0{
+	position: relative;
+	top: 0px;left: 0px;
+}
+#codeButton.c1{
 	position: relative;
 	top: 50px;left: 50px;
 }
 #skill.c0{
 	position: relative;
+	top: 0px;left: 0px;
+}
+#skill.c1{
+	position: relative;
 	top: 50px;left: 50px;
 }
 #cssButton.c0{
+	position: relative;
+	top: 0px;left: 0px;
+}
+#cssButton.c1{
 	position: relative;
 	top: 50px;left: 50px;
 }
