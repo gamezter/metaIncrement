@@ -1,6 +1,6 @@
 *{
-	-webkit-transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s;
-    transition: width 2s, height 2s, background-color 2s, transform 2s;
+	-webkit-transition: width 2s, height 2s, background-color 2s, -webkit-transform 2s, box-shadow 2s;
+    transition: width 2s, height 2s, background-color 2s, transform 2s, box-shadow 2s;
 }
 body{
 	margin: 0px;
@@ -14,8 +14,9 @@ body{
 #textEditor.c1{
 	position: fixed;
 	height: 100vh;
-	width: 500px;
-	background-color: blue;
+	width: 300px;
+	background-color: white;
+	box-shadow: 2px 0px 10px 0px #000;
 }
 #codeButton.c0{
 	position: relative;
