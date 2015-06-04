@@ -1,32 +1,32 @@
 /***************************Variables**************************/
+var money = 0;
 var skill = 0;
 var totalSkill = 0;
 var increment = 1;
 var auto = 0;
+var cssIndex = 0;
 /***************************Game logic*************************/
 $(document).ready(function(){
 	animate();
 	$('#codeButton').click(function(){
-		if(skill > 10){
-			show('skill');
-		}
 		skill += increment;
 		totalSkill += increment;
 	});
 	$('#cssButton').click(function(){
 		skill -= 200;
-		document.getElementById('codeButton').className = 'c1';
-		document.getElementById('cssButton').className = 'c1';
-		document.getElementById('skill').className = 'c1';
-		document.getElementById('textEditor').className = 'c1';
+		eval(cssEffects[cssIndex]);
+		cssIndex++;
 		if(skill < 200){
 			document.getElementById('cssButton').disabled = true;
 		}
 	});
 });
 /****************************Update*****************************/
-function draw(){
+function update(){
 	document.getElementById('skillValue').innerHTML = skill;
+	if(skill > 10){
+			show('skill');
+	}
 	if(skill > 100){
 		show('cssButton');
 	}
@@ -48,10 +48,17 @@ if (!window.requestAnimationFrame){
 }
 function animate(){
 	requestAnimationFrame(animate);
-	draw();
+	update();
 }
 function show(id){
 	if(document.getElementById(id).style.display === 'none'){
 		$("#" + id).fadeIn('slow');
 	}
 }
+
+var cssEffects = [	"document.getElementById('codeButton').className = 'v1'; \
+					document.getElementById('cssButton').className = 'v1'; \
+					document.getElementById('skill').className = 'v1';",
+
+					"document.getElementById('textEditor').className = 'v1';",
+				]
