@@ -1,11 +1,15 @@
 /***************************Variables**************************/
 var money = 0;
+var totalMoney = 0;
 var moneyIncrement = 1;
+var moneyIdle = 0;
+
 var skill = 0;
 var totalSkill = 0;
 var skillIncrement = 1;
-var auto = 0;
-var cssIndex = 0;
+var skillIdle = 0;
+
+var updateIndex = 0;
 /***************************Game logic*************************/
 $(document).ready(function(){
 	animate();
@@ -13,13 +17,15 @@ $(document).ready(function(){
 		skill += skillIncrement;
 		totalSkill += skillIncrement;
 	});
-	$('#cssButton').click(function(){
-		skill -= 200;
-		eval(cssEffects[cssIndex]);
-		cssIndex++;
-		if(skill < 200){
-			document.getElementById('cssButton').disabled = true;
+	$('#updateButton').click(function(){
+		var skillReq = updateEffects[updateIndex];
+		skill -= skillReq;
+		eval(updateEffects[++updateIndex]);
+		document.getElementById('skillReq').innerHTML = updateEffects[updateIndex + 1] + " skill)";
+		if(skill < updateEffects[updateIndex + 1]){
+			document.getElementById('updateButton').disabled = true;
 		}
+		updateIndex++;
 	});
 	$('#lawnButton').click(function(){
 		show('money');
@@ -34,10 +40,10 @@ function update(){
 		show('skill');
 	}
 	if(skill > 100){
-		show('cssButton');
+		show('updateButton');
 	}
-	if(skill > 200){
-		document.getElementById('cssButton').disabled = false;
+	if(skill > updateEffects[updateIndex]){
+		document.getElementById('updateButton').disabled = false;
 	}
 	if(totalSkill > 300){
 		show('lawnButton');
@@ -55,21 +61,25 @@ if (!window.requestAnimationFrame){
        			};
     })();
 }
+
 function animate(){
 	requestAnimationFrame(animate);
 	update();
 }
+
 function show(id){
 	if(document.getElementById(id).style.display === 'none'){
 		$("#" + id).fadeIn('slow');
 	}
 }
 
-var cssEffects = [	"document.getElementById('codeButton').className = 'v1'; \
-					document.getElementById('cssButton').className = 'v1'; \
-					document.getElementById('skill').className = 'v1'; \
-					document.getElementById('lawnButton').className = 'v1'; \
-					document.getElementById('money').className = 'v1';",
+var updateEffects = [	200, "document.getElementById('codeButton').className = 'v1'; \
+							document.getElementById('updateButton').className = 'v1'; \
+							document.getElementById('skill').className = 'v1'; \
+							document.getElementById('lawnButton').className = 'v1'; \
+							document.getElementById('money').className = 'v1';",
 
-					"document.getElementById('sideBar').className = 'v1';",
-				]
+						300, "document.getElementById('sideBar').className = 'v1';",
+
+						400, "document.getElementById('tabNav').className = 'v1';"
+					]
