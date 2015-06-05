@@ -71,5 +71,5 @@ var cssEffects = [	"document.getElementById('codeButton').className = 'v1'; \
 					document.getElementById('lawnButton').className = 'v1'; \
 					document.getElementById('money').className = 'v1';",
 
-					"document.getElementById('textEditor').className = 'v1';",
+					"document.getElementById('sideBar').className = 'v1';",
 				]
