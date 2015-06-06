@@ -84,10 +84,12 @@ body{
 			top: 58px;
 			border: 1px solid black;
 			border-bottom: 1px solid black;
+			cursor: pointer;
 		}
 		#tabs input:checked  + span{
 			transition: border 0s;
 			border-bottom: 1px solid white;
+			cursor: default;
 		}
 /*************************gamePage*************************/
 #gamePage.v0{
