@@ -1,8 +1,6 @@
 /***************************Variables**************************/
 var money = 0;
 var totalMoney = 0;
-var moneyIncrement = 1;
-var moneyIdle = 0;
 
 var bMoney = 0;
 var bMoneyIdle = 0;
@@ -34,6 +32,12 @@ $(document).ready(function(){
 		}
 		updateIndex++;
 	});
+	$('#collectMoneyButton').click(function(){
+		money += bMoney;
+		totalMoney += money;
+		bMoney = 0;
+	});
+
 	$('#gameClicker').click(function(){
 		gCounter +=1;
 	});
@@ -55,10 +59,13 @@ $(document).ready(function(){
 function update(){
 	bMoney += bMoneyIdle;
 	document.getElementById('skillValue').innerHTML = skill;
-	document.getElementById('moneyValue').innerHTML = money;
+	document.getElementById('moneyValue').innerHTML = money.toFixed(2);
 	document.getElementById('gameCounterValue').innerHTML = gCounter;
 	document.getElementById('bMoney').innerHTML = bMoney.toFixed(2);
 
+	if(money > 0){
+		show('money');
+	}
 	if(skill > 10){
 		show('skill');
 	}
@@ -110,5 +117,5 @@ var updateEffects = [	100, "document.getElementById('codeButton').className = 'v
 
 						100, "document.getElementById('gameRightBar').className = 'v1';",
 
-						100, "show('gameAd'); show('boobleAdcentsTab'); show('boobleAdcentsTab'); bMoneyIdle += 0.01/60;"
+						100, "show('gameAd'); show('boobleAdcentsTab'); bMoneyIdle += 0.01/60;"
 					]
