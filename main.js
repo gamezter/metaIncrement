@@ -12,7 +12,7 @@ var skillIdle = 0;
 
 var gCounter = 0;
 
-var updateIndex = 0;
+var upgradeIndex = 0;
 /***************************Game logic*************************/
 $(document).ready(function(){
 	animate();
@@ -22,20 +22,27 @@ $(document).ready(function(){
 		totalSkill += skillIncrement;
 	});
 
-	$('#updateButton').click(function(){
-		var skillReq = updateEffects[updateIndex];
+	$('#upgradeButton').click(function(){
+		var skillReq = upgradeEffects[upgradeIndex];
 		skill -= skillReq;
-		eval(updateEffects[++updateIndex]);
-		document.getElementById('skillReq').innerHTML = updateEffects[updateIndex + 1];
-		if(skill < updateEffects[updateIndex + 1]){
-			document.getElementById('updateButton').disabled = true;
+		eval(upgradeEffects[++upgradeIndex]);
+		document.getElementById('skillReq').innerHTML = upgradeEffects[upgradeIndex + 1];
+		if(skill < upgradeEffects[upgradeIndex + 1]){
+			document.getElementById('upgradeButton').disabled = true;
 		}
-		updateIndex++;
+		upgradeIndex++;
 	});
+
 	$('#collectMoneyButton').click(function(){
 		money += bMoney;
 		totalMoney += money;
 		bMoney = 0;
+	});
+
+	$('#upgradeProgrammerButton').click(function(){
+		show('programmer');
+		skillIdle += 0.5/60;
+		money -= 10;
 	});
 
 	$('#gameClicker').click(function(){
@@ -58,7 +65,8 @@ $(document).ready(function(){
 /****************************Update*****************************/
 function update(){
 	bMoney += bMoneyIdle;
-	document.getElementById('skillValue').innerHTML = skill;
+	skill += skillIdle;
+	document.getElementById('skillValue').innerHTML = skill.toFixed(1);
 	document.getElementById('moneyValue').innerHTML = money.toFixed(2);
 	document.getElementById('gameCounterValue').innerHTML = gCounter;
 	document.getElementById('bMoney').innerHTML = bMoney.toFixed(2);
@@ -70,10 +78,16 @@ function update(){
 		show('skill');
 	}
 	if(skill >= 50){
-		show('updateButton');
+		show('upgradeButton');
 	}
-	if(skill >= updateEffects[updateIndex]){
-		document.getElementById('updateButton').disabled = false;
+	if(money >= 5){
+		show('upgradeProgrammerButton');
+	}
+	if(money >= 10){
+		document.getElementById('upgradeProgrammerButton').disabled = false;
+	}
+	if(skill >= upgradeEffects[upgradeIndex]){
+		document.getElementById('upgradeButton').disabled = false;
 	}
 }
 /************************Helper Functions***********************/
@@ -100,10 +114,11 @@ function show(id){
 	}
 }
 
-var updateEffects = [	100, "document.getElementById('codeButton').className = 'v1'; \
-							document.getElementById('updateButton').className = 'v1'; \
+var upgradeEffects = [	100, "document.getElementById('codeButton').className = 'v1'; \
+							document.getElementById('upgradeButton').className = 'v1'; \
 							document.getElementById('skill').className = 'v1'; \
 							document.getElementById('money').className = 'v1'; \
+							document.getElementById('upgradeProgrammerButton').className = 'v1'; \
 							document.getElementById('sideBar').className = 'v1';",
 
 						100, "document.getElementById('tabNav').className = 'v1'; \

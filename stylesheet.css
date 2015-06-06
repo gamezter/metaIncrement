@@ -29,50 +29,17 @@ body{
 	box-shadow: 2px 0px 5px 0px #888;
 	z-index: 2;
 }
-	/*************************codeButton*************************/
-	#codeButton.v0{
-		display: block;
+	/*************************sideBar buttons and fields*************************/
+	#codeButton.v0, #money.v0, #skill.v0, #upgradeButton.v0, #upgradeProgrammerButton.v0{
 		position: relative;
 		top: 0px;left: 0px;
 	}
-	#codeButton.v1{
-		display: block;
+	#codeButton.v1, #money.v1, #skill.v1, #upgradeButton.v1, #upgradeProgrammerButton.v1{
 		position: relative;
 		top: 50px;left: 50px;
 	}
-	/*************************money*************************/
-	#money.v0{
-		position: relative;
-		top: 0px;left: 0px;
-	}
-	#money.v1{
-		position: relative;
-		top: 50px;left: 50px;
-	}
-	/*************************skill*************************/
-	#skill.v0{
-		position: relative;
-		top: 0px;left: 0px;
-	}
-	#skill.v1{
-		position: relative;
-		top: 50px;left: 50px;
-	}
-	/*************************updateButton*************************/
-	#updateButton.v0{
-		position: relative;
-		top: 0px;left: 0px;
-	}
-	#updateButton.v1{
-		position: relative;
-		top: 50px;left: 50px;
-	}
-	/*************************hireProgrammerButton*************************/
-	#hireProgrammerButton.v0{
-		position: relative;
-		top: 0px;left: 0px;
-	}
-	#hireProgrammerButton.v1{
+	/*************************programmer*************************/
+	#programmer.v0{
 		position: relative;
 		top: 50px;left: 50px;
 	}
