@@ -9,6 +9,8 @@ var totalSkill = 0;
 var skillIncrement = 1;
 var skillIdle = 0;
 
+var gCounter = 0;
+
 var updateIndex = 0;
 /***************************Game logic*************************/
 $(document).ready(function(){
@@ -29,15 +31,20 @@ $(document).ready(function(){
 		}
 		updateIndex++;
 	});
+	$('#gameClicker').click(function(){
+		gCounter +=1;
+	});
 });
 /****************************Update*****************************/
 function update(){
 	document.getElementById('skillValue').innerHTML = skill;
 	document.getElementById('moneyValue').innerHTML = money;
+	document.getElementById('counter').innerHTML = gCounter;
+
 	if(skill > 10){
 		show('skill');
 	}
-	if(skill > 100){
+	if(skill >= 50){
 		show('updateButton');
 	}
 	if(skill >= updateEffects[updateIndex]){
@@ -68,18 +75,18 @@ function show(id){
 	}
 }
 
-var updateEffects = [	200, "document.getElementById('codeButton').className = 'v1'; \
+var updateEffects = [	100, "document.getElementById('codeButton').className = 'v1'; \
 							document.getElementById('updateButton').className = 'v1'; \
 							document.getElementById('skill').className = 'v1'; \
-							document.getElementById('money').className = 'v1';",
+							document.getElementById('money').className = 'v1'; \
+							document.getElementById('sideBar').className = 'v1';",
 
-						100, "document.getElementById('sideBar').className = 'v1';",
+						100, "document.getElementById('gameTopBarH1').className = 'v1';",
+
+						100, "document.getElementById('sideBar').className = 'v2';",
 
 						100, "document.getElementById('tabNav').className = 'v1'; \
 							document.getElementById('gameArea').className = 'v1';",
-
-						100, "document.getElementById('gameTopBar').className = 'v1'; \
-							document.getElementById('gameTopBarH1').className = 'v1';",
 
 						100, "document.getElementById('gameClickerArea').className = 'v1';",
 

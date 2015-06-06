@@ -1,6 +1,6 @@
 *{
-	-webkit-transition: top 2s, left 2s, visibility 2s, background-color 2s, -webkit-transform 2s, box-shadow 2s;
-    transition: top 2s, left 2s, visibility 2s, background-color 2s, transform 2s, box-shadow 2s;
+	-webkit-transition: top 2s, left 2s, color 2s, visibility 2s, background-color 2s, border 2s, -webkit-transform 2s, box-shadow 2s;
+    transition: top 2s, left 2s, color 2s, visibility 2s, background-color 2s, border 2s, transform 2s, box-shadow 2s;
 }
 body{
 	margin: 0px;
@@ -11,11 +11,20 @@ body{
 	height: 100vh;
 	width: 300px;
 	z-index: 2;
+	border-right: 1px solid white;
 }
 #sideBar.v1{
 	position: fixed;
 	height: 100vh;
 	width: 300px;
+	z-index: 2;
+	border-right: 1px solid black;
+}
+#sideBar.v2{
+	position: fixed;
+	height: 100vh;
+	width: 300px;
+	border-right: 1px solid white;
 	box-shadow: 2px 0px 5px 0px #888;
 	z-index: 2;
 }
@@ -108,6 +117,7 @@ body{
 		#gameTopBarH1.v0{
 			margin: 0px;
 			visibility: hidden;
+			color: white;
 		}
 	#gameTopBar.v1{
 		position: relative;
@@ -115,10 +125,10 @@ body{
 		float: left;
 		height: 50px;
 		width: calc(100% - 300px);
-		background-color: blue;
 	}
 		#gameTopBarH1.v1{
 			margin: 0px;
+			color: black;
 			visibility: visible;
 		}
 	/*************************gameRightBar*************************/
@@ -140,10 +150,11 @@ body{
 	/*************************gameClickerArea*************************/
 	#gameClickerArea.v0{
 		position: relative;
-		visibility: hidden;
+		/*visibility: hidden;*/
 		float: left;
 		height: calc(100% - 50px);
 		width: calc(100% - 300px);
+		background-color: green;
 	}
 	#gameClickerArea.v1{
 		position: relative;
@@ -153,3 +164,9 @@ body{
 		width: calc(100% - 300px);
 		background-color: green;
 	}
+		#gameClicker.v0{
+			position: relative;
+			height: 400px;
+			width: 400px;
+			background-color: orange;
+		}
