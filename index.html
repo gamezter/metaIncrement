@@ -14,24 +14,38 @@
 			<button class='v0' id="hireProgrammerButton" disabled style="display: none">Hire your programmer friend</button>
 		</div>
 		<div class='v0' id="tabNav">
-			<ul class='v0' id='tabs'>
-				<li class='v0' id='websiteTab'>Your website</li>
-				<li class='v0' id='boobleAdcentsTab' style="display: none">Booble adcents</li>
-			</ul>
+			<form class='v0' id='tabs'>
+				<label>
+					<input type='radio' name='tab' value='0' checked>
+					<span id='websiteTab'>Your Website</span>
+				</label>
+				<label>
+					<input type='radio' name='tab' value='1'>
+					<span id='boobleAdcentsTab' style="display: none">Booble adcents</span>
+				</label>
+			</form>
 		</div>
-		<div class='v0' id="gameArea">
-			<div class='v0' id="gameTopBar">
-				<h1 class='v0' id="gameTopBarH1">Welcome to <span class='v0' id="gameName">Enter Name Here</span></h1>
-			</div>
-			<div class='v0' id="gameRightBar">
-			</div>
-			<div class='v0' id="gameClickerArea">
-				<div class='v0' id='gameCounterArea'>
-					<h2 class='v0' id='gameCounter'><span class='v0' id='gameCounterValue'>0</span> things</h2>
+		<div id='pages'>
+			<div class='v0' id="gamePage">
+				<div class='v0' id="gameTopBar">
+					<h1 class='v0' id="gameTopBarH1">Welcome to <span class='v0' id="gameName">Enter Name Here</span></h1>
 				</div>
-				<div class='v0' id="gameClicker">
-					Click me!
+				<div class='v0' id="gameRightBar">
+					<div class='v0' id="gameAd" style="display: none">
+						<h1>AD</h1>
+					</div>
 				</div>
+				<div class='v0' id="gameClickerArea">
+					<div class='v0' id='gameCounterArea'>
+						<h2 class='v0' id='gameCounter'><span class='v0' id='gameCounterValue'>0</span> things</h2>
+					</div>
+					<div class='v0' id="gameClicker">
+						Click me!
+					</div>
+				</div>
+			</div>
+			<div class='v0' id="boobleAdcentsPage" style="display: none">
+				<h1>THIS IS BOOBLE ADCENTS</h1>
 			</div>
 		</div>
 	</body>

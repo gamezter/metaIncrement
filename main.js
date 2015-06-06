@@ -34,6 +34,19 @@ $(document).ready(function(){
 	$('#gameClicker').click(function(){
 		gCounter +=1;
 	});
+	$("input").click(function(){
+		var value = $("input:checked").val();
+		switch(value){
+			case "0":
+				document.getElementById('gamePage').style.display = 'block';
+				document.getElementById('boobleAdcentsPage').style.display = 'none';
+				break;
+			case "1":
+				document.getElementById('gamePage').style.display = 'none';
+				document.getElementById('boobleAdcentsPage').style.display = 'block';
+				break;
+		}
+	})
 });
 /****************************Update*****************************/
 function update(){
@@ -82,7 +95,7 @@ var updateEffects = [	100, "document.getElementById('codeButton').className = 'v
 							document.getElementById('sideBar').className = 'v1';",
 
 						100, "document.getElementById('tabNav').className = 'v1'; \
-							document.getElementById('gameArea').className = 'v1';",
+							document.getElementById('gamePage').className = 'v1';",
 
 						100, "document.getElementById('gameTopBarH1').className = 'v1';",
 
@@ -90,5 +103,7 @@ var updateEffects = [	100, "document.getElementById('codeButton').className = 'v
 
 						100, "document.getElementById('gameClicker').className = 'v1'",
 
-						100, "document.getElementById('gameRightBar').className = 'v1';"
+						100, "document.getElementById('gameRightBar').className = 'v1';",
+
+						100, "show('gameAd'); show('boobleAdcentsTab'); show('boobleAdcentsTab');"
 					]

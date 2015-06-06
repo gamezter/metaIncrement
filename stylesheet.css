@@ -108,22 +108,29 @@ body{
 		margin: 0px;
 		padding: 0px;
 	}
-		#tabs li{
+		#tabs input{
+			display: none;
+		}
+		#tabs span{
 			display: inline;
 			position: relative;
 			top: 58px;
 			border: 1px solid black;
+			border-bottom: 1px solid black;
+		}
+		#tabs input:checked  + span{
+			transition: border 0s;
 			border-bottom: 1px solid white;
 		}
-/*************************gameArea*************************/
-#gameArea.v0{
+/*************************gamePage*************************/
+#gamePage.v0{
 	position: relative;
 	width: calc(100vw - 300px);
 	height: calc(100vh - 75px);
 	top: -75px;left: 300px;
 	z-index: 0;
 }
-#gameArea.v1{
+#gamePage.v1{
 	position: relative;
 	width: calc(100vw - 300px);
 	height: calc(100vh - 75px);
@@ -139,14 +146,6 @@ body{
 		width: calc(100% - 300px);
 		overflow: hidden;
 	}
-		#gameTopBarH1.v0{
-			display: inline-block;
-			position: relative;
-			left: -500px;
-			margin: 0px;
-			visibility: hidden;
-			color: white;
-		}
 	#gameTopBar.v1{
 		position: relative;
 		visibility: visible;
@@ -155,6 +154,15 @@ body{
 		width: calc(100% - 300px);
 		overflow: hidden;
 	}
+		#gameTopBarH1.v0{
+			display: inline-block;
+			position: relative;
+			left: -500px;
+			margin: 0px;
+			visibility: hidden;
+			color: white;
+		}
+	
 		#gameTopBarH1.v1{
 			display: inline-block;
 			position: relative;
@@ -182,6 +190,14 @@ body{
 		border-left: 1px solid black;
 		box-sizing: border-box;
 	}
+		#gameAd.v0{
+			position: absolute;
+			width: 290px;
+			height: 290px;
+			left: 5px;
+			bottom: 5px;
+			background-color: purple;
+		}
 	/*************************gameClickerArea*************************/
 	#gameClickerArea.v0{
 		position: relative;
@@ -214,3 +230,11 @@ body{
 			background-color: orange;
 			cursor: pointer;
 		}
+/*************************boobleAdcentsPage*************************/
+#boobleAdcentsPage.v0{
+	position: relative;
+	width: calc(100vw - 300px);
+	height: calc(100vh - 75px);
+	top: 0px;left: 300px;
+	z-index: 0;
+}
