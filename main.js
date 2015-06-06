@@ -81,16 +81,14 @@ var updateEffects = [	100, "document.getElementById('codeButton').className = 'v
 							document.getElementById('money').className = 'v1'; \
 							document.getElementById('sideBar').className = 'v1';",
 
+						100, "document.getElementById('tabNav').className = 'v1'; \
+							document.getElementById('gameArea').className = 'v1';",
+
 						100, "document.getElementById('gameTopBarH1').className = 'v1';",
 
 						100, "document.getElementById('gameCounter').className = 'v1'",
 
 						100, "document.getElementById('gameClicker').className = 'v1'",
 
-						100, "document.getElementById('gameRightBar').className = 'v1';",
-
-						100, "document.getElementById('sideBar').className = 'v2';",
-
-						100, "document.getElementById('tabNav').className = 'v1'; \
-							document.getElementById('gameArea').className = 'v1';"
+						100, "document.getElementById('gameRightBar').className = 'v1';"
 					]

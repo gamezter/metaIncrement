@@ -79,19 +79,41 @@ body{
 /*************************tabNav*************************/
 #tabNav.v0{
 	position: relative;
+	visibility: hidden;
 	width: calc(100vw - 300px);
 	height: 75px;
-	top:-75px;left: 300px;
+	top: -75px;left: 300px;
 	z-index: 1;
 }
 #tabNav.v1{
 	position: relative;
+	visibility: visible;
 	width: calc(100vw - 300px);
 	height: 75px;
-	top:0px;left: 300px;
+	top: 0px;left: 300px;
+	z-index: 1;
+	border-bottom: 1px solid black;
+}
+#tabNav.v2{
+	position: relative;
+	visibility: visible;
+	width: calc(100vw - 300px);
+	height: 75px;
+	top: 0px;left: 300px;
 	z-index: 1;
 	box-shadow: 2px 2px 5px 0px #888;
 }
+	#tabs.v0{
+		margin: 0px;
+		padding: 0px;
+	}
+		#tabs li{
+			display: inline;
+			position: relative;
+			top: 58px;
+			border: 1px solid black;
+			border-bottom: 1px solid white;
+		}
 /*************************gameArea*************************/
 #gameArea.v0{
 	position: relative;
@@ -189,4 +211,5 @@ body{
 			height: 400px;
 			width: 400px;
 			background-color: orange;
+			cursor: pointer;
 		}
