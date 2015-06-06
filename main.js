@@ -13,23 +13,21 @@ var updateIndex = 0;
 /***************************Game logic*************************/
 $(document).ready(function(){
 	animate();
+
 	$('#codeButton').click(function(){
 		skill += skillIncrement;
 		totalSkill += skillIncrement;
 	});
+
 	$('#updateButton').click(function(){
 		var skillReq = updateEffects[updateIndex];
 		skill -= skillReq;
 		eval(updateEffects[++updateIndex]);
-		document.getElementById('skillReq').innerHTML = updateEffects[updateIndex + 1] + " skill)";
+		document.getElementById('skillReq').innerHTML = updateEffects[updateIndex + 1];
 		if(skill < updateEffects[updateIndex + 1]){
 			document.getElementById('updateButton').disabled = true;
 		}
 		updateIndex++;
-	});
-	$('#lawnButton').click(function(){
-		show('money');
-		money += 10;
 	});
 });
 /****************************Update*****************************/
@@ -76,10 +74,10 @@ function show(id){
 var updateEffects = [	200, "document.getElementById('codeButton').className = 'v1'; \
 							document.getElementById('updateButton').className = 'v1'; \
 							document.getElementById('skill').className = 'v1'; \
-							document.getElementById('lawnButton').className = 'v1'; \
 							document.getElementById('money').className = 'v1';",
 
 						300, "document.getElementById('sideBar').className = 'v1';",
 
-						400, "document.getElementById('tabNav').className = 'v1';"
+						400, "document.getElementById('tabNav').className = 'v1'; \
+							document.getElementById('gameArea').className = 'v1';"
 					]

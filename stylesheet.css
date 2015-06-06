@@ -1,6 +1,6 @@
 *{
-	-webkit-transition: top 2s, left 2s, background-color 2s, -webkit-transform 2s, box-shadow 2s;
-    transition: top 2s, left 2s, background-color 2s, transform 2s, box-shadow 2s;
+	-webkit-transition: top 2s, left 2s, visibility 2s, background-color 2s, -webkit-transform 2s, box-shadow 2s;
+    transition: top 2s, left 2s, visibility 2s, background-color 2s, transform 2s, box-shadow 2s;
 }
 body{
 	margin: 0px;
@@ -19,6 +19,53 @@ body{
 	box-shadow: 2px 0px 5px 0px #888;
 	z-index: 2;
 }
+	/*************************codeButton*************************/
+	#codeButton.v0{
+		display: block;
+		position: relative;
+		top: 0px;left: 0px;
+	}
+	#codeButton.v1{
+		display: block;
+		position: relative;
+		top: 50px;left: 50px;
+	}
+	/*************************money*************************/
+	#money.v0{
+		position: relative;
+		top: 0px;left: 0px;
+	}
+	#money.v1{
+		position: relative;
+		top: 50px;left: 50px;
+	}
+	/*************************skill*************************/
+	#skill.v0{
+		position: relative;
+		top: 0px;left: 0px;
+	}
+	#skill.v1{
+		position: relative;
+		top: 50px;left: 50px;
+	}
+	/*************************updateButton*************************/
+	#updateButton.v0{
+		position: relative;
+		top: 0px;left: 0px;
+	}
+	#updateButton.v1{
+		position: relative;
+		top: 50px;left: 50px;
+	}
+	/*************************hireProgrammerButton*************************/
+	#hireProgrammerButton.v0{
+		position: relative;
+		top: 0px;left: 0px;
+	}
+	#hireProgrammerButton.v1{
+		position: relative;
+		top: 50px;left: 50px;
+	}
 /*************************tabNav*************************/
 #tabNav.v0{
 	position: relative;
@@ -33,60 +80,47 @@ body{
 	height: 75px;
 	top:0px;left: 300px;
 	z-index: 1;
-	box-shadow: 5px 2px 5px 0px #888;
+	box-shadow: 2px 2px 5px 0px #888;
 }
 /*************************gameArea*************************/
 #gameArea.v0{
 	position: relative;
 	width: calc(100vw - 300px);
 	height: calc(100vh - 75px);
+	top: -75px;left: 300px;
+	z-index: 0;
+}
+#gameArea.v1{
+	position: relative;
+	width: calc(100vw - 300px);
+	height: calc(100vh - 75px);
 	top: 0px;left: 300px;
 	z-index: 0;
 }
-/*************************codeButton*************************/
-#codeButton.v0{
-	display: block;
-	position: relative;
-	top: 0px;left: 0px;
-}
-#codeButton.v1{
-	display: block;
-	position: relative;
-	top: 50px;left: 50px;
-}
-/*************************lawnButton*************************/
-#lawnButton.v0{
-	position: relative;
-	top: 0px;left: 0px;
-}
-#lawnButton.v1{
-	position: relative;
-	top: 50px;left: 50px;
-}
-/*************************money*************************/
-#money.v0{
-	position: relative;
-	top: 0px;left: 0px;
-}
-#money.v1{
-	position: relative;
-	top: 50px;left: 50px;
-}
-/*************************skill*************************/
-#skill.v0{
-	position: relative;
-	top: 0px;left: 0px;
-}
-#skill.v1{
-	position: relative;
-	top: 50px;left: 50px;
-}
-/*************************updateButton*************************/
-#updateButton.v0{
-	position: relative;
-	top: 0px;left: 0px;
-}
-#updateButton.v1{
-	position: relative;
-	top: 50px;left: 50px;
-}
+	/*************************gameTopBar*************************/
+	#gameTopBar.v0{
+		position: relative;
+		float: left;
+		height: 50px;
+		width: calc(100% - 300px);
+		background-color: blue;
+	}
+		#gameTopBarH1.v0{
+			margin: 0px;
+		}
+	/*************************gameRightBar*************************/
+	#gameRightBar.v0{
+		position: relative;
+		float: right;
+		height: 100%;
+		width: 300px;
+		background-color: red;
+	}
+	/*************************gameClickerArea*************************/
+	#gameClickerArea.v0{
+		position: relative;
+		float: left;
+		height: calc(100% - 50px);
+		width: calc(100% - 300px);
+		background-color: green;
+	}
