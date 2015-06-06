@@ -84,6 +84,7 @@ body{
 	height: 75px;
 	top: -75px;left: 300px;
 	z-index: 1;
+	border-bottom: 1px solid white;
 }
 #tabNav.v1{
 	position: relative;
