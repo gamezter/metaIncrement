@@ -39,7 +39,7 @@ $(document).ready(function(){
 function update(){
 	document.getElementById('skillValue').innerHTML = skill;
 	document.getElementById('moneyValue').innerHTML = money;
-	document.getElementById('counter').innerHTML = gCounter;
+	document.getElementById('gameCounterValue').innerHTML = gCounter;
 
 	if(skill > 10){
 		show('skill');
@@ -83,12 +83,14 @@ var updateEffects = [	100, "document.getElementById('codeButton').className = 'v
 
 						100, "document.getElementById('gameTopBarH1').className = 'v1';",
 
+						100, "document.getElementById('gameCounter').className = 'v1'",
+
+						100, "document.getElementById('gameClicker').className = 'v1'",
+
+						100, "document.getElementById('gameRightBar').className = 'v1';",
+
 						100, "document.getElementById('sideBar').className = 'v2';",
 
 						100, "document.getElementById('tabNav').className = 'v1'; \
-							document.getElementById('gameArea').className = 'v1';",
-
-						100, "document.getElementById('gameClickerArea').className = 'v1';",
-
-						100, "document.getElementById('gameRightBar').className = 'v1';"
+							document.getElementById('gameArea').className = 'v1';"
 					]

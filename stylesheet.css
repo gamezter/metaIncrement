@@ -1,9 +1,10 @@
 *{
-	-webkit-transition: top 2s, left 2s, color 2s, visibility 2s, background-color 2s, border 2s, -webkit-transform 2s, box-shadow 2s;
-    transition: top 2s, left 2s, color 2s, visibility 2s, background-color 2s, border 2s, transform 2s, box-shadow 2s;
+	-webkit-transition: top 1s, left 1s, visibility 1s, background-color 1s, border 1s, -webkit-transform 1s, box-shadow 1s;
+    transition: top 1s, left 1s, visibility 1s, background-color 1s, border 1s, transform 1s, box-shadow 1s;
 }
 body{
 	margin: 0px;
+	overflow: hidden;
 }
 /*************************sideBar*************************/
 #sideBar.v0{
@@ -113,8 +114,12 @@ body{
 		float: left;
 		height: 50px;
 		width: calc(100% - 300px);
+		overflow: hidden;
 	}
 		#gameTopBarH1.v0{
+			display: inline-block;
+			position: relative;
+			left: -500px;
 			margin: 0px;
 			visibility: hidden;
 			color: white;
@@ -125,8 +130,12 @@ body{
 		float: left;
 		height: 50px;
 		width: calc(100% - 300px);
+		overflow: hidden;
 	}
 		#gameTopBarH1.v1{
+			display: inline-block;
+			position: relative;
+			left: 0px;
 			margin: 0px;
 			color: black;
 			visibility: visible;
@@ -134,38 +143,49 @@ body{
 	/*************************gameRightBar*************************/
 	#gameRightBar.v0{
 		position: relative;
-		visibility: hidden;
 		float: right;
 		height: 100%;
 		width: 300px;
+		left: 300px;
+		border-left: 1px solid white
+		box-sizing: border-box;
 	}
 	#gameRightBar.v1{
 		position: relative;
-		visibility: visible;
 		float: right;
 		height: 100%;
 		width: 300px;
-		background-color: red;
+		left: 0px;
+		border-left: 1px solid black;
+		box-sizing: border-box;
 	}
 	/*************************gameClickerArea*************************/
 	#gameClickerArea.v0{
 		position: relative;
-		/*visibility: hidden;*/
 		float: left;
 		height: calc(100% - 50px);
 		width: calc(100% - 300px);
-		background-color: green;
 	}
-	#gameClickerArea.v1{
-		position: relative;
-		visibility: visible;
-		float: left;
-		height: calc(100% - 50px);
-		width: calc(100% - 300px);
-		background-color: green;
-	}
+		#gameCounterArea.v0{
+			overflow: hidden;
+		}
+			#gameCounter.v0{
+				position: relative;
+				left: -100px;
+			}
+			#gameCounter.v1{
+				position: relative;
+				left: 0px;
+			}
 		#gameClicker.v0{
 			position: relative;
+			visibility: hidden;
+			height: 400px;
+			width: 400px;
+		}
+		#gameClicker.v1{
+			position: relative;
+			visibility: visible;
 			height: 400px;
 			width: 400px;
 			background-color: orange;
