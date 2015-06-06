@@ -104,10 +104,10 @@ body{
 		float: left;
 		height: 50px;
 		width: calc(100% - 300px);
-		background-color: blue;
 	}
 		#gameTopBarH1.v0{
 			margin: 0px;
+			visibility: hidden;
 		}
 	#gameTopBar.v1{
 		position: relative;
@@ -117,6 +117,10 @@ body{
 		width: calc(100% - 300px);
 		background-color: blue;
 	}
+		#gameTopBarH1.v1{
+			margin: 0px;
+			visibility: visible;
+		}
 	/*************************gameRightBar*************************/
 	#gameRightBar.v0{
 		position: relative;

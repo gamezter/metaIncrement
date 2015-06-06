@@ -40,7 +40,7 @@ function update(){
 	if(skill > 100){
 		show('updateButton');
 	}
-	if(skill > updateEffects[updateIndex]){
+	if(skill >= updateEffects[updateIndex]){
 		document.getElementById('updateButton').disabled = false;
 	}
 }
@@ -78,7 +78,8 @@ var updateEffects = [	200, "document.getElementById('codeButton').className = 'v
 						100, "document.getElementById('tabNav').className = 'v1'; \
 							document.getElementById('gameArea').className = 'v1';",
 
-						100, "document.getElementById('gameTopBar').className = 'v1';",
+						100, "document.getElementById('gameTopBar').className = 'v1'; \
+							document.getElementById('gameTopBarH1').className = 'v1';",
 
 						100, "document.getElementById('gameClickerArea').className = 'v1';",
 
