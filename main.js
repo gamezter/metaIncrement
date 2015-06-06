@@ -43,9 +43,6 @@ function update(){
 	if(skill > updateEffects[updateIndex]){
 		document.getElementById('updateButton').disabled = false;
 	}
-	if(totalSkill > 300){
-		show('lawnButton');
-	}
 }
 /************************Helper Functions***********************/
 if (!window.requestAnimationFrame){
@@ -76,8 +73,14 @@ var updateEffects = [	200, "document.getElementById('codeButton').className = 'v
 							document.getElementById('skill').className = 'v1'; \
 							document.getElementById('money').className = 'v1';",
 
-						300, "document.getElementById('sideBar').className = 'v1';",
+						100, "document.getElementById('sideBar').className = 'v1';",
 
-						400, "document.getElementById('tabNav').className = 'v1'; \
-							document.getElementById('gameArea').className = 'v1';"
+						100, "document.getElementById('tabNav').className = 'v1'; \
+							document.getElementById('gameArea').className = 'v1';",
+
+						100, "document.getElementById('gameTopBar').className = 'v1';",
+
+						100, "document.getElementById('gameClickerArea').className = 'v1';",
+
+						100, "document.getElementById('gameRightBar').className = 'v1';"
 					]

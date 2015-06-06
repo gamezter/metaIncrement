@@ -100,6 +100,7 @@ body{
 	/*************************gameTopBar*************************/
 	#gameTopBar.v0{
 		position: relative;
+		visibility: hidden;
 		float: left;
 		height: 50px;
 		width: calc(100% - 300px);
@@ -108,9 +109,25 @@ body{
 		#gameTopBarH1.v0{
 			margin: 0px;
 		}
+	#gameTopBar.v1{
+		position: relative;
+		visibility: visible;
+		float: left;
+		height: 50px;
+		width: calc(100% - 300px);
+		background-color: blue;
+	}
 	/*************************gameRightBar*************************/
 	#gameRightBar.v0{
 		position: relative;
+		visibility: hidden;
+		float: right;
+		height: 100%;
+		width: 300px;
+	}
+	#gameRightBar.v1{
+		position: relative;
+		visibility: visible;
 		float: right;
 		height: 100%;
 		width: 300px;
@@ -119,6 +136,14 @@ body{
 	/*************************gameClickerArea*************************/
 	#gameClickerArea.v0{
 		position: relative;
+		visibility: hidden;
+		float: left;
+		height: calc(100% - 50px);
+		width: calc(100% - 300px);
+	}
+	#gameClickerArea.v1{
+		position: relative;
+		visibility: visible;
 		float: left;
 		height: calc(100% - 50px);
 		width: calc(100% - 300px);
