@@ -1,3 +1,4 @@
+"use strict"
 /***************************Variables**************************/
 var money = 0;
 var totalMoney = 0;
@@ -10,49 +11,52 @@ var totalSkill = 0;
 var skillIncrement = 1;
 var skillRate = 0;
 
-var gCounter = 0;
-var gCounterRate = 0;
-
-var gWorker1Number = 0;
-var gWorker1Price = 15;
-var gWorker1Rate= 0.1/60;
-
-var gWorker2Number = 0;
-var gWorker2Price = 100;
-var gWorker2Rate= 0.5/60;
-
-var gWorker3Number = 0;
-var gWorker3Price = 500;
-var gWorker3Rate= 4/60;
-
-var gWorker4Number = 0;
-var gWorker4Price = 3000;
-var gWorker4Rate= 10/60;
-
-var gWorker5Number = 0;
-var gWorker5Price = 10000;
-var gWorker5Rate= 40/60;
-
-var gWorker6Number = 0;
-var gWorker6Price = 40000;
-var gWorker6Rate= 100/60;
-
-var gWorker7Number = 0;
-var gWorker7Price = 200000;
-var gWorker7Rate= 400/60;
-
-var gWorker8Number = 0;
-var gWorker8Price = 1666666;
-var gWorker8Rate= 6666/60;
-
-var gWorker9Number = 0;
-var gWorker9Price = 123456789;
-var gWorker9Rate= 98765/60;
-
 var upgradeIndex = 0;
 var programmerPrice = 10;
 var programmerSkill = 0.5/60;
 var nProgrammers = 0;
+	
+	/*******************************MetaGameParameters*****************************/
+	var gCounter = 0;
+	var gCounterRate = 0;
+
+	var gWorker1Number = 0;
+	var gWorker1Price = 15;
+	var gWorker1Rate= 0.1/60;
+
+	var gWorker2Number = 0;
+	var gWorker2Price = 100;
+	var gWorker2Rate= 0.5/60;
+
+	var gWorker3Number = 0;
+	var gWorker3Price = 500;
+	var gWorker3Rate= 4/60;
+
+	var gWorker4Number = 0;
+	var gWorker4Price = 3000;
+	var gWorker4Rate= 10/60;
+
+	var gWorker5Number = 0;
+	var gWorker5Price = 10000;
+	var gWorker5Rate= 40/60;
+
+	var gWorker6Number = 0;
+	var gWorker6Price = 40000;
+	var gWorker6Rate= 100/60;
+
+	var gWorker7Number = 0;
+	var gWorker7Price = 200000;
+	var gWorker7Rate= 400/60;
+
+	var gWorker8Number = 0;
+	var gWorker8Price = 1666666;
+	var gWorker8Rate= 6666/60;
+
+	var gWorker9Number = 0;
+	var gWorker9Price = 123456789;
+	var gWorker9Rate= 98765/60;
+
+
 /***************************Game logic*************************/
 $(document).ready(function(){
 	animate();
@@ -66,9 +70,9 @@ $(document).ready(function(){
 		var skillReq = upgradeEffects[upgradeIndex];
 		skill -= skillReq;
 		eval(upgradeEffects[++upgradeIndex]);
-		document.getElementById('upgradeDesc').innerHTML = upgradeEffects[++upgradeIndex];
+		l('upgradeDesc').innerHTML = upgradeEffects[++upgradeIndex];
 		if(skill < upgradeEffects[upgradeIndex + 1]){
-			document.getElementById('upgradeButton').disabled = true;
+			l('upgradeButton').disabled = true;
 		}
 		upgradeIndex++;
 	});
@@ -85,12 +89,12 @@ $(document).ready(function(){
 		programmerPrice = programmerPrice + programmerPrice * 0.2;
 		skillRate += programmerSkill;
 		if(money < programmerPrice){
-			document.getElementById('hireProgrammerButton').disabled = true;
+			l('hireProgrammerButton').disabled = true;
 		}
 		nProgrammers++;
 		show('nProgrammers');
-		document.getElementById('nProgrammers').innerHTML = nProgrammers + " Programmers";
-		document.getElementById('programmerPrice').innerHTML = programmerPrice.toFixed(2);
+		l('nProgrammers').innerHTML = nProgrammers + " Programmers";
+		l('programmerPrice').innerHTML = programmerPrice.toFixed(2);
 	});
 
 	$('#gameClicker').click(function(){
@@ -100,12 +104,12 @@ $(document).ready(function(){
 		var value = $("input:checked").val();
 		switch(value){
 			case "0":
-				document.getElementById('gamePage').style.display = 'block';
-				document.getElementById('boobleAdcentsPage').style.display = 'none';
+				l('gamePage').style.display = 'block';
+				l('boobleAdcentsPage').style.display = 'none';
 				break;
 			case "1":
-				document.getElementById('gamePage').style.display = 'none';
-				document.getElementById('boobleAdcentsPage').style.display = 'block';
+				l('gamePage').style.display = 'none';
+				l('boobleAdcentsPage').style.display = 'block';
 				break;
 		}
 	})
@@ -115,10 +119,10 @@ $(document).ready(function(){
 		gWorker1Number++;
 		gCounterRate += gWorker1Rate;
 		if(gCounter < gWorker1Price){
-			document.getElementById('buyWorker1').disabled = true;
+			l('buyWorker1').disabled = true;
 		}
-		document.getElementById('nWorker1').innerHTML = gWorker1Number;
-		document.getElementById('worker1Price').innerHTML = gWorker1Price + " things";
+		l('nWorker1').innerHTML = gWorker1Number;
+		l('worker1Price').innerHTML = gWorker1Price + " things";
 	});
 	$("#buyWorker2").click(function(){
 		gCounter -= gWorker2Price;
@@ -126,10 +130,10 @@ $(document).ready(function(){
 		gWorker2Number++;
 		gCounterRate += gWorker2Rate;
 		if(gCounter < gWorker2Price){
-			document.getElementById('buyWorker2').disabled = true;
+			l('buyWorker2').disabled = true;
 		}
-		document.getElementById('nWorker2').innerHTML = gWorker2Number;
-		document.getElementById('worker2Price').innerHTML = gWorker2Price + " things";
+		l('nWorker2').innerHTML = gWorker2Number;
+		l('worker2Price').innerHTML = gWorker2Price + " things";
 	});
 	$("#buyWorker3").click(function(){
 		gCounter -= gWorker3Price;
@@ -137,10 +141,10 @@ $(document).ready(function(){
 		gWorker3Number++;
 		gCounterRate += gWorker3Rate;
 		if(gCounter < gWorker3Price){
-			document.getElementById('buyWorker3').disabled = true;
+			l('buyWorker3').disabled = true;
 		}
-		document.getElementById('nWorker3').innerHTML = gWorker3Number;
-		document.getElementById('worker3Price').innerHTML = gWorker3Price + " things";
+		l('nWorker3').innerHTML = gWorker3Number;
+		l('worker3Price').innerHTML = gWorker3Price + " things";
 	});
 	$("#buyWorker4").click(function(){
 		gCounter -= gWorker4Price;
@@ -148,10 +152,10 @@ $(document).ready(function(){
 		gWorker4Number++;
 		gCounterRate += gWorker4Rate;
 		if(gCounter < gWorker4Price){
-			document.getElementById('buyWorker4').disabled = true;
+			l('buyWorker4').disabled = true;
 		}
-		document.getElementById('nWorker4').innerHTML = gWorker4Number;
-		document.getElementById('worker4Price').innerHTML = gWorker4Price + " things";
+		l('nWorker4').innerHTML = gWorker4Number;
+		l('worker4Price').innerHTML = gWorker4Price + " things";
 	});
 	$("#buyWorker5").click(function(){
 		gCounter -= gWorker5Price;
@@ -159,10 +163,10 @@ $(document).ready(function(){
 		gWorker5Number++;
 		gCounterRate += gWorker5Rate;
 		if(gCounter < gWorker5Price){
-			document.getElementById('buyWorker5').disabled = true;
+			l('buyWorker5').disabled = true;
 		}
-		document.getElementById('nWorker5').innerHTML = gWorker5Number;
-		document.getElementById('worker5Price').innerHTML = gWorker5Price + " things";
+		l('nWorker5').innerHTML = gWorker5Number;
+		l('worker5Price').innerHTML = gWorker5Price + " things";
 	});
 	$("#buyWorker6").click(function(){
 		gCounter -= gWorker6Price;
@@ -170,10 +174,10 @@ $(document).ready(function(){
 		gWorker6Number++;
 		gCounterRate += gWorker6Rate;
 		if(gCounter < gWorker6Price){
-			document.getElementById('buyWorker6').disabled = true;
+			l('buyWorker6').disabled = true;
 		}
-		document.getElementById('nWorker6').innerHTML = gWorker6Number;
-		document.getElementById('worker6Price').innerHTML = gWorker6Price + " things";
+		l('nWorker6').innerHTML = gWorker6Number;
+		l('worker6Price').innerHTML = gWorker6Price + " things";
 	});
 	$("#buyWorker7").click(function(){
 		gCounter -= gWorker7Price;
@@ -181,10 +185,10 @@ $(document).ready(function(){
 		gWorker7Number++;
 		gCounterRate += gWorker7Rate;
 		if(gCounter < gWorker7Price){
-			document.getElementById('buyWorker7').disabled = true;
+			l('buyWorker7').disabled = true;
 		}
-		document.getElementById('nWorker7').innerHTML = gWorker7Number;
-		document.getElementById('worker7Price').innerHTML = gWorker7Price + " things";
+		l('nWorker7').innerHTML = gWorker7Number;
+		l('worker7Price').innerHTML = gWorker7Price + " things";
 	});
 	$("#buyWorker8").click(function(){
 		gCounter -= gWorker8Price;
@@ -192,10 +196,10 @@ $(document).ready(function(){
 		gWorker8Number++;
 		gCounterRate += gWorker8Rate;
 		if(gCounter < gWorker8Price){
-			document.getElementById('buyWorker8').disabled = true;
+			l('buyWorker8').disabled = true;
 		}
-		document.getElementById('nWorker8').innerHTML = gWorker8Number;
-		document.getElementById('worker8Price').innerHTML = gWorker8Price + " things";
+		l('nWorker8').innerHTML = gWorker8Number;
+		l('worker8Price').innerHTML = gWorker8Price + " things";
 	});
 	$("#buyWorker9").click(function(){
 		gCounter -= gWorker9Price;
@@ -203,10 +207,10 @@ $(document).ready(function(){
 		gWorker9Number++;
 		gCounterRate += gWorker9Rate;
 		if(gCounter < gWorker9Price){
-			document.getElementById('buyWorker9').disabled = true;
+			l('buyWorker9').disabled = true;
 		}
-		document.getElementById('nWorker9').innerHTML = gWorker9Number;
-		document.getElementById('worker9Price').innerHTML = gWorker9Price + " things";
+		l('nWorker9').innerHTML = gWorker9Number;
+		l('worker9Price').innerHTML = gWorker9Price + " things";
 	});
 });
 /****************************Update*****************************/
@@ -214,10 +218,10 @@ function update(){
 	bMoney += bMoneyRate;
 	skill += skillRate;
 	gCounter += gCounterRate;
-	document.getElementById('skillValue').innerHTML = skill.toFixed(0);
-	document.getElementById('moneyValue').innerHTML = money.toFixed(2);
-	document.getElementById('gameCounterValue').innerHTML = gCounter.toFixed(0);
-	document.getElementById('bMoney').innerHTML = bMoney.toFixed(2);
+	l('skillValue').innerHTML = skill.toFixed(0);
+	l('moneyValue').innerHTML = money.toFixed(2);
+	l('gameCounterValue').innerHTML = gCounter.toFixed(0);
+	l('bMoney').innerHTML = bMoney.toFixed(2);
 
 	if(money > 0){
 		show('money');
@@ -232,59 +236,59 @@ function update(){
 		show('hireProgrammerButton');
 	}
 	if(money >= programmerPrice){
-		document.getElementById('hireProgrammerButton').disabled = false;
+		l('hireProgrammerButton').disabled = false;
 	}else{
-		document.getElementById('hireProgrammerButton').disabled = true;
+		l('hireProgrammerButton').disabled = true;
 	}
 	if(skill >= upgradeEffects[upgradeIndex]){
-		document.getElementById('upgradeButton').disabled = false;
+		l('upgradeButton').disabled = false;
 	}else{
-		document.getElementById('upgradeButton').disabled = true;
+		l('upgradeButton').disabled = true;
 	}
 	if(gCounter >= gWorker1Price){
-			document.getElementById('buyWorker1').disabled = false;
+			l('buyWorker1').disabled = false;
 	}else{
-		document.getElementById('buyWorker1').disabled = true;
+		l('buyWorker1').disabled = true;
 	}
 	if(gCounter >= gWorker2Price){
-			document.getElementById('buyWorker2').disabled = false;
+			l('buyWorker2').disabled = false;
 	}else{
-		document.getElementById('buyWorker2').disabled = true;
+		l('buyWorker2').disabled = true;
 	}
 	if(gCounter >= gWorker3Price){
-			document.getElementById('buyWorker3').disabled = false;
+			l('buyWorker3').disabled = false;
 	}else{
-		document.getElementById('buyWorker3').disabled = true;
+		l('buyWorker3').disabled = true;
 	}
 	if(gCounter >= gWorker4Price){
-			document.getElementById('buyWorker4').disabled = false;
+			l('buyWorker4').disabled = false;
 	}else{
-		document.getElementById('buyWorker4').disabled = true;
+		l('buyWorker4').disabled = true;
 	}
 	if(gCounter >= gWorker5Price){
-			document.getElementById('buyWorker5').disabled = false;
+			l('buyWorker5').disabled = false;
 	}else{
-		document.getElementById('buyWorker5').disabled = true;
+		l('buyWorker5').disabled = true;
 	}
 	if(gCounter >= gWorker6Price){
-			document.getElementById('buyWorker6').disabled = false;
+			l('buyWorker6').disabled = false;
 	}else{
-		document.getElementById('buyWorker6').disabled = true;
+		l('buyWorker6').disabled = true;
 	}
 	if(gCounter >= gWorker7Price){
-			document.getElementById('buyWorker7').disabled = false;
+			l('buyWorker7').disabled = false;
 	}else{
-		document.getElementById('buyWorker7').disabled = true;
+		l('buyWorker7').disabled = true;
 	}
 	if(gCounter >= gWorker8Price){
-			document.getElementById('buyWorker8').disabled = false;
+			l('buyWorker8').disabled = false;
 	}else{
-		document.getElementById('buyWorker8').disabled = true;
+		l('buyWorker8').disabled = true;
 	}
 	if(gCounter >= gWorker9Price){
-			document.getElementById('buyWorker9').disabled = false;
+			l('buyWorker9').disabled = false;
 	}else{
-		document.getElementById('buyWorker9').disabled = true;
+		l('buyWorker9').disabled = true;
 	}
 }
 /************************Helper Functions***********************/
@@ -306,33 +310,35 @@ function animate(){
 }
 
 function show(id){
-	if(document.getElementById(id).style.display === 'none'){
+	if(l(id).style.display === 'none'){
 		$("#" + id).fadeIn('slow');
 	}
 }
 
-var upgradeEffects = [	100, "document.getElementById('codeButton').className = 'v1'; \
-							document.getElementById('upgradeButton').className = 'v1'; \
-							document.getElementById('skill').className = 'v1'; \
-							document.getElementById('money').className = 'v1'; \
-							document.getElementById('hireProgrammerButton').className = 'v1'; \
-							document.getElementById('sideBar').className = 'v1';",
+
+
+var upgradeEffects = [	100, "l('codeButton').className = 'v1'; \
+							l('upgradeButton').className = 'v1'; \
+							l('skill').className = 'v1'; \
+							l('money').className = 'v1'; \
+							l('hireProgrammerButton').className = 'v1'; \
+							l('sideBar').className = 'v1';",
 
 						"Create a webpage (100 skill)",
-						100, "document.getElementById('tabNav').className = 'v1'; \
-							document.getElementById('gamePage').className = 'v1';",
+						100, "l('tabNav').className = 'v1'; \
+							l('gamePage').className = 'v1';",
 
 						"Give your page a Title (100 skill)",
-						100, "document.getElementById('gameTopBarH1').className = 'v1';",
+						100, "l('gameTopBarH1').className = 'v1';",
 
 						"Add a counter (100 skill)",
-						100, "document.getElementById('gameCounter').className = 'v1'",
+						100, "l('gameCounter').className = 'v1'",
 
 						"Add a clicker (100 skill)",
-						100, "document.getElementById('gameClicker').className = 'v1'",
+						100, "l('gameClicker').className = 'v1'",
 
 						"Add a Worker side bar (100 skill)",
-						100, "document.getElementById('gameRightBar').className = 'v1';",
+						100, "l('gameRightBar').className = 'v1';",
 
 						"Place an ad on your website + 0.01$/s (100 skill)",
 						100, "show('gameAd'); show('boobleAdcentsTab'); bMoneyRate += 0.01/60;",
@@ -364,3 +370,6 @@ var upgradeEffects = [	100, "document.getElementById('codeButton').className = '
 						"Add a Worker (100 skill)",
 						100, "show('worker9');"
 					]
+function l(what){
+	return document.getElementById(what);
+}
