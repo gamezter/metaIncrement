@@ -1,3 +1,6 @@
+html{
+	overflow-x: hidden;
+}
 *{
 	-webkit-transition: top 1s, left 1s, visibility 1s, background-color 1s, border 1s, -webkit-transform 1s, box-shadow 1s;
     transition: top 1s, left 1s, visibility 1s, background-color 1s, border 1s, transform 1s, box-shadow 1s;
@@ -109,7 +112,6 @@ body{margin: 0px; overflow: hidden;}
 	/*************************gameTopBar*************************/
 	#gameTopBar.v0{
 		position: relative;
-		visibility: hidden;
 		float: left;
 		height: 50px;
 		width: calc(100% - 300px);
@@ -117,7 +119,6 @@ body{margin: 0px; overflow: hidden;}
 	}
 	#gameTopBar.v1{
 		position: relative;
-		visibility: visible;
 		float: left;
 		height: 50px;
 		width: calc(100% - 300px);
@@ -128,8 +129,6 @@ body{margin: 0px; overflow: hidden;}
 			position: relative;
 			left: -500px;
 			margin: 0px;
-			visibility: hidden;
-			color: white;
 		}
 	
 		#gameTopBarH1.v1{
@@ -137,8 +136,6 @@ body{margin: 0px; overflow: hidden;}
 			position: relative;
 			left: 0px;
 			margin: 0px;
-			color: black;
-			visibility: visible;
 		}
 	/*************************gameRightBar*************************/
 	#gameRightBar.v0{
@@ -207,3 +204,6 @@ body{margin: 0px; overflow: hidden;}
 	top: 0px;left: 300px;
 	z-index: 0;
 }
+	#boobleAdcentsPage h1{
+		margin: 0px;
+	}

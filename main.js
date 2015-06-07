@@ -3,14 +3,18 @@ var money = 0;
 var totalMoney = 0;
 
 var bMoney = 0;
-var bMoneyIdle = 0;
+var bMoneyRate = 0;
 
 var skill = 0;
 var totalSkill = 0;
 var skillIncrement = 1;
-var skillIdle = 0;
+var skillRate = 0;
 
 var gCounter = 0;
+var gCounterRate = 0;
+var gWorker1Number = 0;
+var gWorker1Price = 100;
+var gWorker1Rate= 1/60;
 
 var upgradeIndex = 0;
 var programmerPrice = 10;
@@ -46,12 +50,14 @@ $(document).ready(function(){
 		show('programmer');
 		money -= programmerPrice;
 		programmerPrice = programmerPrice + programmerPrice * 0.2;
-		skillIdle += programmerSkill;
+		skillRate += programmerSkill;
 		if(money < programmerPrice){
 			document.getElementById('hireProgrammerButton').disabled = true;
 		}
 		nProgrammers++;
 		show('nProgrammers');
+		document.getElementById('nProgrammers').innerHTML = nProgrammers + " Programmers";
+		document.getElementById('programmerPrice').innerHTML = programmerPrice.toFixed(2);
 	});
 
 	$('#gameClicker').click(function(){
@@ -70,17 +76,27 @@ $(document).ready(function(){
 				break;
 		}
 	})
+	$("#buyWorker1").click(function(){
+		gCounter -= gWorker1Price;
+		gWorker1Price += Math.floor(gWorker1Price * 0.2);
+		gWorker1Number++;
+		gCounterRate += gWorker1Rate;
+		if(gCounter < gWorker1Price){
+			document.getElementById('buyWorker1').disabled = true;
+		}
+		document.getElementById('nWorker1').innerHTML = gWorker1Number;
+		document.getElementById('worker1Price').innerHTML = gWorker1Price + " things";
+	});
 });
 /****************************Update*****************************/
 function update(){
-	bMoney += bMoneyIdle;
-	skill += skillIdle;
-	document.getElementById('skillValue').innerHTML = skill.toFixed(1);
+	bMoney += bMoneyRate;
+	skill += skillRate;
+	gCounter += gCounterRate;
+	document.getElementById('skillValue').innerHTML = skill.toFixed(0);
 	document.getElementById('moneyValue').innerHTML = money.toFixed(2);
-	document.getElementById('gameCounterValue').innerHTML = gCounter;
+	document.getElementById('gameCounterValue').innerHTML = gCounter.toFixed(0);
 	document.getElementById('bMoney').innerHTML = bMoney.toFixed(2);
-	document.getElementById('programmerPrice').innerHTML = programmerPrice.toFixed(2);
-	document.getElementById('nProgrammers').innerHTML = nProgrammers + " Programmers";
 
 	if(money > 0){
 		show('money');
@@ -99,6 +115,9 @@ function update(){
 	}
 	if(skill >= upgradeEffects[upgradeIndex]){
 		document.getElementById('upgradeButton').disabled = false;
+	}
+	if(gCounter >= gWorker1Price){
+			document.getElementById('buyWorker1').disabled = false;
 	}
 }
 /************************Helper Functions***********************/
@@ -145,9 +164,12 @@ var upgradeEffects = [	100, "document.getElementById('codeButton').className = '
 						"Add a clicker (100 skill)",
 						100, "document.getElementById('gameClicker').className = 'v1'",
 
-						"Add an upgrade bar (100 skill)",
+						"Add a Worker side bar (100 skill)",
 						100, "document.getElementById('gameRightBar').className = 'v1';",
 
 						"Place an ad on your website + 0.01$/s (100 skill)",
-						100, "show('gameAd'); show('boobleAdcentsTab'); bMoneyIdle += 0.01/60;"
+						100, "show('gameAd'); show('boobleAdcentsTab'); bMoneyRate += 0.01/60;",
+
+						"Add a Worker (100 skill)",
+						100, "show('worker1');"
 					]
