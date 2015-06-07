@@ -2,10 +2,7 @@
 	-webkit-transition: top 1s, left 1s, visibility 1s, background-color 1s, border 1s, -webkit-transform 1s, box-shadow 1s;
     transition: top 1s, left 1s, visibility 1s, background-color 1s, border 1s, transform 1s, box-shadow 1s;
 }
-body{
-	margin: 0px;
-	overflow: hidden;
-}
+body{margin: 0px; overflow: hidden;}
 /*************************sideBar*************************/
 #sideBar.v0{
 	position: fixed;
@@ -30,18 +27,21 @@ body{
 	z-index: 2;
 }
 	/*************************sideBar buttons and fields*************************/
-	#codeButton.v0, #money.v0, #skill.v0, #upgradeButton.v0, #upgradeProgrammerButton.v0{
+	#codeButton.v0, #money.v0, #skill.v0, #upgradeButton.v0, #hireProgrammerButton.v0
+	{
 		position: relative;
 		top: 0px;left: 0px;
+		max-width: 250px;
 	}
-	#codeButton.v1, #money.v1, #skill.v1, #upgradeButton.v1, #upgradeProgrammerButton.v1{
+	#codeButton.v1, #money.v1, #skill.v1, #upgradeButton.v1, #hireProgrammerButton.v1{
 		position: relative;
-		top: 50px;left: 50px;
+		top: 25px;left: 25px;
+		max-width: 250px;
 	}
 	/*************************programmer*************************/
 	#programmer.v0{
 		position: relative;
-		top: 50px;left: 50px;
+		top: 25px;left: 25px;
 	}
 /*************************tabNav*************************/
 #tabNav.v0{
