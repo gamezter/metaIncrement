@@ -12,9 +12,42 @@ var skillRate = 0;
 
 var gCounter = 0;
 var gCounterRate = 0;
+
 var gWorker1Number = 0;
-var gWorker1Price = 100;
-var gWorker1Rate= 1/60;
+var gWorker1Price = 15;
+var gWorker1Rate= 0.1/60;
+
+var gWorker2Number = 0;
+var gWorker2Price = 100;
+var gWorker2Rate= 0.5/60;
+
+var gWorker3Number = 0;
+var gWorker3Price = 500;
+var gWorker3Rate= 4/60;
+
+var gWorker4Number = 0;
+var gWorker4Price = 3000;
+var gWorker4Rate= 10/60;
+
+var gWorker5Number = 0;
+var gWorker5Price = 10000;
+var gWorker5Rate= 40/60;
+
+var gWorker6Number = 0;
+var gWorker6Price = 40000;
+var gWorker6Rate= 100/60;
+
+var gWorker7Number = 0;
+var gWorker7Price = 200000;
+var gWorker7Rate= 400/60;
+
+var gWorker8Number = 0;
+var gWorker8Price = 1666666;
+var gWorker8Rate= 6666/60;
+
+var gWorker9Number = 0;
+var gWorker9Price = 123456789;
+var gWorker9Rate= 98765/60;
 
 var upgradeIndex = 0;
 var programmerPrice = 10;
@@ -78,7 +111,7 @@ $(document).ready(function(){
 	})
 	$("#buyWorker1").click(function(){
 		gCounter -= gWorker1Price;
-		gWorker1Price += Math.floor(gWorker1Price * 0.2);
+		gWorker1Price += Math.floor(gWorker1Price * 0.15);
 		gWorker1Number++;
 		gCounterRate += gWorker1Rate;
 		if(gCounter < gWorker1Price){
@@ -86,6 +119,94 @@ $(document).ready(function(){
 		}
 		document.getElementById('nWorker1').innerHTML = gWorker1Number;
 		document.getElementById('worker1Price').innerHTML = gWorker1Price + " things";
+	});
+	$("#buyWorker2").click(function(){
+		gCounter -= gWorker2Price;
+		gWorker2Price += Math.floor(gWorker2Price * 0.15);
+		gWorker2Number++;
+		gCounterRate += gWorker2Rate;
+		if(gCounter < gWorker2Price){
+			document.getElementById('buyWorker2').disabled = true;
+		}
+		document.getElementById('nWorker2').innerHTML = gWorker2Number;
+		document.getElementById('worker2Price').innerHTML = gWorker2Price + " things";
+	});
+	$("#buyWorker3").click(function(){
+		gCounter -= gWorker3Price;
+		gWorker3Price += Math.floor(gWorker3Price * 0.15);
+		gWorker3Number++;
+		gCounterRate += gWorker3Rate;
+		if(gCounter < gWorker3Price){
+			document.getElementById('buyWorker3').disabled = true;
+		}
+		document.getElementById('nWorker3').innerHTML = gWorker3Number;
+		document.getElementById('worker3Price').innerHTML = gWorker3Price + " things";
+	});
+	$("#buyWorker4").click(function(){
+		gCounter -= gWorker4Price;
+		gWorker4Price += Math.floor(gWorker4Price * 0.15);
+		gWorker4Number++;
+		gCounterRate += gWorker4Rate;
+		if(gCounter < gWorker4Price){
+			document.getElementById('buyWorker4').disabled = true;
+		}
+		document.getElementById('nWorker4').innerHTML = gWorker4Number;
+		document.getElementById('worker4Price').innerHTML = gWorker4Price + " things";
+	});
+	$("#buyWorker5").click(function(){
+		gCounter -= gWorker5Price;
+		gWorker5Price += Math.floor(gWorker5Price * 0.15);
+		gWorker5Number++;
+		gCounterRate += gWorker5Rate;
+		if(gCounter < gWorker5Price){
+			document.getElementById('buyWorker5').disabled = true;
+		}
+		document.getElementById('nWorker5').innerHTML = gWorker5Number;
+		document.getElementById('worker5Price').innerHTML = gWorker5Price + " things";
+	});
+	$("#buyWorker6").click(function(){
+		gCounter -= gWorker6Price;
+		gWorker6Price += Math.floor(gWorker6Price * 0.15);
+		gWorker6Number++;
+		gCounterRate += gWorker6Rate;
+		if(gCounter < gWorker6Price){
+			document.getElementById('buyWorker6').disabled = true;
+		}
+		document.getElementById('nWorker6').innerHTML = gWorker6Number;
+		document.getElementById('worker6Price').innerHTML = gWorker6Price + " things";
+	});
+	$("#buyWorker7").click(function(){
+		gCounter -= gWorker7Price;
+		gWorker7Price += Math.floor(gWorker7Price * 0.15);
+		gWorker7Number++;
+		gCounterRate += gWorker7Rate;
+		if(gCounter < gWorker7Price){
+			document.getElementById('buyWorker7').disabled = true;
+		}
+		document.getElementById('nWorker7').innerHTML = gWorker7Number;
+		document.getElementById('worker7Price').innerHTML = gWorker7Price + " things";
+	});
+	$("#buyWorker8").click(function(){
+		gCounter -= gWorker8Price;
+		gWorker8Price += Math.floor(gWorker8Price * 0.15);
+		gWorker8Number++;
+		gCounterRate += gWorker8Rate;
+		if(gCounter < gWorker8Price){
+			document.getElementById('buyWorker8').disabled = true;
+		}
+		document.getElementById('nWorker8').innerHTML = gWorker8Number;
+		document.getElementById('worker8Price').innerHTML = gWorker8Price + " things";
+	});
+	$("#buyWorker9").click(function(){
+		gCounter -= gWorker9Price;
+		gWorker9Price += Math.floor(gWorker9Price * 0.15);
+		gWorker9Number++;
+		gCounterRate += gWorker9Rate;
+		if(gCounter < gWorker9Price){
+			document.getElementById('buyWorker9').disabled = true;
+		}
+		document.getElementById('nWorker9').innerHTML = gWorker9Number;
+		document.getElementById('worker9Price').innerHTML = gWorker9Price + " things";
 	});
 });
 /****************************Update*****************************/
@@ -112,12 +233,58 @@ function update(){
 	}
 	if(money >= programmerPrice){
 		document.getElementById('hireProgrammerButton').disabled = false;
+	}else{
+		document.getElementById('hireProgrammerButton').disabled = true;
 	}
 	if(skill >= upgradeEffects[upgradeIndex]){
 		document.getElementById('upgradeButton').disabled = false;
+	}else{
+		document.getElementById('upgradeButton').disabled = true;
 	}
 	if(gCounter >= gWorker1Price){
 			document.getElementById('buyWorker1').disabled = false;
+	}else{
+		document.getElementById('buyWorker1').disabled = true;
+	}
+	if(gCounter >= gWorker2Price){
+			document.getElementById('buyWorker2').disabled = false;
+	}else{
+		document.getElementById('buyWorker2').disabled = true;
+	}
+	if(gCounter >= gWorker3Price){
+			document.getElementById('buyWorker3').disabled = false;
+	}else{
+		document.getElementById('buyWorker3').disabled = true;
+	}
+	if(gCounter >= gWorker4Price){
+			document.getElementById('buyWorker4').disabled = false;
+	}else{
+		document.getElementById('buyWorker4').disabled = true;
+	}
+	if(gCounter >= gWorker5Price){
+			document.getElementById('buyWorker5').disabled = false;
+	}else{
+		document.getElementById('buyWorker5').disabled = true;
+	}
+	if(gCounter >= gWorker6Price){
+			document.getElementById('buyWorker6').disabled = false;
+	}else{
+		document.getElementById('buyWorker6').disabled = true;
+	}
+	if(gCounter >= gWorker7Price){
+			document.getElementById('buyWorker7').disabled = false;
+	}else{
+		document.getElementById('buyWorker7').disabled = true;
+	}
+	if(gCounter >= gWorker8Price){
+			document.getElementById('buyWorker8').disabled = false;
+	}else{
+		document.getElementById('buyWorker8').disabled = true;
+	}
+	if(gCounter >= gWorker9Price){
+			document.getElementById('buyWorker9').disabled = false;
+	}else{
+		document.getElementById('buyWorker9').disabled = true;
 	}
 }
 /************************Helper Functions***********************/
@@ -171,5 +338,29 @@ var upgradeEffects = [	100, "document.getElementById('codeButton').className = '
 						100, "show('gameAd'); show('boobleAdcentsTab'); bMoneyRate += 0.01/60;",
 
 						"Add a Worker (100 skill)",
-						100, "show('worker1');"
+						100, "show('worker1');",
+
+						"Add a Worker (100 skill)",
+						100, "show('worker2');",
+
+						"Add a Worker (100 skill)",
+						100, "show('worker3');",
+
+						"Add a Worker (100 skill)",
+						100, "show('worker4');",
+
+						"Add a Worker (100 skill)",
+						100, "show('worker5');",
+
+						"Add a Worker (100 skill)",
+						100, "show('worker6');",
+
+						"Add a Worker (100 skill)",
+						100, "show('worker7');",
+
+						"Add a Worker (100 skill)",
+						100, "show('worker8');",
+
+						"Add a Worker (100 skill)",
+						100, "show('worker9');"
 					]
