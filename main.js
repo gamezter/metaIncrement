@@ -13,6 +13,9 @@ var skillIdle = 0;
 var gCounter = 0;
 
 var upgradeIndex = 0;
+var programmerPrice = 10;
+var programmerSkill = 0.5/60;
+var nProgrammers = 0;
 /***************************Game logic*************************/
 $(document).ready(function(){
 	animate();
@@ -26,7 +29,7 @@ $(document).ready(function(){
 		var skillReq = upgradeEffects[upgradeIndex];
 		skill -= skillReq;
 		eval(upgradeEffects[++upgradeIndex]);
-		document.getElementById('skillReq').innerHTML = upgradeEffects[upgradeIndex + 1];
+		document.getElementById('upgradeDesc').innerHTML = upgradeEffects[++upgradeIndex];
 		if(skill < upgradeEffects[upgradeIndex + 1]){
 			document.getElementById('upgradeButton').disabled = true;
 		}
@@ -39,10 +42,16 @@ $(document).ready(function(){
 		bMoney = 0;
 	});
 
-	$('#upgradeProgrammerButton').click(function(){
+	$('#hireProgrammerButton').click(function(){
 		show('programmer');
-		skillIdle += 0.5/60;
-		money -= 10;
+		money -= programmerPrice;
+		programmerPrice = programmerPrice + programmerPrice * 0.2;
+		skillIdle += programmerSkill;
+		if(money < programmerPrice){
+			document.getElementById('hireProgrammerButton').disabled = true;
+		}
+		nProgrammers++;
+		show('nProgrammers');
 	});
 
 	$('#gameClicker').click(function(){
@@ -70,6 +79,8 @@ function update(){
 	document.getElementById('moneyValue').innerHTML = money.toFixed(2);
 	document.getElementById('gameCounterValue').innerHTML = gCounter;
 	document.getElementById('bMoney').innerHTML = bMoney.toFixed(2);
+	document.getElementById('programmerPrice').innerHTML = programmerPrice.toFixed(2);
+	document.getElementById('nProgrammers').innerHTML = nProgrammers + " Programmers";
 
 	if(money > 0){
 		show('money');
@@ -81,10 +92,10 @@ function update(){
 		show('upgradeButton');
 	}
 	if(money >= 5){
-		show('upgradeProgrammerButton');
+		show('hireProgrammerButton');
 	}
-	if(money >= 10){
-		document.getElementById('upgradeProgrammerButton').disabled = false;
+	if(money >= programmerPrice){
+		document.getElementById('hireProgrammerButton').disabled = false;
 	}
 	if(skill >= upgradeEffects[upgradeIndex]){
 		document.getElementById('upgradeButton').disabled = false;
@@ -118,19 +129,25 @@ var upgradeEffects = [	100, "document.getElementById('codeButton').className = '
 							document.getElementById('upgradeButton').className = 'v1'; \
 							document.getElementById('skill').className = 'v1'; \
 							document.getElementById('money').className = 'v1'; \
-							document.getElementById('upgradeProgrammerButton').className = 'v1'; \
+							document.getElementById('hireProgrammerButton').className = 'v1'; \
 							document.getElementById('sideBar').className = 'v1';",
 
+						"Create a webpage (100 skill)",
 						100, "document.getElementById('tabNav').className = 'v1'; \
 							document.getElementById('gamePage').className = 'v1';",
 
+						"Give your page a Title (100 skill)",
 						100, "document.getElementById('gameTopBarH1').className = 'v1';",
 
+						"Add a counter (100 skill)",
 						100, "document.getElementById('gameCounter').className = 'v1'",
 
+						"Add a clicker (100 skill)",
 						100, "document.getElementById('gameClicker').className = 'v1'",
 
+						"Add an upgrade bar (100 skill)",
 						100, "document.getElementById('gameRightBar').className = 'v1';",
 
+						"Place an ad on your website + 0.01$/s (100 skill)",
 						100, "show('gameAd'); show('boobleAdcentsTab'); bMoneyIdle += 0.01/60;"
 					]
