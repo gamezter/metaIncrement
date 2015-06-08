@@ -222,12 +222,13 @@ function update(){
 	l('moneyValue').innerHTML = money.toFixed(2);
 	l('gameCounterValue').innerHTML = gCounter.toFixed(0);
 	l('bMoney').innerHTML = bMoney.toFixed(2);
+	l('bMoneyRate').innerHTML = (bMoneyRate * 60).toFixed(2);
 	l('gameRateValue').innerHTML = (gCounterRate * 60).toFixed(1);
 
 
 	if(money > 0){show('money');}
 	if(skill > 10){show('skill');}
-	if(skill >= 50){show('upgradeButton');}
+	if(skill >= 25){show('upgradeButton');}
 	if(money >= 5){show('hireProgrammerButton');}
 	if(money >= programmerPrice){l('hireProgrammerButton').disabled = false;
 		}else{l('hireProgrammerButton').disabled = true;}
@@ -279,61 +280,61 @@ function show(id){
 
 
 
-var upgradeEffects = [	100, "l('codeButton').className = 'v1'; \
+var upgradeEffects = [	50, "l('codeButton').className = 'v1'; \
 							l('upgradeButton').className = 'v1'; \
 							l('skill').className = 'v1'; \
 							l('money').className = 'v1'; \
 							l('hireProgrammerButton').className = 'v1'; \
 							l('sideBar').className = 'v1';",
 
-						"Create a webpage (100 skill)",
-						100, "l('tabNav').className = 'v1'; \
+						"Create a webpage (25 skill)",
+						25, "l('tabNav').className = 'v1'; \
 							l('gamePage').className = 'v1';",
 
-						"Give your page a Title (100 skill)",
-						100, "l('gameTopBarH1').className = 'v1';",
+						"Give your page a Title (25 skill)",
+						25, "l('gameTopBarH1').className = 'v1';",
 
-						"Add a counter (100 skill)",
-						100, "l('gameCounter').className = 'v1'",
+						"Add a counter (50 skill)",
+						50, "l('gameCounter').className = 'v1'",
 
-						"Add a clicker (100 skill)",
-						100, "l('gameClicker').className = 'v1'",
+						"Add a clicker (50 skill)",
+						50, "l('gameClicker').className = 'v1'",
 
-						"Add a Worker side bar (100 skill)",
-						100, "l('gameRightBar').className = 'v1';",
+						"Add a Worker side bar (50 skill)",
+						50, "l('gameRightBar').className = 'v1';",
 
-						"Place an ad on your website + 0.01$/s (100 skill)",
+						"Place an ad on your website +0.01$/s (100 skill)",
 						100, "show('gameAd'); show('boobleAdcentsTab'); bMoneyRate += 0.01/60;",
 
-						"Add a Worker (100 skill)",
-						100, "show('worker1');",
+						"Add a Worker +0.01$/s (100 skill)",
+						100, "show('worker1'); bMoneyRate += 0.01/60;",
 
-						"Show thing rate (100 skill)",
-						100, "show('gameRate');",
+						"Show thing rate +0.01$/s (100 skill)",
+						100, "show('gameRate'); bMoneyRate += 0.01/60;",
 
-						"Add a Worker (100 skill)",
-						100, "show('worker2');",
+						"Add a Worker +0.01$/s (150 skill)",
+						150, "show('worker2'); bMoneyRate += 0.01/60;",
 
-						"Add a Worker (100 skill)",
-						100, "show('worker3');",
+						"Add a Worker +0.01$/s (200 skill)",
+						200, "show('worker3'); bMoneyRate += 0.01/60;",
 
-						"Add a Worker (100 skill)",
-						100, "show('worker4');",
+						"Add a Worker +0.01$/s (300 skill)",
+						300, "show('worker4'); bMoneyRate += 0.01/60;",
 
-						"Add a Worker (100 skill)",
-						100, "show('worker5');",
+						"Add a Worker +0.01$/s (400 skill)",
+						400, "show('worker5'); bMoneyRate += 0.01/60;",
 
-						"Add a Worker (100 skill)",
-						100, "show('worker6');",
+						"Add a Worker +0.01$/s (500 skill)",
+						500, "show('worker6'); bMoneyRate += 0.01/60;",
 
-						"Add a Worker (100 skill)",
-						100, "show('worker7');",
+						"Add a Worker +0.01$/s (750 skill)",
+						750, "show('worker7'); bMoneyRate += 0.01/60;",
 
-						"Add a Worker (100 skill)",
-						100, "show('worker8');",
+						"Add a Worker +0.01$/s (1000 skill)",
+						1000, "show('worker8'); bMoneyRate += 0.01/60;",
 
-						"Add a Worker (100 skill)",
-						100, "show('worker9');"
+						"Add a Worker +0.01$/s (1500 skill)",
+						1500, "show('worker9'); bMoneyRate += 0.01/60;"
 					]
 function l(what){
 	return document.getElementById(what);
