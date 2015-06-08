@@ -61,7 +61,7 @@ var nProgrammers = 0;
 $(document).ready(function(){
 	animate();
 
-	setInterval(checks, 2000);
+	setInterval(checks, 2000); //every 2s
 
 	$('#codeButton').click(function(){
 		skill += skillIncrement;
