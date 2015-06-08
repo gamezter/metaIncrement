@@ -125,14 +125,12 @@ body{margin: 0px; overflow: hidden;}
 		overflow: hidden;
 	}
 		#gameTopBarH1.v0{
-			display: inline-block;
 			position: relative;
 			left: -500px;
 			margin: 0px;
 		}
 	
 		#gameTopBarH1.v1{
-			display: inline-block;
 			position: relative;
 			left: 0px;
 			margin: 0px;
@@ -175,10 +173,12 @@ body{margin: 0px; overflow: hidden;}
 			overflow: hidden;
 		}
 			#gameCounter.v0{
+				display:inline-block;
 				position: relative;
 				left: -100px;
 			}
 			#gameCounter.v1{
+				display: inline-block;
 				position: relative;
 				left: 0px;
 			}

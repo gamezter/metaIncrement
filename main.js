@@ -222,74 +222,36 @@ function update(){
 	l('moneyValue').innerHTML = money.toFixed(2);
 	l('gameCounterValue').innerHTML = gCounter.toFixed(0);
 	l('bMoney').innerHTML = bMoney.toFixed(2);
+	l('gameRateValue').innerHTML = (gCounterRate * 60).toFixed(1);
 
-	if(money > 0){
-		show('money');
-	}
-	if(skill > 10){
-		show('skill');
-	}
-	if(skill >= 50){
-		show('upgradeButton');
-	}
-	if(money >= 5){
-		show('hireProgrammerButton');
-	}
-	if(money >= programmerPrice){
-		l('hireProgrammerButton').disabled = false;
-	}else{
-		l('hireProgrammerButton').disabled = true;
-	}
-	if(skill >= upgradeEffects[upgradeIndex]){
-		l('upgradeButton').disabled = false;
-	}else{
-		l('upgradeButton').disabled = true;
-	}
-	if(gCounter >= gWorker1Price){
-			l('buyWorker1').disabled = false;
-	}else{
-		l('buyWorker1').disabled = true;
-	}
-	if(gCounter >= gWorker2Price){
-			l('buyWorker2').disabled = false;
-	}else{
-		l('buyWorker2').disabled = true;
-	}
-	if(gCounter >= gWorker3Price){
-			l('buyWorker3').disabled = false;
-	}else{
-		l('buyWorker3').disabled = true;
-	}
-	if(gCounter >= gWorker4Price){
-			l('buyWorker4').disabled = false;
-	}else{
-		l('buyWorker4').disabled = true;
-	}
-	if(gCounter >= gWorker5Price){
-			l('buyWorker5').disabled = false;
-	}else{
-		l('buyWorker5').disabled = true;
-	}
-	if(gCounter >= gWorker6Price){
-			l('buyWorker6').disabled = false;
-	}else{
-		l('buyWorker6').disabled = true;
-	}
-	if(gCounter >= gWorker7Price){
-			l('buyWorker7').disabled = false;
-	}else{
-		l('buyWorker7').disabled = true;
-	}
-	if(gCounter >= gWorker8Price){
-			l('buyWorker8').disabled = false;
-	}else{
-		l('buyWorker8').disabled = true;
-	}
-	if(gCounter >= gWorker9Price){
-			l('buyWorker9').disabled = false;
-	}else{
-		l('buyWorker9').disabled = true;
-	}
+
+	if(money > 0){show('money');}
+	if(skill > 10){show('skill');}
+	if(skill >= 50){show('upgradeButton');}
+	if(money >= 5){show('hireProgrammerButton');}
+	if(money >= programmerPrice){l('hireProgrammerButton').disabled = false;
+		}else{l('hireProgrammerButton').disabled = true;}
+	if(skill >= upgradeEffects[upgradeIndex]){l('upgradeButton').disabled = false;
+		}else{l('upgradeButton').disabled = true;}
+		
+	if(gCounter >= gWorker1Price){l('buyWorker1').disabled = false;
+		}else{l('buyWorker1').disabled = true;}
+	if(gCounter >= gWorker2Price){l('buyWorker2').disabled = false;
+		}else{l('buyWorker2').disabled = true;}
+	if(gCounter >= gWorker3Price){l('buyWorker3').disabled = false;
+		}else{l('buyWorker3').disabled = true;}
+	if(gCounter >= gWorker4Price){l('buyWorker4').disabled = false;
+		}else{l('buyWorker4').disabled = true;}
+	if(gCounter >= gWorker5Price){l('buyWorker5').disabled = false;
+		}else{l('buyWorker5').disabled = true;}
+	if(gCounter >= gWorker6Price){l('buyWorker6').disabled = false;
+		}else{l('buyWorker6').disabled = true;}
+	if(gCounter >= gWorker7Price){l('buyWorker7').disabled = false;
+		}else{l('buyWorker7').disabled = true;}
+	if(gCounter >= gWorker8Price){l('buyWorker8').disabled = false;
+		}else{l('buyWorker8').disabled = true;}
+	if(gCounter >= gWorker9Price){l('buyWorker9').disabled = false;
+		}else{l('buyWorker9').disabled = true;}
 }
 /************************Helper Functions***********************/
 if (!window.requestAnimationFrame){
@@ -345,6 +307,9 @@ var upgradeEffects = [	100, "l('codeButton').className = 'v1'; \
 
 						"Add a Worker (100 skill)",
 						100, "show('worker1');",
+
+						"Show thing rate (100 skill)",
+						100, "show('gameRate');",
 
 						"Add a Worker (100 skill)",
 						100, "show('worker2');",
