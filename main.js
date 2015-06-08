@@ -13,7 +13,7 @@ var skillRate = 0;
 
 var upgradeIndex = 0;
 var programmerPrice = 10;
-var programmerSkill = 0.5/60;
+var programmerSkill = 1/60;
 var nProgrammers = 0;
 	
 	/*******************************MetaGameParameters*****************************/
@@ -60,6 +60,8 @@ var nProgrammers = 0;
 /***************************Game logic*************************/
 $(document).ready(function(){
 	animate();
+
+	setInterval(checks, 2000);
 
 	$('#codeButton').click(function(){
 		skill += skillIncrement;
@@ -222,14 +224,7 @@ function update(){
 	l('moneyValue').innerHTML = money.toFixed(2);
 	l('gameCounterValue').innerHTML = gCounter.toFixed(0);
 	l('bMoney').innerHTML = bMoney.toFixed(2);
-	l('bMoneyRate').innerHTML = (bMoneyRate * 60).toFixed(2);
-	l('gameRateValue').innerHTML = (gCounterRate * 60).toFixed(1);
-
-
-	if(money > 0){show('money');}
-	if(skill > 10){show('skill');}
-	if(skill >= 25){show('upgradeButton');}
-	if(money >= 5){show('hireProgrammerButton');}
+	
 	if(money >= programmerPrice){l('hireProgrammerButton').disabled = false;
 		}else{l('hireProgrammerButton').disabled = true;}
 	if(skill >= upgradeEffects[upgradeIndex]){l('upgradeButton').disabled = false;
@@ -278,7 +273,15 @@ function show(id){
 	}
 }
 
+function checks(){
+	l('bMoneyRate').innerHTML = (bMoneyRate * 60).toFixed(2);
+	l('gameRateValue').innerHTML = (gCounterRate * 60).toFixed(1);
 
+	if(money > 0){show('money');}
+	if(skill > 10){show('skill');}
+	if(skill >= 25){show('upgradeButton');}
+	if(money >= 5){show('hireProgrammerButton');}
+}
 
 var upgradeEffects = [	50, "l('codeButton').className = 'v1'; \
 							l('upgradeButton').className = 'v1'; \
