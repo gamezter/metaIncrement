@@ -80,6 +80,7 @@ $(document).ready(function(){
 	});
 
 	$('#collectMoneyButton').click(function(){
+		show('money');
 		money += bMoney;
 		totalMoney += money;
 		bMoney = 0;
@@ -263,7 +264,9 @@ if (!window.requestAnimationFrame){
 }
 
 function animate(){
-	requestAnimationFrame(animate);
+	setTimeout(function(){
+		requestAnimationFrame(animate);
+	}, 1000 / 60);
 	update();
 }
 
@@ -276,14 +279,12 @@ function show(id){
 function checks(){
 	l('bMoneyRate').innerHTML = (bMoneyRate * 60).toFixed(2);
 	l('gameRateValue').innerHTML = (gCounterRate * 60).toFixed(1);
-
-	if(money > 0){show('money');}
-	if(skill > 10){show('skill');}
-	if(skill >= 25){show('upgradeButton');}
+	if(skill > 5){show('skill');}
+	if(skill >= 10){show('upgradeButton');}
 	if(money >= 5){show('hireProgrammerButton');}
 }
 
-var upgradeEffects = [	50, "l('codeButton').className = 'v1'; \
+var upgradeEffects = [	25, "l('codeButton').className = 'v1'; \
 							l('upgradeButton').className = 'v1'; \
 							l('skill').className = 'v1'; \
 							l('money').className = 'v1'; \
@@ -306,8 +307,8 @@ var upgradeEffects = [	50, "l('codeButton').className = 'v1'; \
 						"Add a Worker side bar (50 skill)",
 						50, "l('gameRightBar').className = 'v1';",
 
-						"Place an ad on your website +0.01$/s (100 skill)",
-						100, "show('gameAd'); show('boobleAdcentsTab'); bMoneyRate += 0.01/60;",
+						"Place an ad on your website +0.01$/s (50 skill)",
+						50, "show('gameAd'); show('boobleAdcentsTab'); bMoneyRate += 0.01/60;",
 
 						"Add a Worker +0.01$/s (100 skill)",
 						100, "show('worker1'); bMoneyRate += 0.01/60;",
