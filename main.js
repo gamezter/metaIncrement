@@ -82,17 +82,17 @@ $(document).ready(function(){
 		}
 	})
 
-	$(".worker").click(function(){
-		var worker = workers[parseInt($(this).attr('id'))];
+	$(".worker :button").click(function(){
+		var worker = workers[parseInt($(this).parent().attr('id'))];
 		game.gCounter -= worker.price;
 		worker.price += Math.floor(worker.price * 0.15);
 		worker.number++;
 		game.gCounterRate += worker.rate;
 		if(game.gCounter < worker.price){
-			$(this).find('button').disabled = true;
+			$(this).disabled = true;
 		}
-		$(this).find('.n').html(worker.number);
-		$(this).find('.price').html(worker.price + " things");
+		$(this).parent().find('.n').html(worker.number);
+		$(this).parent().find('.price').html(worker.price + " things");
 	});
 });
 /****************************Update*****************************/
@@ -110,24 +110,24 @@ function update(){
 	if(game.skill >= mUpgrades[game.upgradeIndex].price){l('upgradeButton').disabled = false;
 		}else{l('upgradeButton').disabled = true;}
 
-	if(game.gCounter >= workers[0].price){l('buyWorker1').disabled = false;
-		}else{l('buyWorker1').disabled = true;}
-	if(game.gCounter >= workers[1].price){l('buyWorker2').disabled = false;
-		}else{l('buyWorker2').disabled = true;}
-	if(game.gCounter >= workers[2].price){l('buyWorker3').disabled = false;
-		}else{l('buyWorker3').disabled = true;}
-	if(game.gCounter >= workers[3].price){l('buyWorker4').disabled = false;
-		}else{l('buyWorker4').disabled = true;}
-	if(game.gCounter >= workers[4].price){l('buyWorker5').disabled = false;
-		}else{l('buyWorker5').disabled = true;}
-	if(game.gCounter >= workers[5].price){l('buyWorker6').disabled = false;
-		}else{l('buyWorker6').disabled = true;}
-	if(game.gCounter >= workers[6].price){l('buyWorker7').disabled = false;
-		}else{l('buyWorker7').disabled = true;}
-	if(game.gCounter >= workers[7].price){l('buyWorker8').disabled = false;
-		}else{l('buyWorker8').disabled = true;}
-	if(game.gCounter >= workers[8].price){l('buyWorker9').disabled = false;
-		}else{l('buyWorker9').disabled = true;}
+	if(game.gCounter >= workers[0].price){l('b0').disabled = false;
+		}else{l('b0').disabled = true;}
+	if(game.gCounter >= workers[1].price){l('b1').disabled = false;
+		}else{l('b1').disabled = true;}
+	if(game.gCounter >= workers[2].price){l('b2').disabled = false;
+		}else{l('b2').disabled = true;}
+	if(game.gCounter >= workers[3].price){l('b3').disabled = false;
+		}else{l('b3').disabled = true;}
+	if(game.gCounter >= workers[4].price){l('b4').disabled = false;
+		}else{l('b4').disabled = true;}
+	if(game.gCounter >= workers[5].price){l('b5').disabled = false;
+		}else{l('b5').disabled = true;}
+	if(game.gCounter >= workers[6].price){l('b6').disabled = false;
+		}else{l('b6').disabled = true;}
+	if(game.gCounter >= workers[7].price){l('b7').disabled = false;
+		}else{l('b7').disabled = true;}
+	if(game.gCounter >= workers[8].price){l('b8').disabled = false;
+		}else{l('b8').disabled = true;}
 }
 /************************Helper Functions***********************/
 if (!window.requestAnimationFrame){
