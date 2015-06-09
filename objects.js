@@ -27,6 +27,7 @@ var mUpgrades = [
 		"l('codeButton').style.cssText +='top: 25px;left: 25px;',\
 		l('upgradeButton').style.cssText +='top: 25px;left: 25px;',\
 		l('skill').style.cssText +='top: 25px;left: 25px;',\
+		l('talent').style.cssText +='top: 25px;left: 25px;',\
 		l('money').style.cssText +='top: 25px;left: 25px;',\
 		l('hireProgrammerButton').style.cssText +='top: 25px;left: 25px;',\
 		l('hireDesignerButton').style.cssText +='top: 25px;left: 25px;',\
