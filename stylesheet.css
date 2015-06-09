@@ -87,6 +87,9 @@ body{margin: 0px; overflow: hidden;}
 		border-left: 1px solid white;
 		box-sizing: border-box;
 	}
+		#workers{
+			margin: 0px;
+		}
 		#gameAd{
 			position: absolute;
 			width: 290px;

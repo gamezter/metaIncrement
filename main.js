@@ -156,7 +156,7 @@ function show(id){
 }
 
 function checks(){
-	l('bMoneyRate').innerHTML = (bMoneyRate * 30).toFixed(2);
+	l('bMoneyRate').innerHTML = (game.bMoneyRate * 30).toFixed(2);
 	l('gameRateValue').innerHTML = (game.gCounterRate * 30).toFixed(1);
 	if(game.skill > 5){show('skill');}
 	if(game.skill >= 10){show('upgradeButton');}
