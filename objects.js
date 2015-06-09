@@ -5,7 +5,9 @@ function mUpgrade(name, price, description, action){
 	this.action = action;
 }
 
-function worker(number, price, rate){
+function worker(id, name, number, price, rate){
+	this.id = id
+	this.name = name;
 	this.number = number;
 	this.price = price;
 	this.rate = rate;
@@ -143,13 +145,13 @@ var mUpgrades = [
 ];
 
 var workers = [
-	new worker(0, 15, 0.1/30),
-	new worker(0, 100, 0.5/30),
-	new worker(0, 500, 4/30),
-	new worker(0, 3000, 10/30),
-	new worker(0, 10000, 40/30),
-	new worker(0, 40000, 100/30),
-	new worker(0, 200000, 400/30),
-	new worker(0, 1666666, 6666/30),
-	new worker(0, 123456789, 98765/30)
+	new worker(0, 'worker1', 0, 15, 0.1/30),
+	new worker(1 ,'worker2', 0, 100, 0.5/30),
+	new worker(2, 'worker3', 0, 500, 4/30),
+	new worker(3, 'worker4', 0, 3000, 10/30),
+	new worker(4, 'worker5', 0, 10000, 40/30),
+	new worker(5, 'worker6', 0, 40000, 100/30),
+	new worker(6, 'worker7', 0, 200000, 400/30),
+	new worker(7, 'worker8', 0, 1666666, 6666/30),
+	new worker(8, 'worker9', 0, 123456789, 98765/30)
 ];
