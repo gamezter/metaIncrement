@@ -36,6 +36,10 @@ $(document).ready(function(){
 
 	setInterval(checks, 2000); //every 2s
 
+	for(var i = 0; i < mUpgrades.length; i++){
+		l('mUpgrades').innerHTML += "<div class='mUpgrade' id='mUpgrades[" + i + "].name'></div>";
+	}
+
 	$('#codeButton').click(function(){
 		game.skill += game.skillIncrement;
 		game.totalSkill += game.skillIncrement;
