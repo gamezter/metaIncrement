@@ -11,7 +11,7 @@ body{margin: 0px;}
 	position: fixed;
 	height: 100vh;
 	width: 300px;
-	z-index: 2;
+	z-index: 5;
 	border-right: 1px solid white;
 }
 	/*************************sideBar buttons and fields*************************/
@@ -32,7 +32,7 @@ body{margin: 0px;}
 	width: calc(100vw - 300px);
 	height: 75px;
 	top: -75px;left: 300px;
-	z-index: 1;
+	z-index: 4;
 	border-bottom: 1px solid white;
 }
 	#tabs{
@@ -64,7 +64,7 @@ body{margin: 0px;}
 	width: calc(100vw - 300px);
 	height: calc(100vh - 75px);
 	top: -75px;left: 300px;
-	z-index: 0;
+	z-index: 3;
 }
 	/*************************gameTopBar*************************/
 	
@@ -93,7 +93,7 @@ body{margin: 0px;}
 	#gameClickerArea{
 		position: relative;
 		float: left;
-		height: calc(100% - 50px);
+		height: 100%;
 		width: calc(100% - 300px);
 		overflow: hidden;
 	}
@@ -125,15 +125,16 @@ body{margin: 0px;}
 		position: absolute;
 		margin: 0px;
 		padding: 0px;
-		right: 0px;
+		right: -1px;
 		top: 50%;
+		z-index: 2;
 		-webkit-transform-origin: bottom right;
 		-webkit-transform: rotate(-90deg) translate(50%);
 		transform-origin: bottom right;
 		transform: rotate(-90deg) translate(50%);
 		}
 		#sideTabs input{
-			/*display: none;*/
+			display: none;
 		}
 		#sideTabs span{
 			display: inline;
@@ -142,25 +143,24 @@ body{margin: 0px;}
 			border-bottom: 1px solid black;
 			background-color: white;
 			cursor: pointer;
+			
 			transition: border 0s;
 		}
 		#sideTabs input:checked  + span{
 			border-bottom: 1px solid white;
 			cursor: default;
+			
 		}
-		#achievements{
+		#achievements, #upgrades{
 			position: absolute;
 			height: 100%;
 			width: 300px;
 			top: 0px;left: 100%;
-			background-color: blue;
+			border-left: 1px solid black;
+			z-index: 1;
 		}
-		#upgrades{
-			position: absolute;
-			height: 100%;
-			width: 300px;
-			top: 0px;left: 100%;
-			background-color: red;
+		.hide{
+			cursor: pointer;
 		}
 /*************************boobleAdcentsPage*************************/
 #boobleAdcentsPage{
@@ -168,7 +168,7 @@ body{margin: 0px;}
 	width: calc(100vw - 300px);
 	height: calc(100vh - 75px);
 	top: 0px;left: 300px;
-	z-index: 0;
+	z-index: 3;
 }
 	#boobleAdcentsPage h1{
 		margin: 0px;

@@ -98,7 +98,7 @@ $(document).ready(function(){
 	});
 
 	$("input[name=tab]").click(function(){
-		var value = $("input:checked").val();
+		var value = $(this).val();
 		switch(value){
 			case "0":
 				l('gamePage').style.display = 'block';
@@ -112,24 +112,31 @@ $(document).ready(function(){
 		}
 	})
 	$("input[name=sideTab]").click(function(){
-		var value = $("input:checked").val();
+		var value = $(this).val();
 		switch(value){
 			case "0":
 				l('achievements').style.display = 'block';
 				l('achievements').style.left = 'calc(100% - 300px)';
 				l('upgrades').style.display = 'none';
 				l('achievementsTab').className = "";
-				l('sideTabs').style.right = '300px';
+				l('sideTabs').style.right = '299px';
 				break;
 			case "1":
 				l('achievements').style.display = 'none';
 				l('upgrades').style.display = 'block';
 				l('upgrades').style.left = 'calc(100% - 300px)';
 				l('upgradesTab').className = "";
-				l('sideTabs').style.right = '300px';
+				l('sideTabs').style.right = '299px';
 				break;
 		}
 	})
+	$(".hide").click(function(){
+		l('achievements').style.left = '100%';
+		l('achievements').style.display = 'block';
+		l('upgrades').style.left = '100%';
+		l('upgrades').style.display = 'block';
+		l('sideTabs').style.right = '-1px';
+	});
 
 	$(".worker :button").click(function(){
 		var worker = workers[parseInt($(this).parent().attr('id'))];
