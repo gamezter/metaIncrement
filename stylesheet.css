@@ -23,7 +23,25 @@ body{margin: 0px;}
 	/*************************programmer*************************/
 	#programmer, #designer{
 		position: relative;
-		top: 25px;left: 25px;
+		top: 25px; left: 25px;
+	}
+	#mUpgrades{
+		display: flex;
+		flex-wrap: wrap;
+		align-content: flex-start;
+		position: relative;
+		top: 25px; left: 25px;
+		width: 250px;
+		height: 500px;
+		background-color: red;
+		overflow-y: scroll;
+	}
+	.mUpgrade{
+		width: 75px;
+		height: 75px;
+		margin: 1px;
+		background-color: blue;
+		box-sizing: border-box;
 	}
 /*************************tabNav*************************/
 #tabNav{
@@ -53,6 +71,7 @@ body{margin: 0px;}
 			background-color: white;
 			cursor: pointer;
 			transition: border 0s;
+			cursor: pointer;
 		}
 		#tabs input:checked  + span{
 			border-bottom: 1px solid white;
