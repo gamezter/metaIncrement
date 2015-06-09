@@ -68,6 +68,7 @@ $(document).ready(function(){
 	$('#gameClicker').click(function(){
 		game.gCounter +=1;
 	});
+
 	$("input").click(function(){
 		var value = $("input:checked").val();
 		switch(value){
@@ -105,7 +106,7 @@ function update(){
 	l('gameCounterValue').innerHTML = game.gCounter.toFixed(0);
 	l('bMoney').innerHTML = game.bMoney.toFixed(2);
 
-	if(game.money >= programmerPrice){l('hireProgrammerButton').disabled = false;
+	if(game.money >= game.programmerPrice){l('hireProgrammerButton').disabled = false;
 		}else{l('hireProgrammerButton').disabled = true;}
 	if(game.skill >= mUpgrades[game.upgradeIndex].price){l('upgradeButton').disabled = false;
 		}else{l('upgradeButton').disabled = true;}
