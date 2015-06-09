@@ -91,6 +91,22 @@ var mUpgrades = [
 	),
 
 	new mUpgrade(	
+		"Unlock achievements +0.01$/s",
+		100,
+		"skill",
+		"Unlock achievements +0.01$/s",
+		"show('achievementsTab'); game.bMoneyRate += 0.01/30; l('achievementsTab').className = 'alert';"
+	),
+
+	new mUpgrade(	
+		"Unlock upgrades +0.01$/s",
+		100,
+		"skill",
+		"Unlock upgrades +0.01$/s",
+		"show('upgradesTab'); game.bMoneyRate += 0.01/30; l('upgradesTab').className = 'alert';"
+	),
+
+	new mUpgrade(	
 		"Show thing rate +0.01$/s",
 		100,
 		"skill",
