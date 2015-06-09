@@ -38,7 +38,7 @@ $(document).ready(function(){
 		game.skill -= skillReq;
 		eval(mUpgrades[game.upgradeIndex].action);
 		game.upgradeIndex++;
-		l('upgradeDesc').innerHTML = mUpgrades[game.upgradeIndex].description;
+		l('upgradeDesc').innerHTML = mUpgrades[game.upgradeIndex].description + " (" + mUpgrades[game.upgradeIndex].price + " skill)";
 		if(skill < mUpgrades[game.upgradeIndex + 1].price){
 			l('upgradeButton').disabled = true;
 		}
