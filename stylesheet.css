@@ -7,47 +7,26 @@ html{
 }
 body{margin: 0px; overflow: hidden;}
 /*************************sideBar*************************/
-#sideBar.v0{
+#sideBar{
 	position: fixed;
 	height: 100vh;
 	width: 300px;
 	z-index: 2;
 	border-right: 1px solid white;
-}
-#sideBar.v1{
-	position: fixed;
-	height: 100vh;
-	width: 300px;
-	z-index: 2;
-	border-right: 1px solid black;
-}
-#sideBar.v2{
-	position: fixed;
-	height: 100vh;
-	width: 300px;
-	border-right: 1px solid white;
-	box-shadow: 2px 0px 5px 0px #888;
-	z-index: 2;
 }
 	/*************************sideBar buttons and fields*************************/
-	#codeButton.v0, #money.v0, #skill.v0, #upgradeButton.v0, #hireProgrammerButton.v0
-	{
+	#codeButton, #money, #skill, #upgradeButton, #hireProgrammerButton{
 		position: relative;
 		top: 0px;left: 0px;
 		max-width: 250px;
 	}
-	#codeButton.v1, #money.v1, #skill.v1, #upgradeButton.v1, #hireProgrammerButton.v1{
-		position: relative;
-		top: 25px;left: 25px;
-		max-width: 250px;
-	}
 	/*************************programmer*************************/
-	#programmer.v0{
+	#programmer{
 		position: relative;
 		top: 25px;left: 25px;
 	}
 /*************************tabNav*************************/
-#tabNav.v0{
+#tabNav{
 	position: relative;
 	visibility: hidden;
 	width: calc(100vw - 300px);
@@ -56,25 +35,7 @@ body{margin: 0px; overflow: hidden;}
 	z-index: 1;
 	border-bottom: 1px solid white;
 }
-#tabNav.v1{
-	position: relative;
-	visibility: visible;
-	width: calc(100vw - 300px);
-	height: 75px;
-	top: 0px;left: 300px;
-	z-index: 1;
-	border-bottom: 1px solid black;
-}
-#tabNav.v2{
-	position: relative;
-	visibility: visible;
-	width: calc(100vw - 300px);
-	height: 75px;
-	top: 0px;left: 300px;
-	z-index: 1;
-	box-shadow: 2px 2px 5px 0px #888;
-}
-	#tabs.v0{
+	#tabs{
 		margin: 0px;
 		padding: 0px;
 	}
@@ -95,66 +56,37 @@ body{margin: 0px; overflow: hidden;}
 			cursor: default;
 		}
 /*************************gamePage*************************/
-#gamePage.v0{
+#gamePage{
 	position: relative;
 	width: calc(100vw - 300px);
 	height: calc(100vh - 75px);
 	top: -75px;left: 300px;
 	z-index: 0;
 }
-#gamePage.v1{
-	position: relative;
-	width: calc(100vw - 300px);
-	height: calc(100vh - 75px);
-	top: 0px;left: 300px;
-	z-index: 0;
-}
 	/*************************gameTopBar*************************/
-	#gameTopBar.v0{
+	#gameTopBar{
 		position: relative;
 		float: left;
 		height: 50px;
 		width: calc(100% - 300px);
 		overflow: hidden;
 	}
-	#gameTopBar.v1{
-		position: relative;
-		float: left;
-		height: 50px;
-		width: calc(100% - 300px);
-		overflow: hidden;
-	}
-		#gameTopBarH1.v0{
+		#gameTopBarH1{
 			position: relative;
 			left: -500px;
 			margin: 0px;
 		}
-	
-		#gameTopBarH1.v1{
-			position: relative;
-			left: 0px;
-			margin: 0px;
-		}
 	/*************************gameRightBar*************************/
-	#gameRightBar.v0{
+	#gameRightBar{
 		position: relative;
 		float: right;
 		height: 100%;
 		width: 300px;
 		left: 300px;
-		border-left: 1px solid white
+		border-left: 1px solid white;
 		box-sizing: border-box;
 	}
-	#gameRightBar.v1{
-		position: relative;
-		float: right;
-		height: 100%;
-		width: 300px;
-		left: 0px;
-		border-left: 1px solid black;
-		box-sizing: border-box;
-	}
-		#gameAd.v0{
+		#gameAd{
 			position: absolute;
 			width: 290px;
 			height: 290px;
@@ -163,41 +95,28 @@ body{margin: 0px; overflow: hidden;}
 			background-color: purple;
 		}
 	/*************************gameClickerArea*************************/
-	#gameClickerArea.v0{
+	#gameClickerArea{
 		position: relative;
 		float: left;
 		height: calc(100% - 50px);
 		width: calc(100% - 300px);
 	}
-		#gameCounterArea.v0{
+		#gameCounterArea{
 			overflow: hidden;
 		}
-			#gameCounter.v0{
+			#gameCounter{
 				display:inline-block;
 				position: relative;
 				left: -100px;
 			}
-			#gameCounter.v1{
-				display: inline-block;
-				position: relative;
-				left: 0px;
-			}
-		#gameClicker.v0{
+		#gameClicker{
 			position: relative;
 			visibility: hidden;
 			height: 400px;
 			width: 400px;
 		}
-		#gameClicker.v1{
-			position: relative;
-			visibility: visible;
-			height: 400px;
-			width: 400px;
-			background-color: orange;
-			cursor: pointer;
-		}
 /*************************boobleAdcentsPage*************************/
-#boobleAdcentsPage.v0{
+#boobleAdcentsPage{
 	position: relative;
 	width: calc(100vw - 300px);
 	height: calc(100vh - 75px);

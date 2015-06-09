@@ -3,30 +3,31 @@
 	<head>
 		<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script type="text/javascript" src="objects.js"></script>
 		<script type="text/javascript" src="main.js"></script>
 		
 	</head>
 	<body>
-		<div class='v0' id="sideBar">
+		<div id="sideBar">
 
-			<button class='v0' id="codeButton">Write some code</button>
+			<button id="codeButton">Write some code</button>
 
-			<p class='v0' id="skill" style=" display: none">skill: <span id="skillValue"></span></p>
+			<p id="skill" style=" display: none">skill: <span id="skillValue"></span></p>
 
-			<p class='v0' id="money" style=" display: none">money: <span id="moneyValue"></span> $</p>
+			<p id="money" style=" display: none">money: <span id="moneyValue"></span> $</p>
 
-			<button class='v0' id="upgradeButton" disabled style=" display: none"><span id="upgradeDesc">upgrade your software (25 skill)</span></button>
+			<button id="upgradeButton" disabled style=" display: none"><span id="upgradeDesc">upgrade your software (25 skill)</span></button>
 
-			<button class='v0' id="hireProgrammerButton" disabled style="display: none">Hire a programmer (<span id='programmerPrice'>10</span> $)</button>
+			<button id="hireProgrammerButton" disabled style="display: none">Hire a programmer (<span id='programmerPrice'>10</span> $)</button>
 
-			<div class='v0' id='programmer' style="display: none">
-				<span class='v0' id='nProgrammers' style="display: none"></span>
+			<div id='programmer' style="display: none">
+				<span id='nProgrammers' style="display: none"></span>
 			</div>
 
 		</div>
-		<div class='v0' id="tabNav">
+		<div id="tabNav">
 
-			<form class='v0' id='tabs'>
+			<form id='tabs'>
 				<label>
 					<input type='radio' name='tab' value='0' checked>
 					<span id='websiteTab'>Your Website</span>
@@ -40,88 +41,88 @@
 		</div>
 		<div id='pages'>
 
-			<div class='v0' id="gamePage">
-				<div class='v0' id="gameTopBar">
-					<h1 class='v0' id="gameTopBarH1">Welcome to <span class='v0' id="gameName">Enter Name Here</span></h1>
+			<div id="gamePage">
+				<div id="gameTopBar">
+					<h1 id="gameTopBarH1">Welcome to <span id="gameName">Enter Name Here</span></h1>
 				</div>
-				<div class='v0' id="gameRightBar">
-					<h1 class='v0' id='workers'>Workers</h1>
+				<div id="gameRightBar">
+					<h1 id='workers'>Workers</h1>
 					<ul>
-						<li class='v0' id='worker1' style='display: none'>
+						<li id='worker1' style='display: none'>
 							<span id='nWorker1'>0</span><h7> Worker1</h7>
-							<button class='v0' id='buyWorker1' disabled>
+							<button id='buyWorker1' disabled>
 								<span id='worker1Price'>15 things</span>
 							</button>
 						</li>
-						<li class='v0' id='worker2' style='display: none'>
+						<li id='worker2' style='display: none'>
 							<span id='nWorker2'>0</span><h7> Worker2</h7>
-							<button class='v0' id='buyWorker2' disabled>
+							<button id='buyWorker2' disabled>
 								<span id='worker2Price'>100 things</span>
 							</button>
 						</li>
-						<li class='v0' id='worker3' style='display: none'>
+						<li id='worker3' style='display: none'>
 							<span id='nWorker3'>0</span><h7> Worker3</h7>
-							<button class='v0' id='buyWorker3' disabled>
+							<button id='buyWorker3' disabled>
 								<span id='worker3Price'>500 things</span>
 							</button>
 						</li>
-						<li class='v0' id='worker4' style='display: none'>
+						<li id='worker4' style='display: none'>
 							<span id='nWorker4'>0</span><h7> Worker4</h7>
-							<button class='v0' id='buyWorker4' disabled>
+							<button id='buyWorker4' disabled>
 								<span id='worker4Price'>3000 things</span>
 							</button>
 						</li>
-						<li class='v0' id='worker5' style='display: none'>
+						<li id='worker5' style='display: none'>
 							<span id='nWorker5'>0</span><h7> Worker5</h7>
-							<button class='v0' id='buyWorker5' disabled>
+							<button id='buyWorker5' disabled>
 								<span id='worker5Price'>10000 things</span>
 							</button>
 						</li>
-						<li class='v0' id='worker6' style='display: none'>
+						<li id='worker6' style='display: none'>
 							<span id='nWorker6'>0</span><h7> Worker6</h7>
-							<button class='v0' id='buyWorker6' disabled>
+							<button id='buyWorker6' disabled>
 								<span id='worker6Price'>40000 things</span>
 							</button>
 						</li>
-						<li class='v0' id='worker7' style='display: none'>
+						<li id='worker7' style='display: none'>
 							<span id='nWorker7'>0</span><h7> Worker7</h7>
-							<button class='v0' id='buyWorker7' disabled>
+							<button id='buyWorker7' disabled>
 								<span id='worker7Price'>200000 things</span>
 							</button>
 						</li>
-						<li class='v0' id='worker8' style='display: none'>
+						<li id='worker8' style='display: none'>
 							<span id='nWorker8'>0</span><h7> Worker8</h7>
-							<button class='v0' id='buyWorker8' disabled>
+							<button id='buyWorker8' disabled>
 								<span id='worker8Price'>1666666 things</span>
 							</button>
 						</li>
-						<li class='v0' id='worker9' style='display: none'>
+						<li id='worker9' style='display: none'>
 							<span id='nWorker9'>0</span><h7> Worker9</h7>
-							<button class='v0' id='buyWorker9' disabled>
+							<button id='buyWorker9' disabled>
 								<span id='worker9Price'>123456789 things</span>
 							</button>
 						</li>
 					</ul>
-					<div class='v0' id="gameAd" style="display: none">
+					<div id="gameAd" style="display: none">
 						<h1>AD</h1>
 					</div>
 				</div>
-				<div class='v0' id="gameClickerArea">
-					<div class='v0' id='gameCounterArea'>
-						<h2 class='v0' id='gameCounter'><span id='gameCounterValue'>0</span> things</h2>
-						<h3 class='v0' id='gameRate' style='display: none'><span id='gameRateValue'></span> things/s</h3>
+				<div id="gameClickerArea">
+					<div id='gameCounterArea'>
+						<h2 id='gameCounter'><span id='gameCounterValue'>0</span> things</h2>
+						<h3 id='gameRate' style='display: none'><span id='gameRateValue'></span> things/s</h3>
 					</div>
-					<div class='v0' id="gameClicker">
+					<div id="gameClicker">
 						Click me!
 					</div>
 				</div>
 			</div>
 
-			<div class='v0' id="boobleAdcentsPage" style="display: none">
+			<div id="boobleAdcentsPage" style="display: none">
 				<h1>Welcome to Booble Adcents</h1>
 				<h2>Earned Money: <span id='bMoney'></span> $</h2>
 				<h3><span id='bMoneyRate'>0</span>$/s</h3>
-				<button class='v0' id="collectMoneyButton">Collect your money</button>
+				<button id="collectMoneyButton">Collect your money</button>
 			</div>
 
 		</div>
