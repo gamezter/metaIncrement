@@ -50,9 +50,6 @@
 		<div id='pages'>
 
 			<div id="gamePage">
-				<div id="gameTopBar">
-					<h1 id="gameTopBarH1">Welcome to <span id="gameName">Enter Name Here</span></h1>
-				</div>
 				<div id="gameRightBar">
 					<h1 id='workersH1'>Workers</h1>
 					<ul id="workers">
@@ -116,12 +113,29 @@
 					</div>
 				</div>
 				<div id="gameClickerArea">
+					<div id="gameTopBar">
+						<h1 id="gameTopBarH1">Welcome to Enter Name Here</h1>
+					</div>
 					<div id='gameCounterArea'>
 						<h2 id='gameCounter'><span id='gameCounterValue'>0</span> things</h2>
 						<h3 id='gameRate' style='display: none'><span id='gameRateValue'></span> things/s</h3>
 					</div>
 					<div id="gameClicker">
 						Click me!
+					</div>
+					<form id='sideTabs'>
+						<label>
+							<input type='radio' name='sideTab' value='0'>
+							<span id='achievementsTab'>Achievements</span>
+						</label>
+						<label>
+							<input type='radio' name='sideTab' value='1'>
+							<span id='upgradesTab'>Upgrades</span>
+						</label>
+					</form>
+					<div id="achievements">
+					</div>
+					<div id="upgrades">
 					</div>
 				</div>
 			</div>

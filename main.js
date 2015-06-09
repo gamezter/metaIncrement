@@ -97,7 +97,7 @@ $(document).ready(function(){
 		game.gCounter +=1;
 	});
 
-	$("input").click(function(){
+	$("input[name=tab]").click(function(){
 		var value = $("input:checked").val();
 		switch(value){
 			case "0":
@@ -108,6 +108,25 @@ $(document).ready(function(){
 				l('gamePage').style.display = 'none';
 				l('boobleAdcentsPage').style.display = 'block';
 				l('boobleAdcentsTab').className = "";
+				break;
+		}
+	})
+	$("input[name=sideTab]").click(function(){
+		var value = $("input:checked").val();
+		switch(value){
+			case "0":
+				l('achievements').style.display = 'block';
+				l('achievements').style.left = 'calc(100% - 300px)';
+				l('upgrades').style.display = 'none';
+				l('achievementsTab').className = "";
+				l('sideTabs').style.right = '300px';
+				break;
+			case "1":
+				l('achievements').style.display = 'none';
+				l('upgrades').style.display = 'block';
+				l('upgrades').style.left = 'calc(100% - 300px)';
+				l('upgradesTab').className = "";
+				l('sideTabs').style.right = '300px';
 				break;
 		}
 	})

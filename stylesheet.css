@@ -2,8 +2,8 @@ html{
 	overflow-x: hidden;
 }
 *{
-	-webkit-transition: top 1s, left 1s, visibility 1s, background-color 1s, border 1s, -webkit-transform 1s, box-shadow 1s;
-    transition: top 1s, left 1s, visibility 1s, background-color 1s, border 1s, transform 1s, box-shadow 1s;
+	-webkit-transition: top 1s, right 1s, left 1s, visibility 1s, background-color 1s, border 1s, -webkit-transform 1s, box-shadow 1s;
+    transition: top 1s, right 1s, left 1s, visibility 1s, background-color 1s, border 1s, transform 1s, box-shadow 1s;
 }
 body{margin: 0px;}
 /*************************sideBar*************************/
@@ -36,8 +36,11 @@ body{margin: 0px;}
 	border-bottom: 1px solid white;
 }
 	#tabs{
+		position: absolute;
+		bottom: -1px;
 		margin: 0px;
 		padding: 0px;
+		box-sizing: border-box;
 	}
 		#tabs input{
 			display: none;
@@ -45,7 +48,6 @@ body{margin: 0px;}
 		#tabs span{
 			display: inline;
 			position: relative;
-			top: 58px;
 			border: 1px solid black;
 			border-bottom: 1px solid black;
 			background-color: white;
@@ -65,18 +67,7 @@ body{margin: 0px;}
 	z-index: 0;
 }
 	/*************************gameTopBar*************************/
-	#gameTopBar{
-		position: relative;
-		float: left;
-		height: 50px;
-		width: calc(100% - 300px);
-		overflow: hidden;
-	}
-		#gameTopBarH1{
-			position: relative;
-			left: -500px;
-			margin: 0px;
-		}
+	
 	/*************************gameRightBar*************************/
 	#gameRightBar{
 		position: relative;
@@ -104,12 +95,23 @@ body{margin: 0px;}
 		float: left;
 		height: calc(100% - 50px);
 		width: calc(100% - 300px);
+		overflow: hidden;
 	}
+		#gameTopBar{
+			position: relative;
+			height: 50px;
+			width: 100%;
+			overflow: hidden;
+		}
+			#gameTopBarH1{
+				position: relative;
+				left: -500px;
+				margin: 0px;
+			}
 		#gameCounterArea{
 			overflow: hidden;
 		}
 			#gameCounter{
-				display:inline-block;
 				position: relative;
 				left: -100px;
 			}
@@ -118,6 +120,47 @@ body{margin: 0px;}
 			visibility: hidden;
 			height: 400px;
 			width: 400px;
+		}
+		#sideTabs{
+		position: absolute;
+		margin: 0px;
+		padding: 0px;
+		right: 0px;
+		top: 50%;
+		-webkit-transform-origin: bottom right;
+		-webkit-transform: rotate(-90deg) translate(50%);
+		transform-origin: bottom right;
+		transform: rotate(-90deg) translate(50%);
+		}
+		#sideTabs input{
+			/*display: none;*/
+		}
+		#sideTabs span{
+			display: inline;
+			position: relative;
+			border: 1px solid black;
+			border-bottom: 1px solid black;
+			background-color: white;
+			cursor: pointer;
+			transition: border 0s;
+		}
+		#sideTabs input:checked  + span{
+			border-bottom: 1px solid white;
+			cursor: default;
+		}
+		#achievements{
+			position: absolute;
+			height: 100%;
+			width: 300px;
+			top: 0px;left: 100%;
+			background-color: blue;
+		}
+		#upgrades{
+			position: absolute;
+			height: 100%;
+			width: 300px;
+			top: 0px;left: 100%;
+			background-color: red;
 		}
 /*************************boobleAdcentsPage*************************/
 #boobleAdcentsPage{
