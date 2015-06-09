@@ -15,7 +15,7 @@ var upgradeIndex = 0;
 var programmerPrice = 10;
 var programmerSkill = 1/30;
 var nProgrammers = 0;
-	
+
 	/*******************************MetaGameParameters*****************************/
 	var gCounter = 0;
 	var gCounterRate = 0;
@@ -225,12 +225,12 @@ function update(){
 	l('moneyValue').innerHTML = money.toFixed(2);
 	l('gameCounterValue').innerHTML = gCounter.toFixed(0);
 	l('bMoney').innerHTML = bMoney.toFixed(2);
-	
+
 	if(money >= programmerPrice){l('hireProgrammerButton').disabled = false;
 		}else{l('hireProgrammerButton').disabled = true;}
 	if(skill >= mUpgrades[upgradeIndex].price){l('upgradeButton').disabled = false;
 		}else{l('upgradeButton').disabled = true;}
-		
+
 	if(gCounter >= gWorker1Price){l('buyWorker1').disabled = false;
 		}else{l('buyWorker1').disabled = true;}
 	if(gCounter >= gWorker2Price){l('buyWorker2').disabled = false;
@@ -258,7 +258,11 @@ if (!window.requestAnimationFrame){
         		window.oRequestAnimationFrame 		||
             	window.msRequestAnimationFrame 		||
             	function(callback, element) {
+<<<<<<< HEAD
                 	window.setTimeout(callback, 1000 / 30);
+=======
+                	window.setTimeout(callback, 1000 / 3-0);
+>>>>>>> origin/master
        			};
     })();
 }
@@ -339,4 +343,11 @@ function checks(){
 
 						"Add a Worker +0.01$/s (1500 skill)",
 						1500, "show('worker9'); bMoneyRate += 0.01/30;"
+<<<<<<< HEAD
 					]*/
+=======
+					]
+function l(what){
+	return document.getElementById(what);
+}
+>>>>>>> origin/master
