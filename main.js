@@ -80,6 +80,7 @@ $(document).ready(function(){
 
 	$('#hireDesignerButton').click(function(){
 		show('designer');
+		show('talent');
 		game.money -= game.designerPrice;
 		game.designerPrice += game.designerPrice * 0.2;
 		game.talentRate += game.designerTalent;
@@ -106,6 +107,7 @@ $(document).ready(function(){
 			case "1":
 				l('gamePage').style.display = 'none';
 				l('boobleAdcentsPage').style.display = 'block';
+				l('boobleAdcentsTab').className = "";
 				break;
 		}
 	})

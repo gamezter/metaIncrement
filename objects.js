@@ -29,6 +29,7 @@ var mUpgrades = [
 		l('skill').style.cssText +='top: 25px;left: 25px;',\
 		l('money').style.cssText +='top: 25px;left: 25px;',\
 		l('hireProgrammerButton').style.cssText +='top: 25px;left: 25px;',\
+		l('hireDesignerButton').style.cssText +='top: 25px;left: 25px;',\
 		l('sideBar').style.cssText +='border-right: 1px solid black;'"
 	),
 
@@ -78,7 +79,7 @@ var mUpgrades = [
 		50,
 		"skill",
 		"Place an Ad on your Website +0.01$/s",
-		"show('gameAd'); show('boobleAdcentsTab'); game.bMoneyRate += 0.01/30;"
+		"show('gameAd'); show('boobleAdcentsTab');l('boobleAdcentsTab').className = 'alert'; game.bMoneyRate += 0.01/30;"
 	),
 
 	new mUpgrade(	

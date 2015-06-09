@@ -5,7 +5,7 @@ html{
 	-webkit-transition: top 1s, left 1s, visibility 1s, background-color 1s, border 1s, -webkit-transform 1s, box-shadow 1s;
     transition: top 1s, left 1s, visibility 1s, background-color 1s, border 1s, transform 1s, box-shadow 1s;
 }
-body{margin: 0px; overflow: hidden;}
+body{margin: 0px;}
 /*************************sideBar*************************/
 #sideBar{
 	position: fixed;
@@ -15,7 +15,7 @@ body{margin: 0px; overflow: hidden;}
 	border-right: 1px solid white;
 }
 	/*************************sideBar buttons and fields*************************/
-	#codeButton, #money, #skill, #upgradeButton, #hireProgrammerButton{
+	#codeButton, #money, #skill, #talent, #upgradeButton, #hireProgrammerButton, #hireDesignerButton{
 		position: relative;
 		top: 0px;left: 0px;
 		max-width: 250px;
@@ -130,3 +130,18 @@ body{margin: 0px; overflow: hidden;}
 	#boobleAdcentsPage h1{
 		margin: 0px;
 	}
+
+.alert{
+	-webkit-animation: flash 2s infinite;
+	animation: flash 2s infinite;
+}
+@-webkit-keyframes flash {
+  0%	{background-color: white;}
+  50%	{background-color: red;}
+  100%	{background-color: white;}
+}
+@keyframes flash {
+  0%	{background-color: white;}
+  50%	{background-color: red;}
+  100%	{background-color: white;}
+}
