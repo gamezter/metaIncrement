@@ -13,10 +13,18 @@ game.totalSkill = 0;
 game.skillIncrement = 1;
 game.skillRate = 0;
 
+game.talent = 0;
+game.totalTalent = 0;
+game.talentRate = 0;
+
 game.upgradeIndex = 0;
 game.programmerPrice = 10;
 game.programmerSkill = 1/30;
 game.nProgrammers = 0;
+
+game.designerPrice = 10;
+game.designerTalent = 1/30;
+game.nDesigners = 0;
 
 	/*******************************MetaGameParameters*****************************/
 	game.gCounter = 0;
@@ -34,11 +42,16 @@ $(document).ready(function(){
 	});
 
 	$('#upgradeButton').click(function(){
-		var skillReq = mUpgrades[game.upgradeIndex].price;
-		game.skill -= skillReq;
+		if(mUpgrades[game.upgradeIndex].type === "skill"){
+			var skillReq = mUpgrades[game.upgradeIndex].price;
+			game.skill -= skillReq;
+		}else if(mUpgrades[game.upgradeIndex].type === "talent"){
+			var talentReq = mUpgrades[game.upgradeIndex].price;
+			game.talent -= talentReq;
+		}
 		eval(mUpgrades[game.upgradeIndex].action);
 		game.upgradeIndex++;
-		l('upgradeDesc').innerHTML = mUpgrades[game.upgradeIndex].description + " (" + mUpgrades[game.upgradeIndex].price + " skill)";
+		l('upgradeDesc').innerHTML = mUpgrades[game.upgradeIndex].description + " (" + mUpgrades[game.upgradeIndex].price + " " + mUpgrades[game.upgradeIndex].type +")";
 		if(skill < mUpgrades[game.upgradeIndex + 1].price){
 			l('upgradeButton').disabled = true;
 		}
@@ -63,6 +76,20 @@ $(document).ready(function(){
 		show('nProgrammers');
 		l('nProgrammers').innerHTML = game.nProgrammers + " Programmers";
 		l('programmerPrice').innerHTML = game.programmerPrice.toFixed(2);
+	});
+
+	$('#hireDesignerButton').click(function(){
+		show('designer');
+		game.money -= game.designerPrice;
+		game.designerPrice += game.designerPrice * 0.2;
+		game.talentRate += game.designerTalent;
+		if(game.money < game.designerPrice){
+			l('hireDesignerButton').disabled = true;
+		}
+		game.nDesigners++;
+		show('nDesigners');
+		l('nDesigners').innerHTML = game.nDesigners + " Designers";
+		l('designerPrice').innerHTML = game.designerPrice.toFixed(2);
 	});
 
 	$('#gameClicker').click(function(){
@@ -100,14 +127,18 @@ $(document).ready(function(){
 function update(){
 	game.bMoney += game.bMoneyRate;
 	game.skill += game.skillRate;
+	game.talent += game.talentRate;
 	game.gCounter += game.gCounterRate;
 	l('skillValue').innerHTML = game.skill.toFixed(0);
+	l('talentValue').innerHTML = game.talent.toFixed(0);
 	l('moneyValue').innerHTML = game.money.toFixed(2);
 	l('gameCounterValue').innerHTML = game.gCounter.toFixed(0);
 	l('bMoney').innerHTML = game.bMoney.toFixed(2);
 
 	if(game.money >= game.programmerPrice){l('hireProgrammerButton').disabled = false;
 		}else{l('hireProgrammerButton').disabled = true;}
+	if(game.money >= game.designerPrice){l('hireDesignerButton').disabled = false;
+		}else{l('hireDesignerButton').disabled = true;}
 	if(game.skill >= mUpgrades[game.upgradeIndex].price){l('upgradeButton').disabled = false;
 		}else{l('upgradeButton').disabled = true;}
 
@@ -162,4 +193,5 @@ function checks(){
 	if(game.skill > 5){show('skill');}
 	if(game.skill >= 10){show('upgradeButton');}
 	if(game.money >= 5){show('hireProgrammerButton');}
+	if(game.money >= 5){show('hireDesignerButton');}
 }

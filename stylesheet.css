@@ -21,7 +21,7 @@ body{margin: 0px; overflow: hidden;}
 		max-width: 250px;
 	}
 	/*************************programmer*************************/
-	#programmer{
+	#programmer, #designer{
 		position: relative;
 		top: 25px;left: 25px;
 	}
