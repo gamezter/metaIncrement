@@ -258,11 +258,7 @@ if (!window.requestAnimationFrame){
         		window.oRequestAnimationFrame 		||
             	window.msRequestAnimationFrame 		||
             	function(callback, element) {
-<<<<<<< HEAD
                 	window.setTimeout(callback, 1000 / 30);
-=======
-                	window.setTimeout(callback, 1000 / 3-0);
->>>>>>> origin/master
        			};
     })();
 }
@@ -342,12 +338,4 @@ function checks(){
 						1000, "show('worker8'); bMoneyRate += 0.01/30;",
 
 						"Add a Worker +0.01$/s (1500 skill)",
-						1500, "show('worker9'); bMoneyRate += 0.01/30;"
-<<<<<<< HEAD
-					]*/
-=======
-					]
-function l(what){
-	return document.getElementById(what);
-}
->>>>>>> origin/master
+						1500, "show('worker9'); bMoneyRate += 0.01/30;"*/
