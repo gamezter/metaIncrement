@@ -5,6 +5,12 @@ function mUpgrade(name, price, description, action){
 	this.action = action;
 }
 
+function worker(number, price, rate){
+	this.number = number;
+	this.price = price;
+	this.rate = rate;
+}
+
 function l(what){
 	return document.getElementById(what);
 }
@@ -62,77 +68,88 @@ var mUpgrades = [
 		"Place an Ad on your Website +0.01$/s",
 		50,
 		"Place an Ad on your Website +0.01$/s",
-		"show('gameAd'); show('boobleAdcentsTab'); bMoneyRate += 0.01/30;"
+		"show('gameAd'); show('boobleAdcentsTab'); game.bMoneyRate += 0.01/30;"
 	),
 
 	new mUpgrade(	
 		"Add a Worker +0.01$/s",
 		100,
 		"Add a Worker +0.01$/s",
-		"show('worker1'); bMoneyRate += 0.01/30;"
+		"show('0'); game.bMoneyRate += 0.01/30;"
 	),
 
 	new mUpgrade(	
 		"Show thing rate +0.01$/s",
 		100,
 		"Show thing rate +0.01$/s",
-		"show('gameRate'); bMoneyRate += 0.01/30;"
+		"show('gameRate'); game.bMoneyRate += 0.01/30;"
 	),
 
 	new mUpgrade(	
 		"Add a Worker +0.01$/s",
 		150,
 		"Add a Worker +0.01$/s",
-		"show('worker2'); bMoneyRate += 0.01/30;"
+		"show('1'); game.bMoneyRate += 0.01/30;"
 	),
 
 	new mUpgrade(	
 		"Add a Worker +0.01$/s",
 		200,
 		"Add a Worker +0.01$/s",
-		"show('worker3'); bMoneyRate += 0.01/30;"
+		"show('2'); game.bMoneyRate += 0.01/30;"
 	),
 
 	new mUpgrade(	
 		"Add a Worker +0.01$/s",
 		300,
 		"Add a Worker +0.01$/s",
-		"show('worker4'); bMoneyRate += 0.01/30;"
+		"show('3'); game.bMoneyRate += 0.01/30;"
 	),
 
 	new mUpgrade(	
 		"Add a Worker +0.01$/s",
 		400,
 		"Add a Worker +0.01$/s",
-		"show('worker5'); bMoneyRate += 0.01/30;"
+		"show('4'); game.bMoneyRate += 0.01/30;"
 	),
 
 	new mUpgrade(	
 		"Add a Worker +0.01$/s",
 		500,
 		"Add a Worker +0.01$/s",
-		"show('worker6'); bMoneyRate += 0.01/30;"
+		"show('5'); game.bMoneyRate += 0.01/30;"
 	),
 
 	new mUpgrade(	
 		"Add a Worker +0.01$/s",
 		750,
 		"Add a Worker +0.01$/s",
-		"show('worker7'); bMoneyRate += 0.01/30;"
+		"show('6'); game.bMoneyRate += 0.01/30;"
 	),
 
 	new mUpgrade(	
 		"Add a Worker +0.01$/s",
 		1000,
 		"Add a Worker +0.01$/s",
-		"show('worker8'); bMoneyRate += 0.01/30;"
+		"show('7'); game.bMoneyRate += 0.01/30;"
 	),
 
 	new mUpgrade(	
 		"Add a Worker +0.01$/s",
 		1500,
 		"Add a Worker +0.01$/s",
-		"show('worker9'); bMoneyRate += 0.01/30;"
+		"show('8'); game.bMoneyRate += 0.01/30;"
 	),
 ];
 
+var workers = [
+	new worker(0, 15, 0.1/30),
+	new worker(0, 100, 0.5/30),
+	new worker(0, 500, 4/30),
+	new worker(0, 3000, 10/30),
+	new worker(0, 10000, 40/30),
+	new worker(0, 40000, 100/30),
+	new worker(0, 200000, 400/30),
+	new worker(0, 1666666, 6666/30),
+	new worker(0, 123456789, 98765/30)
+];
