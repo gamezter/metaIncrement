@@ -13,48 +13,48 @@ var skillRate = 0;
 
 var upgradeIndex = 0;
 var programmerPrice = 10;
-var programmerSkill = 1/60;
+var programmerSkill = 1/30;
 var nProgrammers = 0;
-	
+
 	/*******************************MetaGameParameters*****************************/
 	var gCounter = 0;
 	var gCounterRate = 0;
 
 	var gWorker1Number = 0;
 	var gWorker1Price = 15;
-	var gWorker1Rate= 0.1/60;
+	var gWorker1Rate= 0.1/30;
 
 	var gWorker2Number = 0;
 	var gWorker2Price = 100;
-	var gWorker2Rate= 0.5/60;
+	var gWorker2Rate= 0.5/30;
 
 	var gWorker3Number = 0;
 	var gWorker3Price = 500;
-	var gWorker3Rate= 4/60;
+	var gWorker3Rate= 4/30;
 
 	var gWorker4Number = 0;
 	var gWorker4Price = 3000;
-	var gWorker4Rate= 10/60;
+	var gWorker4Rate= 10/30;
 
 	var gWorker5Number = 0;
 	var gWorker5Price = 10000;
-	var gWorker5Rate= 40/60;
+	var gWorker5Rate= 40/30;
 
 	var gWorker6Number = 0;
 	var gWorker6Price = 40000;
-	var gWorker6Rate= 100/60;
+	var gWorker6Rate= 100/30;
 
 	var gWorker7Number = 0;
 	var gWorker7Price = 200000;
-	var gWorker7Rate= 400/60;
+	var gWorker7Rate= 400/30;
 
 	var gWorker8Number = 0;
 	var gWorker8Price = 1666666;
-	var gWorker8Rate= 6666/60;
+	var gWorker8Rate= 6666/30;
 
 	var gWorker9Number = 0;
 	var gWorker9Price = 123456789;
-	var gWorker9Rate= 98765/60;
+	var gWorker9Rate= 98765/30;
 
 
 /***************************Game logic*************************/
@@ -225,12 +225,12 @@ function update(){
 	l('moneyValue').innerHTML = money.toFixed(2);
 	l('gameCounterValue').innerHTML = gCounter.toFixed(0);
 	l('bMoney').innerHTML = bMoney.toFixed(2);
-	
+
 	if(money >= programmerPrice){l('hireProgrammerButton').disabled = false;
 		}else{l('hireProgrammerButton').disabled = true;}
 	if(skill >= upgradeEffects[upgradeIndex]){l('upgradeButton').disabled = false;
 		}else{l('upgradeButton').disabled = true;}
-		
+
 	if(gCounter >= gWorker1Price){l('buyWorker1').disabled = false;
 		}else{l('buyWorker1').disabled = true;}
 	if(gCounter >= gWorker2Price){l('buyWorker2').disabled = false;
@@ -258,7 +258,7 @@ if (!window.requestAnimationFrame){
         		window.oRequestAnimationFrame 		||
             	window.msRequestAnimationFrame 		||
             	function(callback, element) {
-                	window.setTimeout(callback, 1000 / 60);
+                	window.setTimeout(callback, 1000 / 3-0);
        			};
     })();
 }
@@ -266,7 +266,7 @@ if (!window.requestAnimationFrame){
 function animate(){
 	setTimeout(function(){
 		requestAnimationFrame(animate);
-	}, 1000 / 60);
+	}, 1000 / 30);
 	update();
 }
 
@@ -277,8 +277,8 @@ function show(id){
 }
 
 function checks(){
-	l('bMoneyRate').innerHTML = (bMoneyRate * 60).toFixed(2);
-	l('gameRateValue').innerHTML = (gCounterRate * 60).toFixed(1);
+	l('bMoneyRate').innerHTML = (bMoneyRate * 30).toFixed(2);
+	l('gameRateValue').innerHTML = (gCounterRate * 30).toFixed(1);
 	if(skill > 5){show('skill');}
 	if(skill >= 10){show('upgradeButton');}
 	if(money >= 5){show('hireProgrammerButton');}
@@ -308,37 +308,37 @@ var upgradeEffects = [	25, "l('codeButton').className = 'v1'; \
 						50, "l('gameRightBar').className = 'v1';",
 
 						"Place an ad on your website +0.01$/s (50 skill)",
-						50, "show('gameAd'); show('boobleAdcentsTab'); bMoneyRate += 0.01/60;",
+						50, "show('gameAd'); show('boobleAdcentsTab'); bMoneyRate += 0.01/30;",
 
 						"Add a Worker +0.01$/s (100 skill)",
-						100, "show('worker1'); bMoneyRate += 0.01/60;",
+						100, "show('worker1'); bMoneyRate += 0.01/30;",
 
 						"Show thing rate +0.01$/s (100 skill)",
-						100, "show('gameRate'); bMoneyRate += 0.01/60;",
+						100, "show('gameRate'); bMoneyRate += 0.01/30;",
 
 						"Add a Worker +0.01$/s (150 skill)",
-						150, "show('worker2'); bMoneyRate += 0.01/60;",
+						150, "show('worker2'); bMoneyRate += 0.01/30;",
 
 						"Add a Worker +0.01$/s (200 skill)",
-						200, "show('worker3'); bMoneyRate += 0.01/60;",
+						200, "show('worker3'); bMoneyRate += 0.01/30;",
 
 						"Add a Worker +0.01$/s (300 skill)",
-						300, "show('worker4'); bMoneyRate += 0.01/60;",
+						300, "show('worker4'); bMoneyRate += 0.01/30;",
 
 						"Add a Worker +0.01$/s (400 skill)",
-						400, "show('worker5'); bMoneyRate += 0.01/60;",
+						400, "show('worker5'); bMoneyRate += 0.01/30;",
 
 						"Add a Worker +0.01$/s (500 skill)",
-						500, "show('worker6'); bMoneyRate += 0.01/60;",
+						500, "show('worker6'); bMoneyRate += 0.01/30;",
 
 						"Add a Worker +0.01$/s (750 skill)",
-						750, "show('worker7'); bMoneyRate += 0.01/60;",
+						750, "show('worker7'); bMoneyRate += 0.01/30;",
 
 						"Add a Worker +0.01$/s (1000 skill)",
-						1000, "show('worker8'); bMoneyRate += 0.01/60;",
+						1000, "show('worker8'); bMoneyRate += 0.01/30;",
 
 						"Add a Worker +0.01$/s (1500 skill)",
-						1500, "show('worker9'); bMoneyRate += 0.01/60;"
+						1500, "show('worker9'); bMoneyRate += 0.01/30;"
 					]
 function l(what){
 	return document.getElementById(what);
