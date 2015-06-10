@@ -55,12 +55,12 @@ $(document).ready(function(){
 		l("mUpgrades").appendChild(node);
 	}
 
-	$('#codeButton').click(function(){
+	l('codeButton').onclick = function(){
 		game.skill += game.skillIncrement;
 		game.totalSkill += game.skillIncrement;
-	});
+	};
 
-	$('#upgradeButton').click(function(){
+	l('upgradeButton').onclick = function(){
 		if(mUpgrades[game.upgradeIndex].type === "skill"){
 			var skillReq = mUpgrades[game.upgradeIndex].price;
 			game.skill -= skillReq;
@@ -74,16 +74,16 @@ $(document).ready(function(){
 		if(skill < mUpgrades[game.upgradeIndex + 1].price){
 			l('upgradeButton').disabled = true;
 		}
-	});
+	};
 
-	$('#collectMoneyButton').click(function(){
+	l('collectMoneyButton').onclick = function(){
 		show('money');
 		game.money += game.bMoney;
 		game.totalMoney += game.money;
 		game.bMoney = 0;
-	});
+	};
 
-	$('#hireProgrammerButton').click(function(){
+	l('hireProgrammerButton').onclick = function(){
 		show('programmer');
 		game.money -= game.programmerPrice;
 		game.programmerPrice += game.programmerPrice * 0.2;
@@ -95,9 +95,9 @@ $(document).ready(function(){
 		show('nProgrammers');
 		l('nProgrammers').innerHTML = game.nProgrammers + " Programmers";
 		l('programmerPrice').innerHTML = game.programmerPrice.toFixed(2);
-	});
+	};
 
-	$('#hireDesignerButton').click(function(){
+	l('hireDesignerButton').onclick = function(){
 		show('designer');
 		show('talent');
 		game.money -= game.designerPrice;
@@ -110,11 +110,12 @@ $(document).ready(function(){
 		show('nDesigners');
 		l('nDesigners').innerHTML = game.nDesigners + " Designers";
 		l('designerPrice').innerHTML = game.designerPrice.toFixed(2);
-	});
+	};
 
-	$('#gameClicker').click(function(){
-		game.gCounter +=1;
-	});
+	l('gameClicker').onclick = function(){
+		game.gCounter += 1;
+	};
+
 
 	$("input[name=tab]").click(function(){
 		var value = $(this).val();
@@ -191,9 +192,8 @@ function update(){
 
 	if(game.hovering !== null){
 		l('tooltip').style.left ="228px";
-		l('tooltip').style.top = game.cursorY + 10 + "px"; 
+		l('tooltip').style.top = game.cursorY + "px"; 
 		var id = game.hovering;
-		console.log(id);
 		l('name').innerHTML = mUpgrades[id].name;
 		l('cost').innerHTML = mUpgrades[id].price;
 		l('description').innerHTML = mUpgrades[id].description;
