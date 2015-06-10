@@ -32,16 +32,15 @@ body{margin: 0px;}
 		position: relative;
 		top: 25px; left: 25px;
 		width: 203px;
-		height: 500px;
-		background-color: red;
-		overflow-y: scroll;
+		height: 153px;
 	}
 	.mUpgrade{
 		width: 60px;
 		height: 60px;
 		margin: 1px;
-		background-color: blue;
+		background-color: gray;
 		box-sizing: border-box;
+		border: 1px solid black;
 	}
 /*************************tabNav*************************/
 #tabNav{

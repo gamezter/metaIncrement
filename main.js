@@ -43,6 +43,7 @@ $(document).ready(function(){
 		var node = document.createElement('div');
 		node.className = "mUpgrade";
 		node.id = i;
+		node.style.display = "none";
 		node.addEventListener("mouseenter", function(){
 			game.hoverId = this.getAttribute('id');
 			l('tooltip').style.display = "block";
@@ -177,7 +178,7 @@ function update(){
 	l('bMoney').innerHTML = game.bMoney.toFixed(2);
 
 	if(game.hoverId !== null){
-		l('tooltip').style.left ="228px";
+		l('tooltip').style.left ="229px";
 		l('tooltip').style.top = game.cursorY + "px"; 
 		var id = game.hoverId;
 		l('name').innerHTML = mUpgrades[id].name;
@@ -255,7 +256,7 @@ function checks(){
 	l('bMoneyRate').innerHTML = (game.bMoneyRate * 30).toFixed(2);
 	l('gameRateValue').innerHTML = (game.gCounterRate * 30).toFixed(1);
 	if(game.skill > 5){show('skill');}
-	if(game.skill >= 10){show('upgradeButton');}
+	if(game.skill >= 10){show('0');}
 	if(game.money >= 5){show('hireProgrammerButton');}
 	if(game.money >= 5){show('hireDesignerButton');}
 }

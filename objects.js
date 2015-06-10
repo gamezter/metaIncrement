@@ -1,4 +1,5 @@
-function mUpgrade(name, price, type, description, action){
+function mUpgrade(id, name, price, type, description, action){
+	this.id = id;
 	this.name = name;
 	this.price = price;
 	this.type = type;
@@ -20,21 +21,23 @@ function l(what){
 
 var mUpgrades = [
 	new mUpgrade(	
-		"Upgrade your Software",
+		0, "Upgrade your Software",
 		25,
 		"skill",
 		"Upgrade your Software",
-		"l('codeButton').style.cssText +='top: 25px;left: 25px;',\
-		l('skill').style.cssText +='top: 25px;left: 25px;',\
-		l('talent').style.cssText +='top: 25px;left: 25px;',\
-		l('money').style.cssText +='top: 25px;left: 25px;',\
-		l('hireProgrammerButton').style.cssText +='top: 25px;left: 25px;',\
-		l('hireDesignerButton').style.cssText +='top: 25px;left: 25px;',\
+		"show('1');show('2');show('3');show('4');show('5');\
+		l('codeButton').style.cssText +='top: 25px;left: 25px;';\
+		l('skill').style.cssText +='top: 25px;left: 25px;';\
+		l('talent').style.cssText +='top: 25px;left: 25px;';\
+		l('money').style.cssText +='top: 25px;left: 25px;';\
+		l('mUpgrades').style.cssText +='border: 1px solid black; overflow-y: scroll';\
+		l('hireProgrammerButton').style.cssText +='top: 25px;left: 25px;';\
+		l('hireDesignerButton').style.cssText +='top: 25px;left: 25px;';\
 		l('sideBar').style.cssText +='border-right: 1px solid black;'"
 	),
 
 	new mUpgrade(	
-		"Create a Webpage",
+		1, "Create a Webpage",
 		25,
 		"skill",
 		"Create a Webpage",
@@ -43,7 +46,7 @@ var mUpgrades = [
 	),
 
 	new mUpgrade(	
-		"Give your page a Title",
+		2, "Give your page a Title",
 		25,
 		"skill",
 		"Give your page a Title",
@@ -51,7 +54,7 @@ var mUpgrades = [
 	),
 
 	new mUpgrade(	
-		"Add a Counter",
+		3, "Add a Counter",
 		50,
 		"skill",
 		"Add a Counter",
@@ -59,7 +62,7 @@ var mUpgrades = [
 	),
 
 	new mUpgrade(	
-		"Add a Clicker",
+		4, "Add a Clicker",
 		50,
 		"skill",
 		"Add a Clicker",
@@ -67,15 +70,16 @@ var mUpgrades = [
 	),
 
 	new mUpgrade(	
-		"Add a Worker Side bar",
+		5, "Add a Worker Side bar",
 		50,
 		"skill",
 		"Add a Worker Side bar",
-		"l('gameRightBar').style.cssText +='left: 0px; border-left: 1px solid black;'"
+		"show('6');show('7');show('8');show('9');show('10');\
+		l('gameRightBar').style.cssText +='left: 0px; border-left: 1px solid black;'"
 	),
 
 	new mUpgrade(	
-		"Place an Ad on your Website +0.01$/s",
+		6, "Place an Ad on your Website +0.01$/s",
 		50,
 		"skill",
 		"Place an Ad on your Website +0.01$/s",
@@ -83,15 +87,15 @@ var mUpgrades = [
 	),
 
 	new mUpgrade(	
-		"Add a Worker +0.01$/s",
+		7, "Add a Worker +0.01$/s",
 		100,
 		"skill",
 		"Add a Worker +0.01$/s",
-		"show('w0'); game.bMoneyRate += 0.01/30;"
+		"show('w0');show('11'); game.bMoneyRate += 0.01/30;"
 	),
 
 	new mUpgrade(	
-		"Add achievements +0.01$/s",
+		8, "Add achievements +0.01$/s",
 		100,
 		"skill",
 		"Add achievements +0.01$/s",
@@ -99,7 +103,7 @@ var mUpgrades = [
 	),
 
 	new mUpgrade(	
-		"Add upgrades +0.01$/s",
+		9, "Add upgrades +0.01$/s",
 		100,
 		"skill",
 		"Add upgrades +0.01$/s",
@@ -107,7 +111,7 @@ var mUpgrades = [
 	),
 
 	new mUpgrade(	
-		"Add thing rate +0.01$/s",
+		10, "Add thing rate +0.01$/s",
 		100,
 		"skill",
 		"Add thing rate +0.01$/s",
@@ -115,63 +119,63 @@ var mUpgrades = [
 	),
 
 	new mUpgrade(	
-		"Add a Worker +0.01$/s",
+		11, "Add a Worker +0.01$/s",
 		150,
 		"skill",
 		"Add a Worker +0.01$/s",
-		"show('w1'); game.bMoneyRate += 0.01/30;"
+		"show('w1');show('12'); game.bMoneyRate += 0.01/30;"
 	),
 
 	new mUpgrade(	
-		"Add a Worker +0.01$/s",
+		12, "Add a Worker +0.01$/s",
 		200,
 		"skill",
 		"Add a Worker +0.01$/s",
-		"show('w2'); game.bMoneyRate += 0.01/30;"
+		"show('w2');show('13'); game.bMoneyRate += 0.01/30;"
 	),
 
 	new mUpgrade(	
-		"Add a Worker +0.01$/s",
+		13, "Add a Worker +0.01$/s",
 		300,
 		"skill",
 		"Add a Worker +0.01$/s",
-		"show('w3'); game.bMoneyRate += 0.01/30;"
+		"show('w3');show('14'); game.bMoneyRate += 0.01/30;"
 	),
 
 	new mUpgrade(	
-		"Add a Worker +0.01$/s",
+		14, "Add a Worker +0.01$/s",
 		400,
 		"skill",
 		"Add a Worker +0.01$/s",
-		"show('w4'); game.bMoneyRate += 0.01/30;"
+		"show('w4');show('15'); game.bMoneyRate += 0.01/30;"
 	),
 
 	new mUpgrade(	
-		"Add a Worker +0.01$/s",
+		15, "Add a Worker +0.01$/s",
 		500,
 		"skill",
 		"Add a Worker +0.01$/s",
-		"show('w5'); game.bMoneyRate += 0.01/30;"
+		"show('w5');show('16'); game.bMoneyRate += 0.01/30;"
 	),
 
 	new mUpgrade(	
-		"Add a Worker +0.01$/s",
+		16, "Add a Worker +0.01$/s",
 		750,
 		"skill",
 		"Add a Worker +0.01$/s",
-		"show('w6'); game.bMoneyRate += 0.01/30;"
+		"show('w6');show('17'); game.bMoneyRate += 0.01/30;"
 	),
 
 	new mUpgrade(	
-		"Add a Worker +0.01$/s",
+		17, "Add a Worker +0.01$/s",
 		1000,
 		"skill",
 		"Add a Worker +0.01$/s",
-		"show('w7'); game.bMoneyRate += 0.01/30;"
+		"show('w7');show('18'); game.bMoneyRate += 0.01/30;"
 	),
 
 	new mUpgrade(	
-		"Add a Worker +0.01$/s",
+		18, "Add a Worker +0.01$/s",
 		1500,
 		"skill",
 		"Add a Worker +0.01$/s",
