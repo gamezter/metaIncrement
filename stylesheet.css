@@ -15,15 +15,10 @@ body{margin: 0px;}
 	border-right: 1px solid white;
 }
 	/*************************sideBar buttons and fields*************************/
-	#codeButton, #money, #skill, #talent, #hireProgrammerButton, #hireDesignerButton{
+	#codeButton, #money, #skill, #talent, #hireProgrammerButton, #hireDesignerButton, #programmer, #designer{
 		position: relative;
-		top: 0px;left: 0px;
+		top: 25px;left: 25px;
 		max-width: 250px;
-	}
-	/*************************programmer*************************/
-	#programmer, #designer{
-		position: relative;
-		top: 25px; left: 25px;
 	}
 	#mUpgrades{
 		display: flex;

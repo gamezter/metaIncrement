@@ -232,17 +232,22 @@ function animate(){
 
 function buy(id){
 	var node = l(id);
-	node.removeEventListener("click");
 	if(mUpgrades[id].type === "skill"){
 		var skillReq = mUpgrades[id].price;
-		game.skill -= skillReq;
-		eval(mUpgrades[id].action);
-		node.parentElement.removeChild(node);
+		if(game.skill >= skillReq){
+			game.skill -= skillReq;
+			eval(mUpgrades[id].action);
+			node.removeEventListener("click");
+			node.parentElement.removeChild(node);
+		}
 	}else if(mUpgrades[id].type === "talent"){
 		var talentReq = mUpgrades[id].price;
-		game.talent -= talentReq;
-		eval(mUpgrades[id].action);
-		node.parentElement.removeChild(node);
+		if(game.talent >= talentReq){
+			game.talent -= talentReq;
+			eval(mUpgrades[id].action);
+			node.removeEventListener("click");
+			node.parentElement.removeChild(node);
+		}
 	}
 }
 

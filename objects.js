@@ -26,13 +26,7 @@ var mUpgrades = [
 		"skill",
 		"Upgrade your Software",
 		"show('1');show('2');show('3');show('4');show('5');\
-		l('codeButton').style.cssText +='top: 25px;left: 25px;';\
-		l('skill').style.cssText +='top: 25px;left: 25px;';\
-		l('talent').style.cssText +='top: 25px;left: 25px;';\
-		l('money').style.cssText +='top: 25px;left: 25px;';\
 		l('mUpgrades').style.cssText +='border: 1px solid black; overflow-y: scroll';\
-		l('hireProgrammerButton').style.cssText +='top: 25px;left: 25px;';\
-		l('hireDesignerButton').style.cssText +='top: 25px;left: 25px;';\
 		l('sideBar').style.cssText +='border-right: 1px solid black;'"
 	),
 
@@ -74,7 +68,7 @@ var mUpgrades = [
 		50,
 		"skill",
 		"Add a Worker Side bar",
-		"show('6');show('7');show('8');show('9');show('10');\
+		"show('6');\
 		l('gameRightBar').style.cssText +='left: 0px; border-left: 1px solid black;'"
 	),
 
@@ -83,7 +77,8 @@ var mUpgrades = [
 		50,
 		"skill",
 		"Place an Ad on your Website +0.01$/s",
-		"show('gameAd'); show('boobleAdcentsTab');l('boobleAdcentsTab').className = 'alert'; game.bMoneyRate += 0.01/30;"
+		"show('gameAd');show('7');show('8');show('9');show('10');show('boobleAdcentsTab');\
+		l('boobleAdcentsTab').className = 'alert'; game.bMoneyRate += 0.01/30;"
 	),
 
 	new mUpgrade(	
