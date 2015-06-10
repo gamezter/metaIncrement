@@ -26,7 +26,9 @@ game.designerPrice = 10;
 game.designerTalent = 1/30;
 game.nDesigners = 0;
 
-game.hovering = false;
+game.hovering = null;
+game.cursorX = 0;
+game.cursorY = 0;
 
 	/*******************************MetaGameParameters*****************************/
 	game.gCounter = 0;
@@ -39,7 +41,18 @@ $(document).ready(function(){
 	setInterval(checks, 2000); //every 2s
 
 	for(var i = 0; i < mUpgrades.length; i++){
-		l('mUpgrades').innerHTML += "<div class='mUpgrade' id='" + i + "'></div>";
+		var node = document.createElement('div');
+		node.className = "mUpgrade";
+		node.id = i;
+		node.addEventListener("mouseenter", function(){
+			game.hovering = this.getAttribute('id');
+			l('tooltip').style.display = "block";
+		});
+		node.addEventListener("mouseleave", function(){
+			game.hovering = null;
+			l('tooltip').style.display = "none";
+		});
+		l("mUpgrades").appendChild(node);
 	}
 
 	$('#codeButton').click(function(){
@@ -158,17 +171,11 @@ $(document).ready(function(){
 		$(this).parent().find('.n').html(worker.number);
 		$(this).parent().find('.price').html(worker.price + " things");
 	});
-	$('.mUpgrade').mouseenter(function(){
-		var id = this.getAttribute('id');
-		game.hovering = true;
-		l('tooltip').style.display = "block";
-		l('name').innerHTML = mUpgrades[id].name;
-		l('description').innerHTML = mUpgrades[id].description;
-		l('cost').innerHTML = mUpgrades[id].price + " $";
-	});
-	$('.mUpgrade').mouseleave(function(){
-		l('tooltip').style.display = "none";
-	});
+
+	document.onmousemove = function(e){
+		game.cursorX = e.pageX;
+		game.cursorY = e.pageY;
+	}
 });
 /****************************Update*****************************/
 function update(){
@@ -182,8 +189,14 @@ function update(){
 	l('gameCounterValue').innerHTML = game.gCounter.toFixed(0);
 	l('bMoney').innerHTML = game.bMoney.toFixed(2);
 
-	if(game.hovering){
-		document.onmousemove = updateTooltip;
+	if(game.hovering !== null){
+		l('tooltip').style.left ="228px";
+		l('tooltip').style.top = game.cursorY + 10 + "px"; 
+		var id = game.hovering;
+		console.log(id);
+		l('name').innerHTML = mUpgrades[id].name;
+		l('cost').innerHTML = mUpgrades[id].price;
+		l('description').innerHTML = mUpgrades[id].description;
 	}
 
 	if(game.money >= game.programmerPrice){l('hireProgrammerButton').disabled = false;
@@ -236,11 +249,6 @@ function show(id){
 	if(l(id).style.display === 'none'){
 		$("#" + id).fadeIn('slow');
 	}
-}
-
-function updateTooltip(e){
-	l('tooltip').style.top = e.clientY;
-	l('tooltip').style.left = e.clientX;
 }
 
 function checks(){
