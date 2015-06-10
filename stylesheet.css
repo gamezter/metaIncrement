@@ -15,7 +15,7 @@ body{margin: 0px;}
 	border-right: 1px solid white;
 }
 	/*************************sideBar buttons and fields*************************/
-	#codeButton, #money, #skill, #talent, #upgradeButton, #hireProgrammerButton, #hireDesignerButton{
+	#codeButton, #money, #skill, #talent, #hireProgrammerButton, #hireDesignerButton{
 		position: relative;
 		top: 0px;left: 0px;
 		max-width: 250px;
