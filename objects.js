@@ -88,7 +88,7 @@ var mUpgrades = [
 		100,
 		"skill",
 		"Add a Worker +0.01$/s",
-		"show('0'); game.bMoneyRate += 0.01/30;"
+		"show('w0'); game.bMoneyRate += 0.01/30;"
 	),
 
 	new mUpgrade(	
@@ -120,7 +120,7 @@ var mUpgrades = [
 		150,
 		"skill",
 		"Add a Worker +0.01$/s",
-		"show('1'); game.bMoneyRate += 0.01/30;"
+		"show('w1'); game.bMoneyRate += 0.01/30;"
 	),
 
 	new mUpgrade(	
@@ -128,7 +128,7 @@ var mUpgrades = [
 		200,
 		"skill",
 		"Add a Worker +0.01$/s",
-		"show('2'); game.bMoneyRate += 0.01/30;"
+		"show('w2'); game.bMoneyRate += 0.01/30;"
 	),
 
 	new mUpgrade(	
@@ -136,7 +136,7 @@ var mUpgrades = [
 		300,
 		"skill",
 		"Add a Worker +0.01$/s",
-		"show('3'); game.bMoneyRate += 0.01/30;"
+		"show('w3'); game.bMoneyRate += 0.01/30;"
 	),
 
 	new mUpgrade(	
@@ -144,7 +144,7 @@ var mUpgrades = [
 		400,
 		"skill",
 		"Add a Worker +0.01$/s",
-		"show('4'); game.bMoneyRate += 0.01/30;"
+		"show('w4'); game.bMoneyRate += 0.01/30;"
 	),
 
 	new mUpgrade(	
@@ -152,7 +152,7 @@ var mUpgrades = [
 		500,
 		"skill",
 		"Add a Worker +0.01$/s",
-		"show('5'); game.bMoneyRate += 0.01/30;"
+		"show('w5'); game.bMoneyRate += 0.01/30;"
 	),
 
 	new mUpgrade(	
@@ -160,7 +160,7 @@ var mUpgrades = [
 		750,
 		"skill",
 		"Add a Worker +0.01$/s",
-		"show('6'); game.bMoneyRate += 0.01/30;"
+		"show('w6'); game.bMoneyRate += 0.01/30;"
 	),
 
 	new mUpgrade(	
@@ -168,7 +168,7 @@ var mUpgrades = [
 		1000,
 		"skill",
 		"Add a Worker +0.01$/s",
-		"show('7'); game.bMoneyRate += 0.01/30;"
+		"show('w7'); game.bMoneyRate += 0.01/30;"
 	),
 
 	new mUpgrade(	
@@ -176,7 +176,7 @@ var mUpgrades = [
 		1500,
 		"skill",
 		"Add a Worker +0.01$/s",
-		"show('8'); game.bMoneyRate += 0.01/30;"
+		"show('w8'); game.bMoneyRate += 0.01/30;"
 	),
 ];
 

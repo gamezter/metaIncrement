@@ -26,6 +26,8 @@ game.designerPrice = 10;
 game.designerTalent = 1/30;
 game.nDesigners = 0;
 
+game.hovering = false;
+
 	/*******************************MetaGameParameters*****************************/
 	game.gCounter = 0;
 	game.gCounterRate = 0;
@@ -37,7 +39,7 @@ $(document).ready(function(){
 	setInterval(checks, 2000); //every 2s
 
 	for(var i = 0; i < mUpgrades.length; i++){
-		l('mUpgrades').innerHTML += "<div class='mUpgrade' id='mUpgrades[" + i + "].name'></div>";
+		l('mUpgrades').innerHTML += "<div class='mUpgrade' id='" + i + "'></div>";
 	}
 
 	$('#codeButton').click(function(){
@@ -143,7 +145,9 @@ $(document).ready(function(){
 	});
 
 	$(".worker :button").click(function(){
-		var worker = workers[parseInt($(this).parent().attr('id'))];
+		var id = $(this).parent().attr('id');
+		id = id.substring(1,2);
+		var worker = workers[parseInt(id)];
 		game.gCounter -= worker.price;
 		worker.price += Math.floor(worker.price * 0.15);
 		worker.number++;
@@ -153,6 +157,17 @@ $(document).ready(function(){
 		}
 		$(this).parent().find('.n').html(worker.number);
 		$(this).parent().find('.price').html(worker.price + " things");
+	});
+	$('.mUpgrade').mouseenter(function(){
+		var id = this.getAttribute('id');
+		game.hovering = true;
+		l('tooltip').style.display = "block";
+		l('name').innerHTML = mUpgrades[id].name;
+		l('description').innerHTML = mUpgrades[id].description;
+		l('cost').innerHTML = mUpgrades[id].price + " $";
+	});
+	$('.mUpgrade').mouseleave(function(){
+		l('tooltip').style.display = "none";
 	});
 });
 /****************************Update*****************************/
@@ -166,6 +181,10 @@ function update(){
 	l('moneyValue').innerHTML = game.money.toFixed(2);
 	l('gameCounterValue').innerHTML = game.gCounter.toFixed(0);
 	l('bMoney').innerHTML = game.bMoney.toFixed(2);
+
+	if(game.hovering){
+		document.onmousemove = updateTooltip;
+	}
 
 	if(game.money >= game.programmerPrice){l('hireProgrammerButton').disabled = false;
 		}else{l('hireProgrammerButton').disabled = true;}
@@ -217,6 +236,11 @@ function show(id){
 	if(l(id).style.display === 'none'){
 		$("#" + id).fadeIn('slow');
 	}
+}
+
+function updateTooltip(e){
+	l('tooltip').style.top = e.clientY;
+	l('tooltip').style.left = e.clientX;
 }
 
 function checks(){
