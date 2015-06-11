@@ -28,6 +28,7 @@ body{margin: 0px;}
 		top: 25px; left: 25px;
 		width: 203px;
 		height: 153px;
+		border: 1px solid white;
 	}
 	.mUpgrade{
 		width: 60px;

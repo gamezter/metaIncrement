@@ -46,16 +46,12 @@ $(document).ready(function(){
 		node.style.display = "none";
 		node.addEventListener("mouseenter", function(){
 			game.hoverId = this.getAttribute('id');
-			l('tooltip').style.display = "block";
 		});
 		node.addEventListener("mouseleave", function(){
 			game.hoverId = null;
 			l('tooltip').style.display = "none";
-			l('tooltip').style.left = "";
 		});
-		node.addEventListener("click", function(){
-			buy(this.getAttribute('id'));
-		});
+		node.addEventListener("click", temp);
 		l("mUpgrades").appendChild(node);
 	}
 
@@ -68,15 +64,12 @@ $(document).ready(function(){
 		node.style.display = "none";
 		node.addEventListener("mouseenter", function(){
 			game.hoverId = this.getAttribute("id");
-			l('tooltip').style.display = "block";
 		});
 		node.addEventListener("mouseleave", function(){
 			game.hoverId = null;
 			l('tooltip').style.display = "none";
 		});
-		node.addEventListener("click", function(){
-			buy(this.getAttribute('id'));
-		});
+		node.addEventListener("click", temp);
 		l('gWorkers').appendChild(node);
 	}
 
@@ -186,10 +179,12 @@ function update(){
 
 	if(game.hoverId !== null){
 		var type = game.hoverId.substring(0,2);
-		var id = game.hoverId.substring(2,3);
+		var id = game.hoverId.substring(2, game.hoverId.length);
+
 		switch(type){
 			case "mU":
-				l('tooltip').style.left = "229px";
+				l('tooltip').style.display = "block";
+				l('tooltip').style.left = "230px";
 				l('tooltip').style.top = game.cursorY + "px"; 
 				l('name').innerHTML = mUpgrades[id].name;
 				l('cost').innerHTML = mUpgrades[id].price;
@@ -201,7 +196,9 @@ function update(){
 				}
 				break;
 			case "gW":
-				l('tooltip').style.right = "274px";
+				l('tooltip').style.display = "block";
+				l('tooltip').style.left = "";
+				l('tooltip').style.right = "294px";
 				l('tooltip').style.top = game.cursorY + "px";
 				l('name').innerHTML = gWorkers[id].name;
 				l('cost').innerHTML = gWorkers[id].price;
@@ -251,7 +248,7 @@ function animate(){
 function buy(id){
 	var node = l(id);
 	var type = id.substring(0,2);
-	var index = id.substring(2,3);
+	var index = id.substring(2, id.length);
 	switch(type){
 		case "mU":
 			if(mUpgrades[index].type === "skill"){
@@ -259,7 +256,7 @@ function buy(id){
 				if(game.skill >= skillReq){
 					game.skill -= skillReq;
 					eval(mUpgrades[index].action);
-					node.removeEventListener("click");
+					node.removeEventListener("click", temp);
 					node.parentElement.removeChild(node);
 				}
 			}else if(mUpgrades[index].type === "talent"){
@@ -267,7 +264,7 @@ function buy(id){
 				if(game.talent >= talentReq){
 					game.talent -= talentReq;
 					eval(mUpgrades[index].action);
-					node.removeEventListener("click");
+					node.removeEventListener("click", temp);
 					node.parentElement.removeChild(node);
 				}
 			}
@@ -291,6 +288,10 @@ function show(id){
 	if(l(id).style.display === 'none'){
 		$("#" + id).fadeIn('slow');
 	}
+}
+
+var temp = function(event){
+	buy(this.getAttribute('id'));
 }
 
 function checks(){

@@ -37,7 +37,7 @@ var mUpgrades = [
 		show('mU4');\
 		show('mU5');\
 		l('tabNav').style.cssText +='visibility: visible; top: 0px; border-bottom: 1px solid black;';\
-		l('gamePage').style.cssText +='top: 0px;';l('mUpgrades').style.cssText +='overflow-y: auto';",
+		l('gamePage').style.cssText +='top: 0px;';l('mUpgrades').style.cssText +='overflow-y: auto; border: 1px solid black;';",
 		null
 	),
 
