@@ -25,7 +25,7 @@ var mUpgrades = [
 		25,
 		"skill",
 		"Upgrade your Software",
-		"show('1');show('2');show('3');show('4');show('5');\
+		"show('1');\
 		l('mUpgrades').style.cssText +='border: 1px solid black; overflow-y: scroll';\
 		l('sideBar').style.cssText +='border-right: 1px solid black;'"
 	),
@@ -35,7 +35,8 @@ var mUpgrades = [
 		25,
 		"skill",
 		"Create a Webpage",
-		"l('tabNav').style.cssText +='visibility: visible; top: 0px; border-bottom: 1px solid black;',\
+		"show('2');show('3');show('4');show('5');\
+		l('tabNav').style.cssText +='visibility: visible; top: 0px; border-bottom: 1px solid black;';\
 		l('gamePage').style.cssText +='top: 0px;'"
 	),
 
