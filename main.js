@@ -183,12 +183,14 @@ function update(){
 
 		switch(type){
 			case "mU":
+				var upgrade = mUpgrades[id];
 				l('tooltip').style.display = "block";
 				l('tooltip').style.left = "230px";
 				l('tooltip').style.top = game.cursorY + "px"; 
-				l('name').innerHTML = mUpgrades[id].name;
-				l('cost').innerHTML = mUpgrades[id].price;
-				l('description').innerHTML = mUpgrades[id].description;
+				l('name').innerHTML = upgrade.name;
+				l('cost').innerHTML = upgrade.price;
+				l('description').innerHTML = upgrade.description;
+				l('effect').innerHTML = upgrade.effect;
 				if(mUpgrades[id].type === "skill" && game.skill < mUpgrades[id].price){
 					l('cost').style.color = "red";
 				}else{
@@ -196,13 +198,15 @@ function update(){
 				}
 				break;
 			case "gW":
+				var worker = gWorkers[id];
 				l('tooltip').style.display = "block";
 				l('tooltip').style.left = "";
 				l('tooltip').style.right = "294px";
 				l('tooltip').style.top = game.cursorY + "px";
-				l('name').innerHTML = gWorkers[id].name;
-				l('cost').innerHTML = gWorkers[id].price;
-				l('description').innerHTML = gWorkers[id].description;
+				l('name').innerHTML = worker.name;
+				l('cost').innerHTML = worker.price;
+				l('description').innerHTML = worker.description;
+				l('effect').innerHTML = "+" + (worker.effect * 30).toFixed(1) + " clicks/s";
 				if(gWorkers[id].type === "worker" && game.gCounter < gWorkers[id].price){
 					l('cost').style.color = "red";
 				}else{
@@ -278,7 +282,7 @@ function buy(id){
 				worker.number++;
 				game.gCounterRate += worker.effect;
 			}
-			var gWorkerN = l(worker.id).getElementsByClassName('gWorkerN')[0];
+			var gWorkerN = node.getElementsByClassName('gWorkerN')[0];
 			gWorkerN.innerHTML = worker.number;
 			break;
 	}

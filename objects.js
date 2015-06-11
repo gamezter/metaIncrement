@@ -1,7 +1,6 @@
 
 
-function object(id, name, price, type, description, action, effect){
-	this.id = id;
+function object(name, price, type, description, action, effect){
 	this.name = name;
 	this.price = price;
 	this.number = 0;
@@ -16,211 +15,204 @@ function l(what){
 }
 
 var mUpgrades = [
-	new object(	
-		"mU0",
+	new object(	/*0*/
 		"Upgrade your Software",
 		25,
 		"skill",
-		"Upgrade your Software",
+		"This is ugly",
 		"show('mU1');l('sideBar').style.cssText +='border-right: 1px solid black;'",
 		null
 	),
 
-	new object(	
-		"mU1",
+	new object(	/*1*/
 		"Create a Webpage",
 		25,
 		"skill",
-		"Create a Webpage",
+		"Open a tab and start writing HTML",
 		"show('mU2');\
 		show('mU3');\
-		show('mU4');\
-		show('mU5');\
 		l('tabNav').style.cssText +='visibility: visible; top: 0px; border-bottom: 1px solid black;';\
-		l('gamePage').style.cssText +='top: 0px;';l('mUpgrades').style.cssText +='overflow-y: auto; border: 1px solid black;';",
+		l('gamePage').style.cssText +='top: 0px;';",
 		null
 	),
 
-	new object(	
-		"mU2",
+	new object(	/*2*/
 		"Give your page a Title",
 		25,
 		"skill",
-		"Give your page a Title",
+		"All websites need a title",
 		"l('gameTopBarH1').style.cssText +='left: 0px;'",
 		null
 	),
 
-	new object(	
-		"mU3",
-		"Add a Counter",
-		50,
-		"skill",
-		"Add a Counter",
-		"l('gameCounter').style.cssText +='left: 0px;'",
-		null
-	),
-
-	new object(	
-		"mU4",
+	new object(	/*3*/
 		"Add a Clicker",
 		50,
 		"skill",
-		"Add a Clicker",
-		"l('gameClicker').style.cssText +='visibility: visible; background-color: orange; cursor: pointer;'",
+		"Something to click on would be nice",
+		"show('mU4');\
+		l('gameClicker').style.cssText +='visibility: visible; background-color: orange; cursor: pointer;'",
+		null
+		),
+
+	new object(	/*4*/
+		"Add a Counter",
+		50,
+		"skill",
+		"A way to know how many times you have clicked",
+		"show('mU5');\
+		l('gameCounter').style.cssText +='left: 0px;'",
 		null
 	),
 
-	new object(	
-		"mU5",
-		"Add a Worker Side bar",
+
+	new object(	/*5*/
+		"Add a Side bar",
 		50,
 		"skill",
-		"Add a Worker Side bar",
+		"A place where you could put an ad",
 		"show('mU6');\
 		l('gameRightBar').style.cssText +='left: 0px; border-left: 1px solid black;'",
 		null
 	),
 
-	new object(	
-		"mU6",
+	new object(	/*6*/
 		"Place an Ad on your Website",
 		50,
 		"skill",
-		"Place an Ad on your Website",
-		"show('gameAd');show('mU7');show('mU8');show('mU9');show('mU10');show('boobleAdcentsTab');l('boobleAdcentsTab').className = 'alert'; game.bMoneyRate += 0.01/30;",
+		"Hey, how about making money off of this website",
+		"show('gameAd');\
+		show('mU7');\
+		show('mU8');\
+		show('mU9');\
+		show('mU10');\
+		show('boobleAdcentsTab');\
+		l('boobleAdcentsTab').className = 'alert';\
+		l('mUpgrades').style.cssText +='overflow-y: auto; border: 1px solid black;';\
+		 game.bMoneyRate += 0.01/30;",
 		"+0.01$/s"
 	),
 
-	new object(	
-		"mU7",
+	new object(	/*7*/
 		"Add a Worker",
 		100,
 		"skill",
-		"Add a Worker",
-		"show('gW0');show('mU11'); game.bMoneyRate += 0.01/30;",
+		"Automate the clicks",
+		"show('gW0');\
+		show('mU11');\
+		show('gWorkersH1');\
+		 game.bMoneyRate += 0.01/30;",
 		"+0.01$/s"
 	),
 
-	new object(	
-		"mU8",
+	new object(	/*8*/
 		"Add achievements",
 		100,
 		"skill",
-		"Add achievements",
+		"Some way to reward the player",
 		"show('achievementsTab'); game.bMoneyRate += 0.01/30; l('achievementsTab').className = 'alert';",
 		"+0.01$/s"
 	),
 
-	new object(	
-		"mU9",
+	new object(	/*9*/
 		"Add upgrades",
 		100,
 		"skill",
-		"Add upgrades",
+		"A place where you can upgrade your workers",
 		"show('upgradesTab'); game.bMoneyRate += 0.01/30; l('upgradesTab').className = 'alert';",
 		"+0.01$/s"
 	),
 
-	new object(	
-		"mU10",
-		"Add thing rate",
+	new object(	/*10*/
+		"Add click rate",
 		100,
 		"skill",
-		"Add thing rate",
+		"A way to know how many clicks per second",
 		"show('gameRate'); game.bMoneyRate += 0.01/30;",
 		"+0.01$/s"
 	),
 
-	new object(	
-		"mU11",
+	new object(	/*11*/
 		"Add a Worker",
 		150,
 		"skill",
-		"Add a Worker",
+		"Add a second Worker",
 		"show('gW1');show('mU12'); game.bMoneyRate += 0.01/30;",
 		"+0.01$/s"
 	),
 
-	new object(	
-		"mU12",
+	new object(	/*12*/
 		"Add a Worker",
 		200,
 		"skill",
-		"Add a Worker",
+		"Add a third Worker",
 		"show('gW2');show('mU13'); game.bMoneyRate += 0.01/30;",
 		"+0.01$/s"
 	),
 
-	new object(	
-		"mU13",
+	new object(	/*13*/
 		"Add a Worker",
 		300,
 		"skill",
-		"Add a Worker",
+		"Add a forth Worker",
 		"show('gW3');show('mU14'); game.bMoneyRate += 0.01/30;",
 		"+0.01$/s"
 	),
 
-	new object(	
-		"mU14",
+	new object(	/*14*/
 		"Add a Worker",
 		400,
 		"skill",
-		"Add a Worker",
+		"Add a fifth Worker",
 		"show('gW4');show('mU15'); game.bMoneyRate += 0.01/30;",
 		"+0.01$/s"
 	),
 
-	new object(	
-		"mU15",
+	new object(	/*15*/
 		"Add a Worker",
 		500,
 		"skill",
-		"Add a Worker",
+		"Add a sixth Worker",
 		"show('gW5');show('mU16'); game.bMoneyRate += 0.01/30;",
 		"+0.01$/s"
 	),
 
-	new object(	
-		"mU16",
+	new object(	/*16*/
 		"Add a Worker",
 		750,
 		"skill",
-		"Add a Worker",
+		"Add a seventh Worker",
 		"show('gW6');show('mU17'); game.bMoneyRate += 0.01/30;",
 		"0.01$/s"
 	),
 
-	new object(	
-		"mU17",
+	new object(	/*17*/
 		"Add a Worker",
 		1000,
 		"skill",
-		"Add a Worker",
+		"Add an eighth Worker",
 		"show('gW7');show('mU18'); game.bMoneyRate += 0.01/30;",
 		"0.01$/s"
 	),
 
-	new object(	
-		"mU18",
+	new object(	/*18*/
 		"Add a Worker",
 		1500,
 		"skill",
-		"Add a Worker",
+		"Add a ninth Worker",
 		"show('gW8'); game.bMoneyRate += 0.01/30;",
 		"0.01$/s"
 	),
 ];
 
 var gWorkers = [
-	new object("gW0", 'worker1', 15, "worker", "worker1", null, 0.1/30),
-	new object("gW1", 'worker2', 100, "worker", "worker2", null, 0.5/30),
-	new object("gW2", 'worker3', 500, "worker", "worker3", null, 4/30),
-	new object("gW3", 'worker4', 3000, "worker", "worker4", null, 10/30),
-	new object("gW4", 'worker5', 10000, "worker", "worker5", null, 40/30),
-	new object("gW5", 'worker6', 40000, "worker", "worker6", null, 100/30),
-	new object("gW6", 'worker7', 200000, "worker", "worker7", null, 400/30),
-	new object("gW7", 'worker8', 1666666, "worker", "worker8", null, 6666/30),
-	new object("gW8", 'worker9', 123456789, "worker", "worker9", null, 98765/30)
+	new object('worker1', 15, "worker", "worker1", null, 0.1/30),
+	new object('worker2', 100, "worker", "worker2", null, 0.5/30),
+	new object('worker3', 500, "worker", "worker3", null, 4/30),
+	new object('worker4', 3000, "worker", "worker4", null, 10/30),
+	new object('worker5', 10000, "worker", "worker5", null, 40/30),
+	new object('worker6', 40000, "worker", "worker6", null, 100/30),
+	new object('worker7', 200000, "worker", "worker7", null, 400/30),
+	new object('worker8', 1666666, "worker", "worker8", null, 6666/30),
+	new object('worker9', 123456789, "worker", "worker9", null, 98765/30)
 ];
