@@ -51,11 +51,33 @@ $(document).ready(function(){
 		node.addEventListener("mouseleave", function(){
 			game.hoverId = null;
 			l('tooltip').style.display = "none";
+			l('tooltip').style.left = "";
 		});
 		node.addEventListener("click", function(){
 			buy(this.getAttribute('id'));
 		});
 		l("mUpgrades").appendChild(node);
+	}
+
+	for(var i = 0; i < gWorkers.length; i++){
+		var node = document.createElement('div');
+		node.className = "gWorker";
+		node.innerHTML = "<h1 class='gWorkerH1'>" + gWorkers[i].name + "</h1>";
+		node.innerHTML += "<h2 class='gWorkerN'></h2>";
+		node.id= "gW" + i;
+		node.style.display = "none";
+		node.addEventListener("mouseenter", function(){
+			game.hoverId = this.getAttribute("id");
+			l('tooltip').style.display = "block";
+		});
+		node.addEventListener("mouseleave", function(){
+			game.hoverId = null;
+			l('tooltip').style.display = "none";
+		});
+		node.addEventListener("click", function(){
+			buy(this.getAttribute('id'));
+		});
+		l('gWorkers').appendChild(node);
 	}
 
 	l('codeButton').onclick = function(){
@@ -145,21 +167,6 @@ $(document).ready(function(){
 		l('sideTabs').style.right = '-1px';
 	});
 
-	$(".worker :button").click(function(){
-		var id = $(this).parent().attr('id');
-		id = id.substring(2,3);
-		var worker = gWorkers[parseInt(id)];
-		game.gCounter -= worker.price;
-		worker.price += Math.floor(worker.price * 0.15);
-		worker.number++;
-		game.gCounterRate += worker.effect;
-		if(game.gCounter < worker.price){
-			$(this).disabled = true;
-		}
-		$(this).parent().find('.n').html(worker.number);
-		$(this).parent().find('.price').html(worker.price + " things");
-	});
-
 	document.onmousemove = function(e){
 		game.cursorX = e.pageX;
 		game.cursorY = e.pageY;
@@ -182,7 +189,7 @@ function update(){
 		var id = game.hoverId.substring(2,3);
 		switch(type){
 			case "mU":
-				l('tooltip').style.left ="229px";
+				l('tooltip').style.left = "229px";
 				l('tooltip').style.top = game.cursorY + "px"; 
 				l('name').innerHTML = mUpgrades[id].name;
 				l('cost').innerHTML = mUpgrades[id].price;
@@ -193,32 +200,33 @@ function update(){
 					l('cost').style.color = "green"
 				}
 				break;
+			case "gW":
+				l('tooltip').style.right = "274px";
+				l('tooltip').style.top = game.cursorY + "px";
+				l('name').innerHTML = gWorkers[id].name;
+				l('cost').innerHTML = gWorkers[id].price;
+				l('description').innerHTML = gWorkers[id].description;
+				if(gWorkers[id].type === "worker" && game.gCounter < gWorkers[id].price){
+					l('cost').style.color = "red";
+				}else{
+					l('cost').style.color = "green"
+				}
+				break;
 		}
 	}
 
-	if(game.money >= game.programmerPrice){l('hireProgrammerButton').disabled = false;
-		}else{l('hireProgrammerButton').disabled = true;}
-	if(game.money >= game.designerPrice){l('hireDesignerButton').disabled = false;
-		}else{l('hireDesignerButton').disabled = true;}
+	if(game.money >= game.programmerPrice){
+		l('hireProgrammerButton').disabled = false;
+	}else{
+		l('hireProgrammerButton').disabled = true;
+	}
 
-	if(game.gCounter >= gWorkers[0].price){l('b0').disabled = false;
-		}else{l('b0').disabled = true;}
-	if(game.gCounter >= gWorkers[1].price){l('b1').disabled = false;
-		}else{l('b1').disabled = true;}
-	if(game.gCounter >= gWorkers[2].price){l('b2').disabled = false;
-		}else{l('b2').disabled = true;}
-	if(game.gCounter >= gWorkers[3].price){l('b3').disabled = false;
-		}else{l('b3').disabled = true;}
-	if(game.gCounter >= gWorkers[4].price){l('b4').disabled = false;
-		}else{l('b4').disabled = true;}
-	if(game.gCounter >= gWorkers[5].price){l('b5').disabled = false;
-		}else{l('b5').disabled = true;}
-	if(game.gCounter >= gWorkers[6].price){l('b6').disabled = false;
-		}else{l('b6').disabled = true;}
-	if(game.gCounter >= gWorkers[7].price){l('b7').disabled = false;
-		}else{l('b7').disabled = true;}
-	if(game.gCounter >= gWorkers[8].price){l('b8').disabled = false;
-		}else{l('b8').disabled = true;}
+	if(game.money >= game.designerPrice){
+		l('hireDesignerButton').disabled = false;
+	}else{
+		l('hireDesignerButton').disabled = true;
+
+	}
 }
 /************************Helper Functions***********************/
 if (!window.requestAnimationFrame){
@@ -263,6 +271,18 @@ function buy(id){
 					node.parentElement.removeChild(node);
 				}
 			}
+			break;
+		case "gW":
+			var worker = gWorkers[index];
+			var counterReq = worker.price;
+			if(game.gCounter >= counterReq){
+				game.gCounter -= counterReq;
+				worker.price += Math.floor(worker.price * 0.15);
+				worker.number++;
+				game.gCounterRate += worker.effect;
+			}
+			var gWorkerN = l(worker.id).getElementsByClassName('gWorkerN')[0];
+			gWorkerN.innerHTML = worker.number;
 			break;
 	}
 }
