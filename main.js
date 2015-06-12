@@ -125,11 +125,19 @@ $(document).ready(function(){
 			case "0":
 				l('gamePage').style.display = 'block';
 				l('boobleAdcentsPage').style.display = 'none';
+				l('statisticsPage').style.display = 'none';
 				break;
 			case "1":
 				l('gamePage').style.display = 'none';
 				l('boobleAdcentsPage').style.display = 'block';
+				l('statisticsPage').style.display = 'none';
 				l('boobleAdcentsTab').className = "";
+				break;
+			case "2":
+				l('gamePage').style.display = 'none';
+				l('boobleAdcentsPage').style.display = 'none';
+				l('statisticsPage').style.display = 'block';
+				l('statisticsPage').className = "";
 				break;
 		}
 	})
@@ -185,8 +193,8 @@ function update(){
 			case "mU":
 				var upgrade = mUpgrades[id];
 				l('tooltip').style.display = "block";
-				l('tooltip').style.left = "230px";
-				l('tooltip').style.top = game.cursorY + "px"; 
+				l('tooltip').style.left = game.cursorX + 20 + "px"; 
+				l('tooltip').style.top = game.cursorY + 20 + "px"; 
 				l('name').innerHTML = upgrade.name;
 				l('cost').innerHTML = upgrade.price;
 				l('description').innerHTML = upgrade.description;
@@ -262,6 +270,7 @@ function buy(id){
 					eval(mUpgrades[index].action);
 					node.removeEventListener("click", temp);
 					node.parentElement.removeChild(node);
+					l('purchasedUpgrades').appendChild(node);
 				}
 			}else if(mUpgrades[index].type === "talent"){
 				var talentReq = mUpgrades[index].price;
@@ -270,6 +279,7 @@ function buy(id){
 					eval(mUpgrades[index].action);
 					node.removeEventListener("click", temp);
 					node.parentElement.removeChild(node);
+					l('purchasedUpgrades').appendChild(node);
 				}
 			}
 			break;

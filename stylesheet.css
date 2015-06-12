@@ -62,12 +62,12 @@ body{margin: 0px;}
 		#tabs span{
 			display: inline;
 			position: relative;
+			left: 10px;
 			border: 1px solid black;
 			border-bottom: 1px solid black;
 			background-color: white;
 			cursor: pointer;
 			transition: border 0s;
-			cursor: pointer;
 		}
 		#tabs input:checked  + span{
 			border-bottom: 1px solid white;
@@ -81,8 +81,6 @@ body{margin: 0px;}
 	top: -75px;left: 300px;
 	z-index: 3;
 }
-	/*************************gameTopBar*************************/
-	
 	/*************************gameRightBar*************************/
 	#gameRightBar{
 		position: relative;
@@ -108,6 +106,7 @@ body{margin: 0px;}
 			overflow-y: auto;
 		}
 			.gWorker{
+				position: relative;
 				width: 100%;
 				height: 60px;
 				background-color: gray;
@@ -118,17 +117,17 @@ body{margin: 0px;}
 			}
 			.gWorkerH1{
 				display: inline-block;
-				position: relative;
+				position: absolute;
 				left: 10px;
 				top: 10px;
 				margin: 0px;
 			}
 			.gWorkerN{
 				display: inline-block;
-				position: relative;
+				position: absolute;
 				margin: 0px;
 				top: 10px;
-				left: 30px;
+				right: 10px;
 			}
 		#gameAd{
 			position: absolute;
@@ -234,7 +233,26 @@ body{margin: 0px;}
 	#boobleAdcentsPage h1{
 		margin: 0px;
 	}
-
+/*************************statisticsPage*************************/
+#statisticsPage{
+	position: relative;
+	width: calc(100vw - 300px);
+	height: calc(100vh - 75px);
+	top: 0px;left: 300px;
+	z-index: 3;
+}
+	#statisticsPage h1{
+		margin: 0px;
+	}
+	#purchasedUpgrades{
+		display: flex;
+		flex-wrap: wrap;
+		align-content: flex-start;
+		position: relative;
+		width: 80%;
+		height: 500px;
+		border: 1px solid black;
+	}
 .alert{
 	-webkit-animation: flash 2s infinite;
 	animation: flash 2s infinite;
