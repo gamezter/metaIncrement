@@ -5,7 +5,15 @@ html{
 	-webkit-transition: top 1s, right 1s, left 1s, visibility 1s, background-color 1s, border 1s, -webkit-transform 1s, box-shadow 1s;
     transition: top 1s, right 1s, left 1s, visibility 1s, background-color 1s, border 1s, transform 1s, box-shadow 1s;
 }
-body{margin: 0px;}
+body{
+	margin: 0px;
+	-webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
 /*************************sideBar*************************/
 #sideBar{
 	position: fixed;

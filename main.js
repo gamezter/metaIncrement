@@ -212,7 +212,7 @@ function update(){
 				l('tooltip').style.right = "294px";
 				l('tooltip').style.top = game.cursorY + "px";
 				l('name').innerHTML = worker.name;
-				l('cost').innerHTML = worker.price;
+				l('cost').innerHTML = worker.price + " $";
 				l('description').innerHTML = worker.description;
 				l('effect').innerHTML = "+" + (worker.effect * 30).toFixed(1) + " clicks/s";
 				if(gWorkers[id].type === "worker" && game.gCounter < gWorkers[id].price){
