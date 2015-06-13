@@ -23,7 +23,7 @@ body{
 	border-right: 1px solid white;
 }
 	/*************************sideBar buttons and fields*************************/
-	#codeButton, #money, #skill, #talent, #hireProgrammerButton, #hireDesignerButton, #programmer, #designer{
+	#codeButton, #money, #skill, #talent, #programmer, #designer{
 		position: relative;
 		top: 25px;left: 25px;
 		max-width: 250px;
@@ -47,6 +47,41 @@ body{
 		border: 1px solid black;
 		cursor: pointer;
 	}
+	#mWorkers{
+		display: flex;
+		flex-wrap: wrap;
+		align-content: flex-start;
+		position: relative;
+		left: 25px;
+		top: 25px;
+		width: 250px;
+		height: auto;
+		box-sizing: border-box;
+	}
+		.mWorker{
+			position: relative;
+			width: 100%;
+			height: 60px;
+			background-color: gray;
+			border: 1px solid black;
+			margin-bottom: 1px;
+			box-sizing: border-box;
+			cursor: pointer;
+		}
+		.mWorkerH1{
+			display: inline-block;
+			position: absolute;
+			left: 10px;
+			top: 10px;
+			margin: 0px;
+		}
+		.mWorkerN{
+			display: inline-block;
+			position: absolute;
+			margin: 0px;
+			top: 10px;
+			right: 10px;
+		}
 /*************************tabNav*************************/
 #tabNav{
 	position: relative;
