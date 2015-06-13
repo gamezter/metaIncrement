@@ -31,6 +31,8 @@ $(document).ready(function(){
 
 	setInterval(checks, 2000); //every 2s
 
+
+	/***************************Populate upgrades and workers*************************/
 	for(var i = 0; i < mUpgrades.length; i++){
 		var node = document.createElement('div');
 		node.className = "mUpgrade";
@@ -83,6 +85,7 @@ $(document).ready(function(){
 		l('mWorkers').appendChild(node);
 	}
 
+	/***************************click event listeners*************************/
 	l('codeButton').onclick = function(){
 		game.skill += game.skillIncrement;
 		game.totalSkill += game.skillIncrement;
@@ -227,7 +230,7 @@ function update(){
 				l('name').innerHTML = worker.name;
 				l('cost').innerHTML = worker.price + " $";
 				l('description').innerHTML = worker.description;
-				if(id === 0){
+				if(id === "0"){
 					l('effect').innerHTML = "+" + (worker.effect * 30).toFixed(1) + " skill/s";
 				}else{
 					l('effect').innerHTML = "+" + (worker.effect * 30).toFixed(1) + " talent/s";

@@ -127,7 +127,9 @@ var mUpgrades = [
 		"mWorkers[0].price += Math.floor(mWorkers[0].price * 0.15);\
 		game.skillRate += mWorkers[0].effect;\
 		mWorkers[0].number++;\
-		show('mW0');",
+		show('mW0');\
+		var mWorkerN = node.getElementsByClassName('mWorkerN')[0];\
+			mWorkerN.innerHTML = mWorkers[0].number;",
 		"+1 skill/s"
 	),
 
@@ -138,7 +140,9 @@ var mUpgrades = [
 		"mWorkers[1].price += Math.floor(mWorkers[1].price * 0.15);\
 		game.talentRate += mWorkers[1].effect;\
 		mWorkers[1].number++;\
-		show('mW1');",
+		show('mW1');\
+		var mWorkerN = node.getElementsByClassName('mWorkerN')[0];\
+			mWorkerN.innerHTML = mWorkers[1].number;",
 		"+1 talent/s"
 	),
 
