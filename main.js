@@ -17,14 +17,6 @@ game.talent = 0;
 game.totalTalent = 0;
 game.talentRate = 0;
 
-game.programmerPrice = 10;
-game.programmerSkill = 1/30;
-game.nProgrammers = 0;
-
-game.designerPrice = 10;
-game.designerTalent = 1/30;
-game.nDesigners = 0;
-
 game.hoverId = null;
 game.cursorX = 0;
 game.cursorY = 0;
@@ -73,6 +65,24 @@ $(document).ready(function(){
 		l('gWorkers').appendChild(node);
 	}
 
+	for(var i = 0; i < mWorkers.length; i++){
+		var node = document.createElement('div');
+		node.className = "mWorker";
+		node.innerHTML = "<h1 class='mWorkerH1'>" + mWorkers[i].name + "</h1>";
+		node.innerHTML += "<h2 class='mWorkerN'></h2>";
+		node.id= "mW" + i;
+		node.style.display = "none";
+		node.addEventListener("mouseenter", function(){
+			game.hoverId = this.getAttribute("id");
+		});
+		node.addEventListener("mouseleave", function(){
+			game.hoverId = null;
+			l('tooltip').style.display = "none";
+		});
+		node.addEventListener("click", temp);
+		l('mWorkers').appendChild(node);
+	}
+
 	l('codeButton').onclick = function(){
 		game.skill += game.skillIncrement;
 		game.totalSkill += game.skillIncrement;
@@ -85,39 +95,9 @@ $(document).ready(function(){
 		game.bMoney = 0;
 	};
 
-	l('hireProgrammerButton').onclick = function(){
-		show('programmer');
-		game.money -= game.programmerPrice;
-		game.programmerPrice += game.programmerPrice * 0.2;
-		game.skillRate += game.programmerSkill;
-		if(game.money < game.programmerPrice){
-			l('hireProgrammerButton').disabled = true;
-		}
-		game.nProgrammers++;
-		show('nProgrammers');
-		l('nProgrammers').innerHTML = game.nProgrammers + " Programmers";
-		l('programmerPrice').innerHTML = game.programmerPrice.toFixed(2);
-	};
-
-	l('hireDesignerButton').onclick = function(){
-		show('designer');
-		show('talent');
-		game.money -= game.designerPrice;
-		game.designerPrice += game.designerPrice * 0.2;
-		game.talentRate += game.designerTalent;
-		if(game.money < game.designerPrice){
-			l('hireDesignerButton').disabled = true;
-		}
-		game.nDesigners++;
-		show('nDesigners');
-		l('nDesigners').innerHTML = game.nDesigners + " Designers";
-		l('designerPrice').innerHTML = game.designerPrice.toFixed(2);
-	};
-
 	l('gameClicker').onclick = function(){
 		game.gCounter += 1;
 	};
-
 
 	$("input[name=tab]").click(function(){
 		var value = $(this).val();
@@ -196,13 +176,31 @@ function update(){
 				l('tooltip').style.left = game.cursorX + 20 + "px"; 
 				l('tooltip').style.top = game.cursorY + 20 + "px"; 
 				l('name').innerHTML = upgrade.name;
-				l('cost').innerHTML = upgrade.price;
+				l('cost').innerHTML = upgrade.price + " " + mUpgrades[id].type;
 				l('description').innerHTML = upgrade.description;
 				l('effect').innerHTML = upgrade.effect;
-				if(mUpgrades[id].type === "skill" && game.skill < mUpgrades[id].price){
-					l('cost').style.color = "red";
-				}else{
-					l('cost').style.color = "green"
+				switch(upgrade.type){
+					case "skill":
+						if(game.skill < upgrade.price){
+							l('cost').style.color = "red";
+						}else{
+							l('cost').style.color = "green";
+						}
+					break;
+					case "$":
+						if(game.money < upgrade.price){
+							l('cost').style.color = "red";
+						}else{
+							l('cost').style.color = "green";
+						}
+					break;
+					case "talent":
+						if(game.talent < upgrade.price){
+							l('cost').style.color = "red";
+						}else{
+							l('cost').style.color = "green";
+						}
+					break;
 				}
 				break;
 			case "gW":
@@ -212,29 +210,34 @@ function update(){
 				l('tooltip').style.right = "294px";
 				l('tooltip').style.top = game.cursorY + "px";
 				l('name').innerHTML = worker.name;
-				l('cost').innerHTML = worker.price + " $";
+				l('cost').innerHTML = worker.price + " clicks";
 				l('description').innerHTML = worker.description;
 				l('effect').innerHTML = "+" + (worker.effect * 30).toFixed(1) + " clicks/s";
-				if(gWorkers[id].type === "worker" && game.gCounter < gWorkers[id].price){
+				if(worker.type === "click" && game.gCounter < worker.price){
 					l('cost').style.color = "red";
 				}else{
 					l('cost').style.color = "green"
 				}
 				break;
+			case "mW":
+				var worker = mWorkers[id];
+				l('tooltip').style.display = "block";
+				l('tooltip').style.left = game.cursorX + 20 + "px"; 
+				l('tooltip').style.top = game.cursorY + 20 + "px";
+				l('name').innerHTML = worker.name;
+				l('cost').innerHTML = worker.price + " $";
+				l('description').innerHTML = worker.description;
+				if(id === 0){
+					l('effect').innerHTML = "+" + (worker.effect * 30).toFixed(1) + " skill/s";
+				}else{
+					l('effect').innerHTML = "+" + (worker.effect * 30).toFixed(1) + " talent/s";
+				}
+				if(worker.type === "money" && game.money < worker.price){
+					l('cost').style.color = "red";
+				}else{
+					l('cost').style.color = "green"
+				}
 		}
-	}
-
-	if(game.money >= game.programmerPrice){
-		l('hireProgrammerButton').disabled = false;
-	}else{
-		l('hireProgrammerButton').disabled = true;
-	}
-
-	if(game.money >= game.designerPrice){
-		l('hireDesignerButton').disabled = false;
-	}else{
-		l('hireDesignerButton').disabled = true;
-
 	}
 }
 /************************Helper Functions***********************/
@@ -281,6 +284,15 @@ function buy(id){
 					node.parentElement.removeChild(node);
 					l('purchasedUpgrades').appendChild(node);
 				}
+			}else if(mUpgrades[index].type === "$"){
+				var moneyReq = mUpgrades[index].price;
+				if(game.money >= moneyReq){
+					game.money -= moneyReq;
+					eval(mUpgrades[index].action);
+					node.removeEventListener("click", temp);
+					node.parentElement.removeChild(node);
+					l('purchasedUpgrades').appendChild(node);
+				}
 			}
 			break;
 		case "gW":
@@ -294,6 +306,23 @@ function buy(id){
 			}
 			var gWorkerN = node.getElementsByClassName('gWorkerN')[0];
 			gWorkerN.innerHTML = worker.number;
+			break;
+		case "mW":
+			var worker = mWorkers[index];
+			var moneyReq = worker.price;
+			if(game.money >= moneyReq){
+				game.money -= moneyReq;
+				worker.price += Math.floor(worker.price * 0.15);
+				worker.number++;
+				if(index === "0"){
+					game.skillRate += worker.effect;
+				}else{
+					show('talent');
+					game.talentRate += worker.effect;
+				}
+			}
+			var mWorkerN = node.getElementsByClassName('mWorkerN')[0];
+			mWorkerN.innerHTML = worker.number;
 			break;
 	}
 }
@@ -313,6 +342,8 @@ function checks(){
 	l('gameRateValue').innerHTML = (game.gCounterRate * 30).toFixed(1);
 	if(game.skill > 5){show('skill');}
 	if(game.skill >= 10){show('mU0');}
-	if(game.money >= 5){show('hireProgrammerButton');}
-	if(game.money >= 5){show('hireDesignerButton');}
+	if(game.money >= 5){
+		show('mU11');
+		show('mU12');
+	}
 }
