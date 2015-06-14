@@ -320,7 +320,6 @@ function buy(id){
 				if(index === "0"){
 					game.skillRate += worker.effect;
 				}else{
-					show('talent');
 					game.talentRate += worker.effect;
 				}
 			}
