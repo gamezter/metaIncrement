@@ -141,6 +141,7 @@ var mUpgrades = [
 		game.talentRate += mWorkers[1].effect;\
 		mWorkers[1].number++;\
 		show('mW1');\
+		show('talent');\
 		var mWorkerN = l('mW1').getElementsByClassName('mWorkerN')[0];\
 			mWorkerN.innerHTML = mWorkers[1].number;",
 		"+1 talent/s"
