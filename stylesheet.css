@@ -239,7 +239,7 @@ body{
 		}
 		#sideTabs input:checked  + span{
 			border-bottom: 1px solid white;
-			cursor: default;
+			cursor: pointer;
 			
 		}
 		#achievements, #upgrades{
